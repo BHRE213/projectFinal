@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { ReviewComponent } from './review/review.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
     
   ],
   providers: [],
