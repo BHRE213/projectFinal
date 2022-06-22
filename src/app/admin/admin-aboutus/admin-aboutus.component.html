@@ -1,7 +1,7 @@
 <div class="page-header mt-4">
     <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
-                <i class="mdi mdi-information-outline"></i>
+            <i class="mdi mdi-information-outline"></i>
         </span> manage about us table
     </h3>
     <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
@@ -26,10 +26,11 @@
                         <td class="text-wrap">{{item.txt}}</td>
                         <td><img src="../../../assets/image/{{item.image}}" style="height: 50px;width: 50px;"></td>
                         <td class="col-lg-2">
-                            <!-- <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.title,item.information,item.imagepath)">Update</button> -->
+                            <button class="btn btn-secondary"
+                                (click)="openUpdateDailog(item.abuotusid,item.title,item.txt,item.image)">Update</button>
                         </td>
                         <td class="col-lg-2">
-                            <!-- <button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button> -->
+                            <button class="btn btn-danger" (click)="openDeleteDailog(item.abuotusid)">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -62,7 +63,8 @@
                     </mat-form-field>
                 </li>
                 <li>
-                    <input type="file" #file placeholder="Choose Image" formControlName="image" (change)="uploadFile(file.files)" style="display:none;">
+                    <input type="file" #file placeholder="Choose Image" formControlName="image"
+                        (change)="uploadFile(file.files)" style="display:none;">
                     <button class="btn btn-info" (click)="file.click()">Upload Image</button>
                 </li>
             </ul>
@@ -72,4 +74,42 @@
             <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
     </mat-dialog-content>
+</ng-template>
+
+<ng-template #callDeleteDailog>
+
+    <h2>Are you sure you want to delete this item?</h2>
+
+    <button mat-button mat-dialog-close="yes">Yes</button>
+
+    <button mat-button mat-dialog-close="no">No</button>
+
+</ng-template>
+
+<ng-template #callUpdateDailog>
+
+    <form class="example-form" [formGroup]="updateform">
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Course Name </mat-label>
+            <input type="text" matInput formControlName="coursename" [(ngModel)]="previous_data.coursename">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Course price </mat-label>
+            <input type="number" matInput formControlName="price" [(ngModel)]="previous_data.price">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Start Date </mat-label>
+            <input type="date" matInput formControlName="startdate" [(ngModel)]="previous_data.startdate">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>End Date </mat-label>
+            <input type="text" matInput formControlName="enddate" [(ngModel)]="previous_data.enddate">
+        </mat-form-field>
+        <div class="example-container">
+            <input type="file" #file formControlName="imagename" [(ngModel)]="previous_data.imagename"
+                (change)="uploadFile(file.files)">
+        </div>
+        <button (click)="updateCourse()" [mat-dialog-close]="true">Update </button>
+    </form>
 </ng-template>
