@@ -65,9 +65,10 @@ export class AboutUsService {
     
   }
 UpdateAbput(body: any) {
-
-  body.imagename = this.display_Image;
-  this.http.put('https://localhost:44320/api/course/', body).subscribe((res) => {
+  if (this.display_Image != undefined) {
+    body.image = this.display_Image;
+  }
+  this.http.put('https://localhost:44341/api/AboutUs/update/', body).subscribe((res) => {
          // this.toastr.success('updated Successfully :)');
     }, err => {
       // this.toastr.error(err.status, err.message);
