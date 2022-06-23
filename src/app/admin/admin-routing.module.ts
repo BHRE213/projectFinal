@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { AdminAboutusComponent } from './admin-aboutus/admin-aboutus.component';
+import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
@@ -11,7 +12,7 @@ const routes: Routes = [
  },
  {
   path:'footer',
-  component:FooterComponent
+  component:AdminFooterComponent
  },
  {
   path:'sidebar',

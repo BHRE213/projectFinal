@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AboutUsService {
-  search:string='';
+
 
   constructor(private http: HttpClient) { }
   aboutUsData:any=[];
@@ -73,9 +73,5 @@ UpdateAbput(body: any) {
     }, err => {
       // this.toastr.error(err.status, err.message);
     })
-
-
-
 }
-
 }
