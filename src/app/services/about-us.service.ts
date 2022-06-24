@@ -21,9 +21,7 @@ export class AboutUsService {
     }, err => {
       // this.spinner.hide();
       // this.toastr.error(err.message, err.status)
-    })
-
-    
+    })    
   }
 
   uploadAttachment(file: FormData) {
