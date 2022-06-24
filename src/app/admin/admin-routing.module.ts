@@ -1,7 +1,38 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminAboutusComponent } from './admin-aboutus/admin-aboutus.component';
+import { AdminFooterComponent } from './admin-footer/admin-footer.component';
+import { AdminContactusComponent } from './admin-contactus/admin-contactus.component';
+import { AdminOrdderComponent } from './admin-ordder/admin-ordder.component';
+import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+ {
+  path:'about',
+  component:AdminAboutusComponent
+ },
+ {
+  path:'footer',
+  component:AdminFooterComponent
+ },
+ {
+  path:'sidebar',
+  component:SidebarComponent
+ },
+ {
+  path:'contact',
+  component:AdminContactusComponent
+ },
+ {
+  path:'order',
+  component:AdminOrdderComponent
+ },
+ {
+  path:'user',
+  component:AdminUseraccountComponent
+ }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

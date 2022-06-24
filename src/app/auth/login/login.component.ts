@@ -10,12 +10,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  emailFormControl = new FormControl('', [Validators.email, Validators.required]);
+  emailFormControl = new FormControl('', [ Validators.required]);
   passFormControl = new FormControl('', Validators.minLength(6));
 
   constructor(private router:Router, public authService: AuthService) { }
 
-  submit(){
+  login(){
     this.authService.login(this.emailFormControl.value, this.passFormControl.value);
   }
   goToRegister(){
