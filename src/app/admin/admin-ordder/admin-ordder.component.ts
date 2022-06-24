@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { OrdderService } from 'src/app/services/ordder.service';
 
 @Component({
   selector: 'app-admin-ordder',
@@ -7,9 +9,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminOrdderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public orders:OrdderService, private dialog: MatDialog) { }
 
+
+  @ViewChild('callDeleteDailog') callDeleteDailog!: TemplateRef<any>
+  @ViewChild('callAcceptDailog') callAcceptDailog!: TemplateRef<any>
+  @ViewChild('callRejectDailog') callRejectDailog!: TemplateRef<any>
   ngOnInit(): void {
+    this.orders.getAll();
+  }
+  openDeleteDailog(id: number) {
+    const dialogRef = this.dialog.open(this.callDeleteDailog);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result != undefined) {
+
+        if (result == 'yes') {
+          this.orders.deleteorder(id);
+          window.location.reload();
+        }
+        else if (result == 'no')
+          console.log('Thank you');
+      }
+    })
+  }
+
+  openAcceptDailog(id: number) {
+    const dialogRef = this.dialog.open(this.callAcceptDailog);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result != undefined) {
+
+        if (result == 'yes') {
+          this.orders.acceptorder(id);
+          window.location.reload();
+        }
+        else if (result == 'no')
+          console.log('Thank you');
+      }
+    })
+  }
+  openRejectDailog(id: number) {
+    const dialogRef = this.dialog.open(this.callRejectDailog);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result != undefined) {
+
+        if (result == 'yes') {
+          this.orders.rejectorder(id);
+          window.location.reload();
+        }
+        else if (result == 'no')
+          console.log('Thank you');
+      }
+    })
   }
 
 }
