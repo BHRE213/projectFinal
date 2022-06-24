@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
   login(email: any, pass: any) {
     let body = {
-      username: email.toString(),
+      email: email.toString(),
       password: pass.toString()
     }
 

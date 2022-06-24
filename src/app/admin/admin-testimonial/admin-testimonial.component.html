@@ -14,9 +14,9 @@
                         <th>testimonialid</th>
                         <th>txt</th>
                         <th>title</th>
-                        <th>teststatid </th>
-                        <th>teststat </th>
                         <th>image </th>
+                        <th>teststat </th>
+                      
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
@@ -52,7 +52,7 @@
                 </li>
                 <li>
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Update Testimonial Status</h4>
-                    <select formControlName="status">
+                    <select formControlName="Teststatid">
                         <option [ngValue]="null" disabled>Update Testimonial Status</option>
                         <option *ngFor="let item of testimonial.testimonialStatusData" [ngValue]="item.teststatid">{{item.status}}</option>
                     </select>

@@ -39,5 +39,6 @@ export class AdminTestimonialComponent implements OnInit {
 
   update() {
     this.testimonial.updateTestemonial(this.UpdateForm.value)
+    window.location.reload();
   }
 }
