@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-admin-medicine-category',
@@ -8,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class AdminMedicineCategoryComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
