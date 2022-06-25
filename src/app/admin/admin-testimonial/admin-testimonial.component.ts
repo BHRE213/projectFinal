@@ -26,11 +26,11 @@ export class AdminTestimonialComponent implements OnInit {
     this.testimonial.getAll();
 
   }
-  openUpdateDailog(testId: any, Text: any, Title1: any, imagename2: any, stat: any) {
+  openUpdateDailog(testId: any, Text: any, Name1: any, imagename2: any, stat: any) {
     this.testimonial.getAllStatusData();
     this.testtemonialsData = {
       txt: Text,
-      title: Title1,
+      name: Name1,
       status: stat
     }
     this.UpdateForm.controls['Testimonialid'].setValue(testId);
