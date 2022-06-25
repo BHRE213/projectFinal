@@ -7,6 +7,8 @@ import { AdminOrdderComponent } from './admin-ordder/admin-ordder.component';
 import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial.component';
+import { AdminShareddatumComponent } from './admin-shareddatum/admin-shareddatum.component';
+import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.component';
 
 const routes: Routes = [
  {
@@ -36,7 +38,15 @@ const routes: Routes = [
  {
   path:'adminTestimonial',
   component:AdminTestimonialComponent
- }
+ },
+ {
+  path:'admin-shareddatum',
+  component:AdminShareddatumComponent
+ },
+ {
+  path:'admin-sitedatum',
+  component:AdminSitedatumComponent
+ },
 ];
 
 @NgModule({
