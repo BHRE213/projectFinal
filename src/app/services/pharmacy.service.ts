@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AboutUsService {
+export class PharmacyService {
 
-
+ 
   constructor(private http: HttpClient) { }
-  aboutUsData:any=[];
+  pharmacyData:any=[];
   display_Image: any;
 
   getAll(){
-    this.http.get('https://localhost:44341/api/aboutus/').subscribe((res) => {
-      this.aboutUsData = res;
+    this.http.get('https://localhost:44341/api/PharmacyBranches/GetALLPharmacyBranches').subscribe((res) => {
+      this.pharmacyData = res;
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
@@ -25,7 +25,7 @@ export class AboutUsService {
   }
 
   uploadAttachment(file: FormData) {
-    this.http.post('https://localhost:44341/api/AboutUs/Upload/', file)
+    this.http.post('https://localhost:44341/api/PharmacyBranches/Upload', file)
       .subscribe((res: any) => {     
         this.display_Image = res.image;
       }, err => {
@@ -33,10 +33,10 @@ export class AboutUsService {
       })
   }
 
-  createAboutus(data: any) {
+  createPharmacy(data: any) {
     // this.spinner.show();
     data.image = this.display_Image;
-    this.http.post('https://localhost:44341/api/AboutUs/Create/', data)
+    this.http.post('https://localhost:44341/api/PharmacyBranches/createPharmacyBranches', data)
       .subscribe((res: any) => {
         // this.spinner.hide();
         // this.toastr.success('Created Successfully ✔️ ')
@@ -47,8 +47,8 @@ export class AboutUsService {
   }
 
 
-  deleteAbout(id:number){
-    this.http.delete('https://localhost:44341/api/AboutUs/delete/'+id ).subscribe((res) => {
+  deletePharmacy(id:number){
+    this.http.delete('https://localhost:44341/api/PharmacyBranches/deletePharmacyBranches/'+id ).subscribe((res) => {
      
       //hide spinner
       // this.spinner.hide();
@@ -62,11 +62,11 @@ export class AboutUsService {
 
     
   }
-UpdateAbput(body: any) {
+UpdatePharmacy(body: any) {
   if (this.display_Image != undefined) {
     body.image = this.display_Image;
   }
-  this.http.put('https://localhost:44341/api/AboutUs/update/', body).subscribe((res) => {
+  this.http.put('https://localhost:44341/api/PharmacyBranches/updatePharmacyBranches', body).subscribe((res) => {
          // this.toastr.success('updated Successfully :)');
     }, err => {
       // this.toastr.error(err.status, err.message);
