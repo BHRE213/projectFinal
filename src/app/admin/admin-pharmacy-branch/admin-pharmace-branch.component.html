@@ -1,1 +1,224 @@
-<p>admin-pharmace-branch works!</p>
+<div class="page-header mt-4" style="margin-top: 10px;" >
+    <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+        <span class="page-title-icon bg-gradient-primary text-white me-2">
+            <i class="mdi mdi-information-outline"></i>
+        </span> manage Pharmacy table
+    </h3>   
+</div>
+<div  style="margin-top: 50px;">
+    <button   class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+</div>
+<div class="col-lg-12 grid-margin stretch-card" >
+    <div class="card">
+        <div class="card-body" >
+            <table class="table table-hover" >
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Text</th>
+                        <th>phone</th>
+                        <th>X</th>
+                        <th>Y</th>
+                        <th>Open</th>
+                        <th>Close</th>
+                        <th>Image </th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let item of pharmacy.pharmacyData" style="padding-left:30px " >
+                        <td style="padding-left:30px " >{{item.pharmacybranchesid}}</td >
+                        <td style="padding-left:30px " >{{item.name}}</td>
+                        <td style="padding-left:30px " >{{item.text}}</td>
+                        <td style="padding-left:30px " >{{item.phone}}</td>
+                        <td style="padding-left:30px " >{{item.x}}</td>
+                        <td style="padding-left:30px " >{{item.y}}</td>
+                        <td style="padding-left:30px " >{{item.open}}</td>
+                        <td style="padding-left:26px " class="text-wrap">{{item.close}}</td>
+                        <td><img src="../../../assets/image/{{item.image}}" style="height: 100px;width: 100px;"></td>
+                        <td class="col-lg-2">
+                            <button class="btn btn-secondary"
+                                (click)="openUpdateDailog(item.pharmacybranchesid,item.name,item.text,item.phone,item.x,item.y,item.open,item.close,item.image)">Update</button>
+                        </td>
+                      
+                        <td class="col-lg-2">
+                            <button class="btn btn-danger" (click)="openDeleteDailog(item.pharmacybranchesid)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #callCreateDialog>
+    <h2 class="text-uppercase"> Add New  Pharmacy </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Name</mat-label>
+                        <input type="text" matInput formControlName="name" placeholder="Enter Name">
+                        <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Text </mat-label>
+                        <input type="text" matInput formControlName="text" placeholder="Enter Text">
+                       
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Phone </mat-label>
+                        <input type="number" matInput formControlName="phone" placeholder="Enter phone">
+                        
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter X </mat-label>
+                        <input type="number" matInput formControlName="x" placeholder="Enter X">
+                       
+                    </mat-form-field>
+                </li>
+           
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter Y </mat-label>
+                    <input type="number" matInput formControlName="y" placeholder="Enter Y">
+                   
+                </mat-form-field>
+            </li>
+     
+        <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Enter Open  </mat-label>
+                <input type="time" matInput formControlName="open" placeholder="Enter open">
+               
+            </mat-form-field>
+        </li>
+        <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Enter Close</mat-label>
+                <input type="time" matInput formControlName="close" placeholder="Enter  Close">
+               
+            </mat-form-field>
+        </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="image"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+
+<ng-template #callUpdateDialog>
+    <h2 class="text-uppercase"> Update Pharmacy  </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updatForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Name</mat-label>
+                        <input type="text" matInput formControlName="name" [(ngModel)]="allpharmacy.name"
+                            placeholder="Enter Name">
+                       <mat-error *ngIf="updatForm.controls['name'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Text</mat-label>
+                        <input type="text" matInput formControlName="text" [(ngModel)]="allpharmacy.text"
+                            placeholder="Enter Text">
+                        <!-- <mat-error *ngIf="updatForm.controls['text'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error> -->
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Phone</mat-label>
+                        <input type="number" matInput formControlName="phone" [(ngModel)]="allpharmacy.phone"
+                            placeholder="Enter Phone">
+                        <!-- <mat-error *ngIf="updatForm.controls['phone'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error> -->
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter X</mat-label>
+                        <input type="number" matInput formControlName="x" [(ngModel)]="allpharmacy.x"
+                            placeholder="Enter X">
+                        <!-- <mat-error *ngIf="updatForm.controls['phone'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error> -->
+                    </mat-form-field>
+                </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter Y</mat-label>
+                    <input type="number" matInput formControlName="y" [(ngModel)]="allpharmacy.y"
+                        placeholder="Enter Y">
+                    <!-- <mat-error *ngIf="updatForm.controls['phone'].hasError('required')">
+                        field is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter Open</mat-label>
+                    <input type="time" matInput formControlName="open" [(ngModel)]="allpharmacy.open"
+                        placeholder="Enter Open">
+                    <!-- <mat-error *ngIf="updatForm.controls['phone'].hasError('required')">
+                        field is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter Close</mat-label>
+                    <input type="time" matInput formControlName="close" [(ngModel)]="allpharmacy.close"
+                        placeholder="Enter Close">
+                    <!-- <mat-error *ngIf="updatForm.controls['phone'].hasError('required')">
+                        field is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+            </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="image"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="updatepharmacy()"
+                cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+<ng-template #callDeleteDailog>
+    <h2 class="text-uppercase">Are You Sure You Want To Delete This!</h2>
+    <mat-dialog-actions align="end">
+        <button class="btn btn-danger" mat-dialog-close="yes">Yes</button>
+        <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close="no">No</button>
+    </mat-dialog-actions>
+</ng-template>

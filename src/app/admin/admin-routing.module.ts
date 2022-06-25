@@ -7,6 +7,7 @@ import { AdminOrdderComponent } from './admin-ordder/admin-ordder.component';
 import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial.component';
+import { AdminPharmaceBranchComponent } from './admin-pharmacy-branch/admin-pharmace-branch.component';
 
 const routes: Routes = [
  {
@@ -16,6 +17,10 @@ const routes: Routes = [
  {
   path:'footer',
   component:AdminFooterComponent
+ },
+ {
+  path:'pharmacy',
+  component:AdminPharmaceBranchComponent
  },
  {
   path:'sidebar',
