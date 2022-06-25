@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
     name : new FormControl('',[Validators.required]),
     password: new FormControl('',[Validators.required, Validators.minLength(8)]),
     confirmpassword: new FormControl('',[Validators.required,Validators.minLength(8)]),
+    //test
      }) 
   constructor(private router: Router) { }
 
