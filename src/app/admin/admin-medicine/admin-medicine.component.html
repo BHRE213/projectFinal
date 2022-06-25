@@ -1,1 +1,191 @@
-<p>admin-medicine works!</p>
+<div class="page-header mt-4" style="margin-top: 10px;" >
+    <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+        <span class="page-title-icon bg-gradient-primary text-white me-2">
+            <i class="mdi mdi-information-outline"></i>
+        </span> manage medicine table
+    </h3>   
+</div>
+<div  style="margin-top: 50px;">
+    <button   class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+</div>
+<div class="col-lg-12 grid-margin stretch-card" >
+    <div class="card">
+        <div class="card-body" >
+            <table class="table table-hover" >
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Medicine Name</th>
+                        <th>Medicine quantity</th>
+                        <th>Cost </th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Medicine Category Id</th>
+                        <th>Image</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let item of medicine.medicineData" style="padding-left:30px " >
+                        <td style="padding-left:30px " >{{item.Medicineid}}</td >
+                        <td style="padding-left:30px " >{{item.Name}}</td>
+                        <td style="padding-left:26px " >{{item.Medicinenumber}}</td>
+                        <td style="padding-left:30px " >{{item.Cost}}</td >
+                        <td style="padding-left:30px " >{{item.Price}}</td>
+                        <td style="padding-left:26px " >{{item.Description}}</td>
+                        <td style="padding-left:26px " >{{item.MedicineCategoryId}}</td>
+                        <td><img src="../../../assets/image/{{item.Imagepath}}" style="height: 100px;width: 100px;"></td>
+                        <td class="col-lg-2">
+                            <button class="btn btn-secondary"
+                                (click)="openUpdateDailog(item.Medicineid,item.Name,item.Medicinenumber,item.Cost,item.Price,item.Description,item.MedicineCategoryId,item.Imagepath)">Update</button>
+                        </td>
+                      
+                        <td class="col-lg-2">
+                            <button class="btn btn-danger" (click)="openDeleteDailog(item.Medicineid)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #callCreateDialog>
+    <h2 class="text-uppercase"> Add New Medicine </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Medicine Name</mat-label>
+                        <input type="text" matInput formControlName="Name" placeholder="Enter Medicine Name">
+                        <mat-error *ngIf="CreateForm.controls['Name'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Medicine quantity</mat-label>
+                        <input type="text" matInput formControlName="Medicinenumber" placeholder="Enter Medicine quantity">
+                        <mat-error *ngIf="CreateForm.controls['Medicinenumber'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Cost </mat-label>
+                        <input type="text" matInput formControlName="Cost" placeholder="Enter Cost">
+                        <mat-error *ngIf="CreateForm.controls['Cost'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Price </mat-label>
+                        <input type="text" matInput formControlName="Price" placeholder="Enter Price">
+                        <mat-error *ngIf="CreateForm.controls['Price'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                    <li>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Enter Description</mat-label>
+                            <input type="text" matInput formControlName="Description" placeholder="Enter Description">
+                            <mat-error *ngIf="CreateForm.controls['Description'].hasError('required')">
+                                feild is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </li>
+                    <li>
+                        <!--<mat-form-field appearance="fill">
+                            <mat-label>Select an option</mat-label>
+                            <mat-select [(value)]="selected">
+                              <mat-option>None</mat-option>
+                              <mat-option value="option1">Option 1</mat-option>
+                              <mat-option value="option2">Option 2</mat-option>
+                              <mat-option value="option3">Option 3</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          matNativeControl الimport!-->
+                    </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="Imagepath"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+
+<ng-template #callUpdateDialog>
+    <h2 class="text-uppercase"> Update About Us  </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updatForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Medicine Name</mat-label>
+                        <input type="text" matInput formControlName="Name" [(ngModel)]="medicinee.Name"
+                            placeholder="Enter Medicine Name">
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Medicine quantity</mat-label>
+                        <input type="text" matInput formControlName="Medicinenumber" [(ngModel)]="medicinee.Medicinenumber"
+                            placeholder="Enter Medicine quantity">
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Cost</mat-label>
+                        <input type="text" matInput formControlName="Cost" [(ngModel)]="medicinee.Cost"
+                            placeholder="Enter Cost">
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Price</mat-label>
+                        <input type="text" matInput formControlName="Price" [(ngModel)]="medicinee.Price"
+                            placeholder="Enter Price">
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Description</mat-label>
+                        <input type="text" matInput formControlName="Description" [(ngModel)]="medicinee.Description"
+                            placeholder="Enter Description">
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="image"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="UpdateMedicine()"
+                cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+<ng-template #callDeleteDailog>
+    <h2 class="text-uppercase">Are You Sure You Want To Delete This!</h2>
+    <mat-dialog-actions align="end">
+        <button class="btn btn-danger" mat-dialog-close="yes">Yes</button>
+        <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close="no">No</button>
+    </mat-dialog-actions>
+</ng-template>
