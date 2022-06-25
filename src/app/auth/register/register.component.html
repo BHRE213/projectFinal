@@ -20,6 +20,7 @@
               <mat-form-field class="example-full-width">
               <input type="email" id="form3Example3" class="form-control form-control-lg" matInput name="email"
                 placeholder="Email " formControlName="email"/> 
+                <br>
                 <mat-error *ngIf="registerform.controls['email'].hasError('required')">Email is <strong>required</strong></mat-error>
                 <mat-error *ngIf="registerform.controls['email'].hasError('email')">Please enter a valid email</mat-error>
               </mat-form-field>
@@ -28,7 +29,8 @@
             <div class="form-outline mb-3">
               <mat-form-field class="example-full-width">
                 <input type="text" id="form3Example4" class="form-control form-control-lg"
-                  placeholder="User Name" matInput name="username" formControlName="username" />    
+                  placeholder="User Name" matInput name="username" formControlName="username" />   
+                  <br> 
                   <mat-error *ngIf="registerform.controls['username'].hasError('required')">User Name is <strong>required</strong></mat-error>
                 </mat-form-field>       
               </div>
@@ -38,6 +40,7 @@
                 <mat-form-field class="example-full-width">
                 <input type="text" id="form3Example4" class="form-control form-control-lg"
                   placeholder="Name" matInput name="name" formControlName="name" />  
+                  <br>
                   <mat-error *ngIf="registerform.controls['name'].hasError('required')">Your Name is <strong>required</strong></mat-error>
                 </mat-form-field>       
               </div>
@@ -47,6 +50,7 @@
               <mat-form-field class="example-full-width">
               <input type="password" id="form3Example4" class="form-control form-control-lg"
                 placeholder="Enter password" matInput name="password" formControlName="password" /> 
+                <br>
                 <mat-error *ngIf="registerform.controls['password'].hasError('required')">Password is <strong>required</strong></mat-error>
                 <mat-error *ngIf="registerform.controls['password'].hasError('minLength')">unvalid password</mat-error>
               </mat-form-field>             
@@ -56,7 +60,8 @@
             <div class="form-outline mb-3">
               <mat-form-field class="example-full-width">
                 <input type="password" id="form3Example4" class="form-control form-control-lg"
-                  placeholder="Confarm password" matInput name="confirmpassword" formControlName="confirmpassword" (change)="matchError()"/>   
+                  placeholder="Confirm password" matInput name="confirmpassword" formControlName="confirmpassword" (change)="matchError()"/>   
+                  <br>
                   <mat-error *ngIf="registerform.controls['confirmpassword'].hasError('required')">Password is <strong>required</strong></mat-error>
                   <mat-error *ngIf="registerform.controls['confirmpassword'].hasError('mismatch')">confirm password must match the password</mat-error>
                 </mat-form-field>             

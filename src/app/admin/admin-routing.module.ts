@@ -40,11 +40,11 @@ const routes: Routes = [
   component:AdminTestimonialComponent
  },
  {
-  path:'admin-shareddatum',
+  path:'shareddata',
   component:AdminShareddatumComponent
  },
  {
-  path:'admin-sitedatum',
+  path:'sitedata',
   component:AdminSitedatumComponent
  },
 ];
