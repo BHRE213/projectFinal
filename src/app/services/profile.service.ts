@@ -29,14 +29,14 @@ export class ProfileService {
     if (this.display_Image != undefined) {
       body.image = this.display_Image;
     }
-    this.http.put('https://localhost:44341/api/user/UpdateUser', body).subscribe((res) => {
+    this.http.put('https://localhost:44341/api/User/UpdateUser', body).subscribe((res) => {
            // this.toastr.success('updated Successfully :)');
       }, err => {
         // this.toastr.error(err.status, err.message);
       })
   }
   uploadAttachment(file: FormData) {
-    this.http.post('https://localhost:44341/api/user/uploadImage', file)
+    this.http.post('https://localhost:44341/api/User/uploadImage', file)
       .subscribe((res: any) => {     
         this.display_Image = res.image;
       }, err => {
