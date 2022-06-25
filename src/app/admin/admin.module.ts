@@ -18,6 +18,7 @@ import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminShareddatumComponent } from './admin-shareddatum/admin-shareddatum.component';
 import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.compo
              AdminSitedatumComponent,
              AdminTestimonialComponent,
              AdminUseraccountComponent,
-             SidebarComponent
+             SidebarComponent,
+             AdminProfileComponent
   ],
   imports: [
     CommonModule,
