@@ -51,15 +51,16 @@ const routes: Routes = [
   component:AdminMedicineComponent
  },
  {
-  path:'admin-shareddatum',
+  path:'shareddata',
   component:AdminShareddatumComponent
  },
  {
-  path:'admin-sitedatum',
+  path:'sitedata',
   component:AdminSitedatumComponent
  },
 ];
 @NgModule({
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AdminRoutingModule { }

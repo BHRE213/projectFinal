@@ -105,6 +105,7 @@ openUpdateDailog(idd: any, na: any, tx: any,p:any,xx:any,yy:any,o:any,c:any ,im:
    this.updatForm.controls['y'].setValue(yy);
    this.updatForm.controls['open'].setValue(o);
    this.updatForm.controls['close'].setValue(c);
+   this.updatForm.controls['image'].setValue(im);
   this.dialog.open(this.callUpdateDialog)
 
 }
