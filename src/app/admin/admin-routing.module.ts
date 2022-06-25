@@ -6,6 +6,7 @@ import { AdminContactusComponent } from './admin-contactus/admin-contactus.compo
 import { AdminOrdderComponent } from './admin-ordder/admin-ordder.component';
 import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AdminMedicineComponent } from './admin-medicine/admin-medicine.component';
 
 const routes: Routes = [
  {
@@ -31,6 +32,10 @@ const routes: Routes = [
  {
   path:'user',
   component:AdminUseraccountComponent
+ }
+ {
+  path:'medicine',
+  component:AdminMedicineComponent
  }
 ];
 
