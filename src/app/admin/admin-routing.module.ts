@@ -6,12 +6,12 @@ import { AdminContactusComponent } from './admin-contactus/admin-contactus.compo
 import { AdminOrdderComponent } from './admin-ordder/admin-ordder.component';
 import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-<<<<<<< HEAD
+
 import { AdminMedicineComponent } from './admin-medicine/admin-medicine.component';
-=======
+
 import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial.component';
 import { AdminPharmaceBranchComponent } from './admin-pharmacy-branch/admin-pharmace-branch.component';
->>>>>>> origin/main
+
 
 const routes: Routes = [
  {
@@ -45,7 +45,7 @@ const routes: Routes = [
  {
   path:'adminTestimonial',
   component:AdminTestimonialComponent
- }
+ },
  {
   path:'medicine',
   component:AdminMedicineComponent
