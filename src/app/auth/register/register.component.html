@@ -9,11 +9,7 @@
       
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                     
-<<<<<<< HEAD
           <form [formGroup]="registerform">
-=======
-          <form>
->>>>>>> origin/main
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
               <p class="lead fw-normal mb-0 me-3">Register </p>        
             </div>
@@ -21,7 +17,6 @@
   
             <!-- Email input -->
             <div class="form-outline mb-4">
-<<<<<<< HEAD
               <mat-form-field class="example-full-width">
               <input type="email" id="form3Example3" class="form-control form-control-lg" matInput name="email"
                 placeholder="Email " formControlName="email"/> 
@@ -45,24 +40,10 @@
                   placeholder="Name" matInput name="name" formControlName="name" />  
                   <mat-error *ngIf="registerform.controls['name'].hasError('required')">Your Name is <strong>required</strong></mat-error>
                 </mat-form-field>       
-=======
-              <input type="email" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Email " />             
-            </div>
-            
-            <div class="form-outline mb-3">
-                <input type="text" id="form3Example4" class="form-control form-control-lg"
-                  placeholder="User Name" />              
-              </div>
-              <div class="form-outline mb-3">
-                <input type="text" id="form3Example4" class="form-control form-control-lg"
-                  placeholder="Name" />                
->>>>>>> origin/main
               </div>
   
             <!-- Password input -->
             <div class="form-outline mb-3">
-<<<<<<< HEAD
               <mat-form-field class="example-full-width">
               <input type="password" id="form3Example4" class="form-control form-control-lg"
                 placeholder="Enter password" matInput name="password" formControlName="password" /> 
@@ -80,26 +61,13 @@
                   <mat-error *ngIf="registerform.controls['confirmpassword'].hasError('mismatch')">confirm password must match the password</mat-error>
                 </mat-form-field>             
                 </div>
-=======
-              <input type="password" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Enter password" />             
-            </div>
-            <div class="form-outline mb-3">
-                <input type="password" id="form3Example4" class="form-control form-control-lg"
-                  placeholder="Confarm password" />               
-              </div>
->>>>>>> origin/main
             
               
   
   
             <div class="text-center text-lg-start mt-4 pt-2">
               <button type="button" class="btn btn-primary btn-lg"
-<<<<<<< HEAD
                 style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="submit()">Register</button>
-=======
-                style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
->>>>>>> origin/main
               <p class="small fw-bold mt-2 pt-1 mb-0">already have an account ! <a href="auth/login"
                   class="link-danger"> Login</a></p>
             </div>
@@ -109,8 +77,4 @@
       </div>
     </div>
   
-<<<<<<< HEAD
   </section>
-=======
-  </section>
->>>>>>> origin/main
