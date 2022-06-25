@@ -51,11 +51,11 @@ const routes: Routes = [
   component:AdminMedicineComponent
  },
  {
-  path:'admin-shareddatum',
+  path:'shareddata',
   component:AdminShareddatumComponent
  },
  {
-  path:'admin-sitedatum',
+  path:'sitedata',
   component:AdminSitedatumComponent
  },
 ];
