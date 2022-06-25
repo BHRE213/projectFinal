@@ -11,7 +11,11 @@ import { AdminMedicineComponent } from './admin-medicine/admin-medicine.componen
 =======
 import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial.component';
 import { AdminPharmaceBranchComponent } from './admin-pharmacy-branch/admin-pharmace-branch.component';
+<<<<<<< HEAD
 >>>>>>> origin/main
+=======
+>>>>>>> 8901fb5ead809ed3f32d92b2701ffb5bad199912
+>>>>>>> 3d108b4c89774d5ea2021ee23242b27f96f3ec2e
 
 const routes: Routes = [
  {
