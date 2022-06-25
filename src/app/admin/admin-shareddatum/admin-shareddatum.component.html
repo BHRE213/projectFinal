@@ -1,1 +1,129 @@
-<p>admin-shareddatum works!</p>
+<div class="page-header mt-4" style="margin-top: 10px;" >
+    <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+        <span class="page-title-icon bg-gradient-primary text-white me-2">
+            <i class="mdi mdi-information-outline"></i>
+        </span> manage Shared Data table
+    </h3>   
+</div>
+<div  style="margin-top: 50px;">
+    <button   class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+</div>
+<div class="col-lg-12 grid-margin stretch-card" >
+    <div class="card">
+        <div class="card-body" >
+            <table class="table table-hover" >
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Text</th>
+                        <th>Image </th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let item of shareddata.shared" style="padding-left:30px " >
+                        <td style="padding-left:30px " >{{item.Shareddataid}}</td >
+                        <td style="padding-left:30px " >{{item.title}}</td>
+                        <td style="padding-left:26px " class="text-wrap">{{item.txt}}</td>
+                        <td><img src="../../../assets/image/{{item.image}}" style="height: 100px;width: 100px;"></td>
+                        <td class="col-lg-2">
+                            <button class="btn btn-secondary"
+                                (click)="openUpdateDailog(item.Shareddataid,item.title,item.txt,item.image)">Update</button>
+                        </td>
+                      
+                        <td class="col-lg-2">
+                            <button class="btn btn-danger" (click)="openDeleteDailog(item.Shareddataid)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #callCreateDialog>
+    <h2 class="text-uppercase"> Add New Shared Data</h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Title</mat-label>
+                        <input type="text" matInput formControlName="title" placeholder="Enter Title">
+                        <mat-error *ngIf="CreateForm.controls['title'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Text </mat-label>
+                        <input type="text" matInput formControlName="txt" placeholder="Enter Text">
+                        <mat-error *ngIf="CreateForm.controls['txt'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="image"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+
+<ng-template #callUpdateDialog>
+    <h2 class="text-uppercase"> Update Shared Data  </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updatForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Title</mat-label>
+                        <input type="text" matInput formControlName="title" [(ngModel)]="shared.title"
+                            placeholder="Enter Title">
+                        <!-- <mat-error *ngIf="updatForm.controls['title'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error> -->
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Text</mat-label>
+                        <input type="text" matInput formControlName="txt" [(ngModel)]="shared.txt"
+                            placeholder="Enter Text">
+                        <!-- <mat-error *ngIf="updatForm.controls['txt'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error> -->
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="image"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="updateShared()"
+                cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+<ng-template #callDeleteDailog>
+    <h2 class="text-uppercase">Are You Sure You Want To Delete This!</h2>
+    <mat-dialog-actions align="end">
+        <button class="btn btn-danger" mat-dialog-close="yes">Yes</button>
+        <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close="no">No</button>
+    </mat-dialog-actions>
+</ng-template>
