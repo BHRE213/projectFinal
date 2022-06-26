@@ -21,7 +21,8 @@ export class AdminMedicineCategoryComponent implements OnInit {
   }
   CreateForm: FormGroup = new FormGroup({
     type: new FormControl('', Validators.required),
-    imagepath: new FormControl('', Validators.required),
+    imagepath: new FormControl(),
+    
   })
 
   uploadFile(file: any) {

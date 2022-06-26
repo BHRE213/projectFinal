@@ -29,7 +29,8 @@ export class MedicineCategoryService {
   uploadAttachment(file: FormData) {
     this.http.post('https://localhost:44341/api/MedicineCategory/Upload', file)
       .subscribe((res: any) => {     
-        this.display_Image = res.image;
+        this.display_Image = res.imagepath;
+        console.log(this.display_Image)
       }, err => {
        
       })
@@ -37,11 +38,12 @@ export class MedicineCategoryService {
 
   createMedicineCategory(data: any) {
     // this.spinner.show();
-    data.image = this.display_Image;
+    data.imagepath = this.display_Image;
     this.http.post('https://localhost:44341/api/MedicineCategory/CreateMedicineCategory', data)
       .subscribe((res: any) => {
         // this.spinner.hide();
         // this.toastr.success('Created Successfully ✔️ ')
+        console.log(this.display_Image)
       }, err => {
         // this.spinner.hide();
         // this.toastr.error(err.message, err.status)
