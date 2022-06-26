@@ -51,7 +51,7 @@ export class AdminShareddatumComponent implements OnInit {
   }
 
   save() {
-    this.shareddata.createAboutus(this.CreateForm.value);
+    this.shareddata.createShared(this.CreateForm.value);
     window.location.reload();
   }
 
@@ -88,7 +88,7 @@ export class AdminShareddatumComponent implements OnInit {
 
   updateShared() {
 
-    this.shareddata.UpdateAbput(this.updatForm.value);
+    this.shareddata.UpdateShared(this.updatForm.value);
     window.location.reload();
 
   }
