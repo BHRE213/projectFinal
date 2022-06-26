@@ -17,7 +17,7 @@
                     <p  >My Email: <strong>{{profile.profileData.email}}</strong></p>
                     <p >My Phone: <strong>{{profile.profileData.phonenumber}}</strong></p><br><br><br><br>
                     <button class="btn btn-secondary btn-lg"
-                        (click)="openUpdateDailog(profile.profileData.useraccountid,profile.profileData.fullname,profile.profileData.username,profile.profileData.phonenumber.phone,profile.profileData.email,profile.profileData.image)">Update</button>
+                        (click)="openUpdateDailog(profile.profileData.useraccountid,profile.profileData.fullname,profile.profileData.username,profile.profileData.phonenumber,profile.profileData.email,profile.profileData.image)">Update</button>
                   
                    </div>
                    
@@ -35,17 +35,27 @@
                     <ul>
                        
                         <li>
-                            <p >My Email: <strong>{{profile.profileData.email}}</strong></p>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Your Email</mat-label>
+                            <input type="text" matInput formControlName="email" [(ngModel)]="myprofile.email"
+                             readonly="readonly" >
+                        </mat-form-field>
+                          
                           
                         </li>
                         <li>
-                            
-                            <p >My UserName: <strong>{{profile.profileData.username}}</strong></p>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>your username</mat-label>
+                                <input type="text" matInput formControlName="username" [(ngModel)]="myprofile.username"
+                               readonly="readonly" >
+                            </mat-form-field>
+                           
                                
-                         
+                           
                         </li>
                         <li>
                             <mat-form-field class="example-full-width" appearance="fill">
+
                                 <mat-label>Enter your Name</mat-label>
                                 <input type="text" matInput formControlName="fullname" [(ngModel)]="myprofile.fullname"
                                     placeholder="Enter your Name">
@@ -56,12 +66,13 @@
                         </li>
                         <li>
                             <mat-form-field class="example-full-width" appearance="fill">
+                               
                                 <mat-label>Enter your Phone</mat-label>
-                                <input type="text" matInput formControlName="phonenumber" [(ngModel)]="myprofile.phonenumber"
-                                    placeholder="Enter your Phone">
-                                <!-- <mat-error *ngIf="updatForm.controls['phone'].hasError('required')">
-                                    field is <strong>required</strong>
-                                </mat-error> -->
+                                <span class="input-group-text" id="basic-addon1">+962<input type="tel" matInput formControlName="phonenumber" [(ngModel)]="myprofile.phonenumber"
+                                    placeholder="Enter your Phone"></span>
+                               <mat-error *ngIf="updatForm.controls['phonenumber'].hasError('pattern')">
+                                Invalid <strong>phone number</strong>
+                                </mat-error> 
                             </mat-form-field>
                         </li>
                        

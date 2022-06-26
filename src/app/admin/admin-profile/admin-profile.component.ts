@@ -25,7 +25,7 @@ myprofile:any={}
 updatForm: FormGroup = new FormGroup({
   useraccountid : new FormControl(),
  fullname: new FormControl('', Validators.required),
- phonenumber: new FormControl(),
+ phonenumber: new FormControl('',Validators.pattern("[0-9]{10}") ),
  image: new FormControl(),
  username: new FormControl(),
  email: new FormControl()
