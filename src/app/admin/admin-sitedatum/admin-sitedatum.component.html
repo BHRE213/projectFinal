@@ -23,17 +23,17 @@
                 </thead>
                 <tbody >
                     <tr *ngFor="let item of sitedata.shared" style="padding-left:30px " >
-                        <td style="padding-left:30px " >{{item.Sitedataid}}</td >
+                        <td style="padding-left:30px " >{{item.sitedataid}}</td >
                         <td style="padding-left:30px " >{{item.title}}</td>
                         <td style="padding-left:26px " class="text-wrap">{{item.txt}}</td>
                         <td><img src="../../../assets/image/{{item.image}}" style="height: 100px;width: 100px;"></td>
                         <td class="col-lg-2">
                             <button class="btn btn-secondary"
-                                (click)="openUpdateDailog(item.Sitedataid,item.title,item.txt,item.image)">Update</button>
+                                (click)="openUpdateDailog(item.sitedataid,item.title,item.txt,item.image)">Update</button>
                         </td>
                       
                         <td class="col-lg-2">
-                            <button class="btn btn-danger" (click)="openDeleteDailog(item.Sitedataid)">Delete</button>
+                            <button class="btn btn-danger" (click)="openDeleteDailog(item.sitedataid)">Delete</button>
                         </td>
                     </tr>
                 </tbody>

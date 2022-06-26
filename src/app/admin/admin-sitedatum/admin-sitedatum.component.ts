@@ -29,7 +29,7 @@ export class AdminSitedatumComponent implements OnInit {
   })
 
   updatForm: FormGroup = new FormGroup({
-    Sitedataid: new FormControl('', Validators.required),
+    sitedataid: new FormControl('', Validators.required),
     title: new FormControl('', Validators.required),
     txt: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
@@ -73,12 +73,12 @@ export class AdminSitedatumComponent implements OnInit {
 
   openUpdateDailog(Sitedataid1: any, title1: any, txt1: any, image1: any) {
     this.site = {
-      Sitedataid: Sitedataid1,
+      sitedataid: Sitedataid1,
       title: title1,
       txt: txt1,
       image: image1,
     }
-    this.updatForm.controls['abuotusid'].setValue(Sitedataid1);
+    this.updatForm.controls['sitedataid'].setValue(Sitedataid1);
     this.updatForm.controls['image'].setValue(image1);
    this.dialog.open(this.callUpdateDialog)
 

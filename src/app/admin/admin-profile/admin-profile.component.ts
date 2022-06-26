@@ -10,65 +10,65 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class AdminProfileComponent implements OnInit {
 
-  constructor(public profile:ProfileService, private dialog: MatDialog) { }
+  constructor(public profile: ProfileService, private dialog: MatDialog) { }
 
   @ViewChild('callUpdateDialog') callUpdateDialog!: TemplateRef<any>
 
+  userValues: any = {}
+  useraccountid: any = localStorage.getItem('id')
+
   ngOnInit(): void {
+    this.profile.viewProfile({
+      useraccountid: Number(this.useraccountid)
 
-   const id:number=1
-   this.profile.viewProfile(id);
-   
+    });
+
+
+
   }
-myprofile:any={}
+  myprofile: any = {}
 
-updatForm: FormGroup = new FormGroup({
-  useraccountid : new FormControl(),
- fullname: new FormControl('', Validators.required),
- phonenumber: new FormControl('',Validators.pattern("[0-9]{10}") ),
- image: new FormControl(),
- username: new FormControl(),
- email: new FormControl()
+  updatForm: FormGroup = new FormGroup({
+    useraccountid: new FormControl(),
+    fullname: new FormControl(),
+    phonenumber: new FormControl(),
+    imagepath: new FormControl(),
+    password: new FormControl(),
 
-})
-uploadFile(file: any) {
-  if (file.length === 0) {
-    return;
+  })
+  uploadFile(file: any) {
+    if (file.length === 0) {
+      return;
+    }
+    let fileUpload = <File>file[0];
+    // file[0]:'angular.png';
+    const fromData = new FormData();
+    fromData.append('file', fileUpload, fileUpload.name);
+    this.profile.uploadAttachment(fromData);
   }
-  let fileUpload = <File>file[0];
-  // file[0]:'angular.png';
-  const fromData = new FormData();
-  fromData.append('file', fileUpload, fileUpload.name);
-  this.myprofile.uploadAttachment(fromData);
-}
-openUpdateDailog(idd: any, na: any, us: any,p:any,e:any,im: any) {
-  this.myprofile = {
-    fullname:na,
-    useraccountid:idd,
+  openUpdateDailog(idd: any, na: any, us: any, p: any, e: any, im: any, pass: any) {
+    this.myprofile = {
+      fullname: na,
+      useraccountid: idd,
+      imagepath: im,
+      username: us,
+      phonenumber: p,
+      email: e
 
-    image: im,
-    username: us,
-    phonenumber:p,
-  email:e
+    }
+    this.updatForm.controls['useraccountid'].setValue(idd);
+    this.updatForm.controls['password'].setValue(pass);
+    this.updatForm.controls['imagepath'].setValue(im);
+    this.dialog.open(this.callUpdateDialog)
+
   }
 
-   this.updatForm.controls['useraccountid'].setValue(idd);
-   this.updatForm.controls['fullname'].setValue(na);
-   this.updatForm.controls['username'].setValue(us);
-   this.updatForm.controls['phonenumber'].setValue(p);
-   this.updatForm.controls['email'].setValue(e);
-  
-   this.updatForm.controls['image'].setValue(im);
-  this.dialog.open(this.callUpdateDialog)
+  updateprofile() {
 
-}
+    this.profile.UpdateProfile(this.updatForm.value);
+    window.location.reload();
 
-updateprofile() {
-
-  this.profile.UpdateProfile(this.updatForm.value);
-  window.location.reload();
-
-}
+  }
 
 
 
