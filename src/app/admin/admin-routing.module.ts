@@ -6,8 +6,11 @@ import { AdminContactusComponent } from './admin-contactus/admin-contactus.compo
 import { AdminOrdderComponent } from './admin-ordder/admin-ordder.component';
 import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial.component';
+import { AdminPharmaceBranchComponent } from './admin-pharmacy-branch/admin-pharmace-branch.component';
 import { AdminMedicineComponent } from './admin-medicine/admin-medicine.component';
 import { AdminMedicineCategoryComponent } from './admin-medicine-category/admin-medicine-category.component';
+
 
 const routes: Routes = [
  {
@@ -17,6 +20,10 @@ const routes: Routes = [
  {
   path:'footer',
   component:AdminFooterComponent
+ },
+ {
+  path:'pharmacy',
+  component:AdminPharmaceBranchComponent
  },
  {
   path:'sidebar',
@@ -35,6 +42,14 @@ const routes: Routes = [
   component:AdminUseraccountComponent
  },
  {
+  path:'adminTestimonial',
+  component:AdminTestimonialComponent
+ },
+ {
+  path:'adminMedicine',
+  component:AdminMedicineComponent
+ },
+  {
   path:'medicine',
   component:AdminMedicineComponent
  },
@@ -43,7 +58,6 @@ const routes: Routes = [
   component:AdminMedicineCategoryComponent
  }
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

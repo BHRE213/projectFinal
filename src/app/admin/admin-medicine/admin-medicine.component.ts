@@ -11,36 +11,36 @@ import { MedicineService } from 'src/app/services/medicine.service';
 })
 export class AdminMedicineComponent implements OnInit {
 
-  constructor(public medicine:MedicineService,private dialog: MatDialog) { }
+  constructor(public medicine: MedicineService, private dialog: MatDialog) { }
   @ViewChild('callCreateDialog') callCreateDialog!: TemplateRef<any>
   @ViewChild('callDeleteDailog') callDeleteDailog!: TemplateRef<any>
   @ViewChild('callUpdateDialog') callUpdateDialog!: TemplateRef<any>
 
-  
+  name:any='';
   medicinee: any = {};
 
   ngOnInit(): void {
     this.medicine.getAll();
   }
   CreateForm: FormGroup = new FormGroup({
-    Name: new FormControl('', Validators.required),
-    Medicinenumber: new FormControl('', Validators.required),
-    Cost: new FormControl('', Validators.required),
-    Price: new FormControl('', Validators.required),
-    Description: new FormControl('', Validators.required),
-    MedicineCategoryId: new FormControl('', Validators.required),
-    Imagepath: new FormControl('', Validators.required)
+    name: new FormControl('', Validators.required),
+    medicinenumber: new FormControl('', Validators.required),
+    cost: new FormControl('', Validators.required),
+    price: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    medicineCategoryId: new FormControl('', Validators.required),
+    imagepath: new FormControl('', Validators.required)
   })
 
   updatForm: FormGroup = new FormGroup({
-    Medicineid: new FormControl('', Validators.required),
-    Name: new FormControl('', Validators.required),
-    Medicinenumber: new FormControl('', Validators.required),
-    Cost: new FormControl('', Validators.required),
-    Price: new FormControl('', Validators.required),
-    Description: new FormControl('', Validators.required),
-    MedicineCategoryId: new FormControl('', Validators.required),
-    Imagepath: new FormControl('', Validators.required)
+    medicineid: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
+    medicinenumber: new FormControl('', Validators.required),
+    cost: new FormControl('', Validators.required),
+    price: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    medicineCategoryId: new FormControl('', Validators.required),
+    imagepath: new FormControl('', Validators.required)
 
   })
 
@@ -56,11 +56,14 @@ export class AdminMedicineComponent implements OnInit {
   }
 
   save() {
+  
     this.medicine.createMedicine(this.CreateForm.value);
     window.location.reload();
+    
   }
 
   openCreatedialog() {
+    this.medicine.getMedicineCategoryData();
     this.dialog.open(this.callCreateDialog)
   }
   openDeleteDailog(id: number) {
@@ -77,20 +80,21 @@ export class AdminMedicineComponent implements OnInit {
       }
     })
   }
-  openUpdateDailog(medicineid1: any, name1: any, medicinenumber1: any,cost1: any,price1: any,description1:any,medicineCategoryId1:any, imagepath1: any) {
+  openUpdateDailog(medicineid1: any, name1: any, medicinenumber1: any, cost1: any, price1: any, description1: any, medicineCategoryId1: any, imagepath1: any) {
+    this.medicine.getMedicineCategoryData();
     this.medicinee = {
-      Medicineid: medicineid1,
-      Name: name1,
-      Medicinenumber: medicinenumber1,
-      Cost: cost1,
-      Price: price1,
-      Description: description1,
-      MedicineCategoryId: medicineCategoryId1,
-      Imagepath: imagepath1,
+      medicineid: medicineid1,
+      name: name1,
+      medicinenumber: medicinenumber1,
+      cost: cost1,
+      price: price1,
+      description: description1,
+      medicineCategoryId: medicineCategoryId1,
+      imagepath: imagepath1,
     }
 
-     this.updatForm.controls['Medicineid'].setValue(medicineid1);
-     this.updatForm.controls['image'].setValue(imagepath1);
+    this.updatForm.controls['medicineid'].setValue(medicineid1);
+    this.updatForm.controls['imagepath'].setValue(imagepath1);
     this.dialog.open(this.callUpdateDialog)
 
   }
@@ -100,6 +104,27 @@ export class AdminMedicineComponent implements OnInit {
     this.medicine.UpdateMedicine(this.updatForm.value);
     window.location.reload();
 
+  }
+  
+  enterName(name:any){
+   
+    this.name=name.target.value;
+
+  }
+
+  search()
+  {
+    const searches={
+      name: this.name.toString()
+    };
+
+    if(searches.name.length == 0){
+      window.location.reload();
+    }else {  this.medicine.searchByName(searches)}
+ 
+    
+
+  
   }
 
 }

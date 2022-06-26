@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
   login(email: any, pass: any) {
     let body = {
-      username: email.toString(),
+      email: email.toString(),
       password: pass.toString()
     }
 
@@ -32,8 +32,9 @@ export class AuthService {
       localStorage.setItem('token', responce.token); // ecoded token
       let data: any = jwt_decode(responce.token); // decoded token
 
-      localStorage.setItem('user', JSON.stringify({ ...data }));
-
+      localStorage.setItem('user', JSON.stringify({ ...data }));      
+      localStorage.setItem('id',data.nameid)
+      
       if (data.role == 'Admin') {
         this.router.navigate(['admin/about']);
       } else if (data.role == 'customer') {
