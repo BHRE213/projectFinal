@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminAboutusComponent } from './admin-aboutus/admin-aboutus.component';
-import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -18,6 +17,7 @@ import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.compo
 import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial.component';
 import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -40,9 +40,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule,
     MatFormFieldModule,
     MatInputModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule
   ]
