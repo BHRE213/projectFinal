@@ -10,6 +10,10 @@ import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial
 import { AdminPharmaceBranchComponent } from './admin-pharmacy-branch/admin-pharmace-branch.component';
 import { AdminMedicineComponent } from './admin-medicine/admin-medicine.component';
 
+import { AdminShareddatumComponent } from './admin-shareddatum/admin-shareddatum.component';
+import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+
 const routes: Routes = [
  {
   path:'about',
@@ -46,9 +50,25 @@ const routes: Routes = [
  {
   path:'adminMedicine',
   component:AdminMedicineComponent
- }
-];
+ },
+  {
+  path:'medicine',
+  component:AdminMedicineComponent
+ },
+ {
+  path:'shareddata',
+  component:AdminShareddatumComponent
+ },
+ {
+  path:'profile',
+  component:AdminProfileComponent
+ },
+ {
+  path:'sitedata',
+  component:AdminSitedatumComponent
+ },
 
+];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

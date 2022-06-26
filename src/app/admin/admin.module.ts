@@ -13,11 +13,12 @@ import { AdminMedicineComponent } from './admin-medicine/admin-medicine.componen
 import { AdminMedicineCategoryComponent } from './admin-medicine-category/admin-medicine-category.component';
 import { AdminOrdderComponent } from './admin-ordder/admin-ordder.component';
 import { AdminPharmaceBranchComponent } from './admin-pharmacy-branch/admin-pharmace-branch.component';
-import { AdminShareddatumComponent } from './admin-shareddatum/admin-shareddatum.component';
-import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.component';
 import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial.component';
 import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AdminShareddatumComponent } from './admin-shareddatum/admin-shareddatum.component';
+import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
              AdminSitedatumComponent,
              AdminTestimonialComponent,
              AdminUseraccountComponent,
-             SidebarComponent
+             SidebarComponent,
+             AdminProfileComponent
   ],
   imports: [
     CommonModule,
