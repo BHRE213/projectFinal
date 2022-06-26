@@ -38,9 +38,11 @@ export class MedicineService {
     this.http.post('https://localhost:44341/api/Medicine/Upload/', file)
       .subscribe((res: any) => {     
         this.display_Image = res.imagepath;
+        console.log( this.display_Image)
       }, err => {
        
       })
+      
   }
 
   createMedicine(data: any) {
@@ -74,7 +76,7 @@ export class MedicineService {
   }
   UpdateMedicine(body: any) {
     if (this.display_Image != undefined) {
-      body.image = this.display_Image;
+      body.imagepath = this.display_Image;
     }
     this.http.put('https://localhost:44341/api/Medicine/UpdateMedicen/', body).subscribe((res) => {
           // this.toastr.success('updated Successfully :)');

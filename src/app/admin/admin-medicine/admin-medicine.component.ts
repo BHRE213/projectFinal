@@ -29,7 +29,7 @@ export class AdminMedicineComponent implements OnInit {
     price: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
     medicineCategoryId: new FormControl('', Validators.required),
-    imagepath: new FormControl('', Validators.required)
+    imagepath: new FormControl()
   })
 
   updatForm: FormGroup = new FormGroup({
@@ -40,7 +40,7 @@ export class AdminMedicineComponent implements OnInit {
     price: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
     medicineCategoryId: new FormControl('', Validators.required),
-    imagepath: new FormControl('', Validators.required)
+    imagepath: new FormControl()
 
   })
 
