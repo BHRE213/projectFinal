@@ -23,12 +23,12 @@ export class AdminProfileComponent implements OnInit {
 myprofile:any={}
 
 updatForm: FormGroup = new FormGroup({
-  useraccountid : new FormControl('', Validators.required),
+  useraccountid : new FormControl(),
  fullname: new FormControl('', Validators.required),
  phonenumber: new FormControl(),
  image: new FormControl(),
- username: new FormControl('', Validators.required),
- email: new FormControl('', Validators.required)
+ username: new FormControl(),
+ email: new FormControl()
 
 })
 uploadFile(file: any) {
@@ -43,7 +43,7 @@ uploadFile(file: any) {
 }
 openUpdateDailog(idd: any, na: any, us: any,p:any,e:any,im: any) {
   this.myprofile = {
-    name:na,
+    fullname:na,
     useraccountid:idd,
 
     image: im,
