@@ -12,8 +12,10 @@ import { MedicineCategoryService } from 'src/app/services/medicine-category.serv
 
 export class AdminMedicineCategoryComponent implements OnInit {
 
+  constructor( private dialog: MatDialog) { }
   
 
   ngOnInit(): void {
   }
+  
 }
