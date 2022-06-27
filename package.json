@@ -26,6 +26,7 @@
     "ngx-spinner": "^14.0.0",
     "ngx-toastr": "^15.0.0",
     "rxjs": "~7.5.0",
+    "s-ratelimiter": "^1.0.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
