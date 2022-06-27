@@ -15,7 +15,7 @@ export class AuthService {
   createUser(data: any) {
     // this.spinner.show();
     data.image = this.display_Image;
-    this.http.post('https://localhost:44341/api/User/', data)
+    this.http.post('https://localhost:44341/api/User/CreateUser', data)
       .subscribe((res: any) => {
         // this.spinner.hide();
         // this.toastr.success('Created Successfully ✔️ ')
