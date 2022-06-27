@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable({
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SitedataService {
 
-  constructor(private httpsite : HttpClient) { }
+  constructor(private httpsite : HttpClient,private toastr: ToastrService) { }
 
   
   shared : any =[];
@@ -19,10 +20,10 @@ export class SitedataService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
 }
 
@@ -41,10 +42,10 @@ createAboutus(data: any) {
   this.httpsite.post('https://localhost:44341/api/SiteData/', data)
     .subscribe((res: any) => {
       // this.spinner.hide();
-      // this.toastr.success('Created Successfully ✔️ ')
+      this.toastr.success('Created Successfully ✔️ ')
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
 }
 
@@ -53,9 +54,9 @@ UpdateAbput(body: any) {
     body.image = this.display_Image;
   }
   this.httpsite.put('https://localhost:44341/api/SiteData/', body).subscribe((res) => {
-         // this.toastr.success('updated Successfully :)');
+         this.toastr.success('updated Successfully :)');
     }, err => {
-      // this.toastr.error(err.status, err.message);
+      this.toastr.error(err.status, err.message);
     })
 }
 
@@ -65,10 +66,10 @@ deleteAbout(id:number){
     //hide spinner
     // this.spinner.hide();
     // res --> show toastr
-    // this.toastr.success('Data Retrieved !!');
+    this.toastr.success('Data Retrieved !!');
   }, err => {
     // this.spinner.hide();
-    // this.toastr.error(err.message, err.status)
+    this.toastr.error(err.message, err.status)
   })
 
 }

@@ -1,12 +1,13 @@
 import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FooterService {
 
-  constructor( private http:HttpClient) { }
+  constructor( private http:HttpClient,private toastr: ToastrService) { }
   footerData:any=[];
   getAll(){
     this.http.get('https://localhost:44341/api/Footer/').subscribe((res) => {
@@ -14,19 +15,19 @@ export class FooterService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })    
   }
   UpdateFooter(body: any) {
     
    
     this.http.put('https://localhost:44341/api/Footer/update/', body).subscribe((res) => {
-           // this.toastr.success('updated Successfully :)');
+           this.toastr.success('updated Successfully :)');
       }, err => {
-        // this.toastr.error(err.status, err.message);
+        this.toastr.error(err.status, err.message);
       })
   }
 }
