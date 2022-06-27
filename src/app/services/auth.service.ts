@@ -2,13 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router,private toastr: ToastrService) { }
 
   display_Image: any;
 
@@ -18,10 +19,10 @@ export class AuthService {
     this.http.post('https://localhost:44341/api/User/CreateUser', data)
       .subscribe((res: any) => {
         // this.spinner.hide();
-        // this.toastr.success('Created Successfully ✔️ ')
+        this.toastr.success('Created Successfully ✔️ ')
       }, err => {
         // this.spinner.hide();
-        // this.toastr.error(err.message, err.status)
+        this.toastr.error(err.message, err.status)
       })
   }
 
@@ -46,6 +47,7 @@ export class AuthService {
       const responce = {
         token: res.toString()
       }
+      this.toastr.success('Login Successfully ✔️ ')
       // this.spinner.hide();
       localStorage.setItem('token', responce.token); // ecoded token
       let data: any = jwt_decode(responce.token); // decoded token
@@ -58,8 +60,9 @@ export class AuthService {
       } else if (data.role == 'customer') {
         this.router.navigate(['course']);
       }
-
-    })
+     
+    },err=>( this.toastr.error(err.message, err.status))) 
 
   }
+  
 }

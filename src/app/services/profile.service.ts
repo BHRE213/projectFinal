@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private toastr: ToastrService) { }
   profileData: any = [];
   display_Image: any;
 
@@ -18,10 +19,10 @@ export class ProfileService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
   }
 
@@ -30,9 +31,9 @@ export class ProfileService {
       body.imagepath = this.display_Image;
     }
     this.http.put('https://localhost:44341/api/User/UpdateUser/', body).subscribe((res) => {
-      // this.toastr.success('updated Successfully :)');
+      this.toastr.success('updated Successfully :)');
     }, err => {
-      // this.toastr.error(err.status, err.message);
+      this.toastr.error(err.status, err.message);
     })
   }
   

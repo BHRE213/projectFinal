@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -7,20 +8,21 @@ import { HttpClient } from '@angular/common/http';
 export class AboutUsService {
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private toastr: ToastrService) { }
   aboutUsData:any=[];
   display_Image: any;
 
   getAll(){
     this.http.get('https://localhost:44341/api/aboutus/').subscribe((res) => {
       this.aboutUsData = res;
+      this.toastr.success('Get Successfully ✔️ ')
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })    
   }
 
@@ -39,10 +41,10 @@ export class AboutUsService {
     this.http.post('https://localhost:44341/api/AboutUs/Create/', data)
       .subscribe((res: any) => {
         // this.spinner.hide();
-        // this.toastr.success('Created Successfully ✔️ ')
+        this.toastr.success('Created Successfully ✔️ ')
       }, err => {
         // this.spinner.hide();
-        // this.toastr.error(err.message, err.status)
+        this.toastr.error(err.message, err.status)
       })
   }
 
@@ -53,10 +55,10 @@ export class AboutUsService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
 
 
@@ -67,9 +69,9 @@ UpdateAbput(body: any) {
     body.image = this.display_Image;
   }
   this.http.put('https://localhost:44341/api/AboutUs/update/', body).subscribe((res) => {
-         // this.toastr.success('updated Successfully :)');
+         this.toastr.success('updated Successfully  ✔️');
     }, err => {
-      // this.toastr.error(err.status, err.message);
+      this.toastr.error(err.status, err.message);
     })
 }
 }
