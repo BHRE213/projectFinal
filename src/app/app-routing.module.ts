@@ -5,15 +5,18 @@ import { AuthModule } from './auth/auth.module';
 import { AuthorizationGuard } from './authorization.guard';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
 
 const routes: Routes = [
 
 {
   path:'contactus',
   component:ContactUsComponent
-
 },
-
+{
+  path:'testimonal',
+  component:TestimonialComponent
+},
 {
   path:'',
   component:HomeComponent
