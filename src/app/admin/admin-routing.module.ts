@@ -45,10 +45,7 @@ const routes: Routes = [
   path:'adminTestimonial',
   component:AdminTestimonialComponent
  },
- {
-  path:'adminMedicine',
-  component:AdminMedicineComponent
- },
+
   {
   path:'medicine',
   component:AdminMedicineComponent
