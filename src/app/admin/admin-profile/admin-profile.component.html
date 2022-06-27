@@ -1,0 +1,87 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card user-card">
+                <div class="card-header">
+                    <h5>My Profile</h5>
+                </div>
+               
+                    <div  class="card-block" >
+                        <div >
+                        
+                        <img src="../../../assets/image/{{profile.profileData.imagepath}}" class="img-radius" alt="User-Profile-Image">
+                    </div><br>
+                    <h3 class="f-w-600 m-t-25 m-b-10">{{profile.profileData.fullname}}</h3><br>
+                    <p >My UserName: <strong>{{profile.profileData.username}}</strong></p>
+                    <p  >My Email: <strong>{{profile.profileData.email}}</strong></p>
+                    <p >My Phone: <strong>{{profile.profileData.phonenumber}}</strong></p><br><br><br><br>
+                    <button class="btn btn-secondary btn-lg"
+                        (click)="openUpdateDailog(profile.profileData.useraccountid,profile.profileData.fullname,profile.profileData.username,profile.profileData.phonenumber,profile.profileData.email,profile.profileData.imagepath,profile.profileData.password)">Update</button>
+                  
+                   </div>
+                   
+                   
+                       <br><br><br><br><br><br>
+                </div> </div>  
+                <br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+
+        <ng-template #callUpdateDialog>
+            <h2 class="text-uppercase"> Update Profile  </h2>
+            <mat-dialog-content class="mat-typography">
+                <form [formGroup]="updatForm">
+                    <ul>                     
+                       
+                   
+                        <li>
+                            <mat-form-field class="example-full-width" appearance="fill">
+
+                                <mat-label>Enter your Name</mat-label>
+                                <input type="text" matInput formControlName="fullname" [(ngModel)]="myprofile.fullname"
+                                    placeholder="Enter your Name">
+                               <mat-error *ngIf="updatForm.controls['fullname'].hasError('required')">
+                                    field is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </li>
+                        <li>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                               
+                                <mat-label>Enter your Phone</mat-label>
+                                <input type="text" matInput formControlName="phonenumber" [(ngModel)]="myprofile.phonenumber"
+                                    placeholder="Enter your phonenumber">                               
+                             
+                            </mat-form-field>
+                        </li>
+                       
+                        <li>
+                            <mat-form-field class="example-full-width" appearance="fill">
+
+                                <mat-label>Enter your password</mat-label>
+                                <input type="password" matInput formControlName="password" 
+                                    placeholder="Enter  password" >
+                               <mat-error *ngIf="updatForm.controls['password'].hasError('required')">
+                                    field is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </li>
+                      
+                    
+                        <li>
+                            <input type="file" #file placeholder="Choose Image" formControlName="imagepath"
+                                (change)="uploadFile(file.files)" style="display:none;">
+                            <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                        </li>
+                    </ul>
+                </form>
+                <mat-dialog-actions align="end">
+                    <button class="btn btn-success" [mat-dialog-close]="true" (click)="updateprofile()"
+                        cdkFocusInitial>Update</button>
+                    <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+                </mat-dialog-actions>
+            </mat-dialog-content>
+        </ng-template>
+        
+ 

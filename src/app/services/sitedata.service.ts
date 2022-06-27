@@ -10,7 +10,7 @@ export class SitedataService {
   constructor(private httpsite : HttpClient) { }
 
   
-  shared : any =[{}];
+  shared : any =[];
   display_Image: any;
 
   getAll(){

@@ -7,8 +7,10 @@ import { AdminOrdderComponent } from './admin-ordder/admin-ordder.component';
 import { AdminUseraccountComponent } from './admin-useraccount/admin-useraccount.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial.component';
-import { AdminShareddatumComponent } from './admin-shareddatum/admin-shareddatum.component';
-import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.component';
+import { AdminPharmaceBranchComponent } from './admin-pharmacy-branch/admin-pharmace-branch.component';
+import { AdminMedicineComponent } from './admin-medicine/admin-medicine.component';
+import { AdminMedicineCategoryComponent } from './admin-medicine-category/admin-medicine-category.component';
+
 
 const routes: Routes = [
  {
@@ -18,6 +20,10 @@ const routes: Routes = [
  {
   path:'footer',
   component:AdminFooterComponent
+ },
+ {
+  path:'pharmacy',
+  component:AdminPharmaceBranchComponent
  },
  {
   path:'sidebar',
@@ -40,15 +46,18 @@ const routes: Routes = [
   component:AdminTestimonialComponent
  },
  {
-  path:'shareddata',
-  component:AdminShareddatumComponent
+  path:'adminMedicine',
+  component:AdminMedicineComponent
+ },
+  {
+  path:'medicine',
+  component:AdminMedicineComponent
  },
  {
-  path:'sitedata',
-  component:AdminSitedatumComponent
- },
+  path:'medicineCategory',
+  component:AdminMedicineCategoryComponent
+ }
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
