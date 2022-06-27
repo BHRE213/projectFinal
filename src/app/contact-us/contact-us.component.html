@@ -1,3 +1,128 @@
 <app-header></app-header>
-<p>contact-us works!</p>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            
+            </div>
+       
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="wrapper">
+                    <div class="row no-gutters mb-5">
+                        <div class="col-md-7">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Contact Us</h3>
+                                <div class="mb-4">
+                               
+
+                                <form asp-action="Create">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label asp-for="Name" class="label"></label>
+                                                <input asp-for="Name" class="form-control" placeholder="Name" required />
+                                                <span asp-validation-for="Name" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label asp-for="Email" class="label"></label>
+                                                <input asp-for="Email" class="form-control" placeholder="Email" required />
+                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label asp-for="Title" class="label"></label>
+                                                <input asp-for="Title" class="form-control" name="subject" id="subject" placeholder="Title" required/>
+                                                <span asp-validation-for="Title" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label asp-for="Detail" class="label">Message</label>
+                                                <textarea asp-for="Detail" name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message" required></textarea>
+
+                                                <span asp-validation-for="Detail" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" value="Create" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-flex align-items-stretch">
+                            <div id="map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.276392940149!2d35.79062431500879!3d32.00762598121114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x34e56e9c55c9a5be!2zMzLCsDAwJzI3LjUiTiAzNcKwNDcnMzQuMSJF!5e0!3m2!1sen!2sjo!4v1649957248411!5m2!1sen!2sjo" width="600" height="590" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                   
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="dbox w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="fa fa-map-marker"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p><span>Address:</span><br /> @item.Address</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="dbox w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="fa fa-phone"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p><span>Phone:</span> <br /><a href="tel://1234567920">@item.Phon</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="dbox w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="fa fa-paper-plane"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p><span>Email:</span><br /> <a href="mailto:info@yoursite.com">@item.Email</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="dbox w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <span class="fa fa-globe"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p><span>Website</span> <br /><a href="#">@item.C</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+    </div>    </div>
+
+
+    
 <app-footer></app-footer>
