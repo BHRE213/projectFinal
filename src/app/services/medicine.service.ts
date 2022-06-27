@@ -17,7 +17,7 @@ export class MedicineService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+     
     }, err => {
       // this.spinner.hide();
       // this.toastr.error(err.message, err.status)
@@ -29,7 +29,7 @@ export class MedicineService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+     
     }, err => {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)
@@ -80,7 +80,7 @@ export class MedicineService {
       body.imagepath = this.display_Image;
     }
     this.http.put('https://localhost:44341/api/Medicine/UpdateMedicen/', body).subscribe((res) => {
-      this.toastr.success('updated Successfully  ✔️');
+      this.toastr.success('updated Successfully  ');
  }, err => {
    this.toastr.error(err.status, err.message);
  })

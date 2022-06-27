@@ -45,7 +45,7 @@ const routes: Routes = [
   component:AdminUseraccountComponent
  },
  {
-  path:'adminTestimonial',
+  path:'testimonial',
   component:AdminTestimonialComponent
  },
 
