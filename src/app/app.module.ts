@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Token } from '@angular/compiler';
 import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -28,9 +29,10 @@ import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule,
+    NgxSpinnerModule
   ],
+  
   providers: [
     {     
       provide: HTTP_INTERCEPTORS,

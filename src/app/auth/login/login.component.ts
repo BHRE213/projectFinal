@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   emailFormControl = new FormControl('', [ Validators.required]);
   passFormControl = new FormControl('', Validators.minLength(6));
 
-  constructor(private router:Router, public authService: AuthService) { }
+  constructor(private router:Router, public authService: AuthService,private spinner : NgxSpinnerService) { }
 
   login(){
     this.authService.login(this.emailFormControl.value, this.passFormControl.value);
@@ -22,6 +23,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['register']);
   }
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() =>{
+      this.spinner.hide();
+    },2000);
   }
 
 }
