@@ -4,6 +4,7 @@ import { SharedModule } from "../shared/shared.module";
 import { AuthRoutingModule } from "./auth-routing.module";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { RegisterComponent } from "./register/register.component";
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxSpinnerModule
   ]
 })
 export class AuthModule { }

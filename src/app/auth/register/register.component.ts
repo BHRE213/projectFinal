@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/services/auth.service';
+import { UseraccountService } from 'src/app/services/useraccount.service';
 
 
 @Component({
@@ -15,13 +17,17 @@ export class RegisterComponent implements OnInit {
     username : new FormControl('',[Validators.required]),
     fullname : new FormControl('',[Validators.required]),
     phonenumber : new FormControl('',[Validators.required]),
-    password: new FormControl('',[Validators.required, Validators.minLength(8)]),
+    password: new FormControl('',[Validators.required,Validators.minLength(8)]),
     confirmpassword: new FormControl('',[Validators.required,Validators.minLength(8)])
      })
 
-  constructor(private router: Router,public auth : AuthService) { }
+  constructor(private router: Router,public auth : AuthService,private spinner : NgxSpinnerService,public users:UseraccountService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() =>{
+      this.spinner.hide();
+    },2000);
   }
 
 
@@ -30,7 +36,7 @@ export class RegisterComponent implements OnInit {
 
   submit(){
     this.auth.createUser(this.registerform.value);
-    window.location.reload();
+    this.router.navigate(['login']);
     }
    
     matchError()
@@ -43,5 +49,14 @@ export class RegisterComponent implements OnInit {
       this.registerform.controls['confirmpassword'].setErrors({mismatch:true});
 
     }
-
+    array : any =[{}];
+    check()
+    {
+      this.users.allusers.forEach((element: { email: AbstractControl<any, any>; }) => {
+        if(this.registerform.controls['email']== element.email)
+        {
+         this.registerform.controls['email'].setErrors({unvalid:true});
+        }
+      });
+    }
 }

@@ -13,8 +13,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Token } from '@angular/compiler';
 import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
+<<<<<<< HEAD
 import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
+=======
+import { NgxSpinnerModule } from "ngx-spinner";
+>>>>>>> origin/Ebaa
 
 
 @NgModule({
@@ -31,10 +35,15 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
     MatDialogModule,
     ToastrModule.forRoot()
     
+=======
+    NgxSpinnerModule
+>>>>>>> origin/Ebaa
   ],
+  
   providers: [
     {     
       provide: HTTP_INTERCEPTORS,
