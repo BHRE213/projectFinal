@@ -9,7 +9,23 @@ import jwt_decode from "jwt-decode";
 export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
-  
+
+  display_Image: any;
+
+  createUser(data: any) {
+    // this.spinner.show();
+    data.image = this.display_Image;
+    this.http.post('https://localhost:44341/api/User/', data)
+      .subscribe((res: any) => {
+        // this.spinner.hide();
+        // this.toastr.success('Created Successfully ✔️ ')
+      }, err => {
+        // this.spinner.hide();
+        // this.toastr.error(err.message, err.status)
+      })
+  }
+
+
   login(email: any, pass: any) {
     let body = {
       email: email.toString(),
