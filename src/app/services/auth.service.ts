@@ -9,6 +9,7 @@ import jwt_decode from "jwt-decode";
 export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
+  
   login(email: any, pass: any) {
     let body = {
       email: email.toString(),
@@ -23,6 +24,7 @@ export class AuthService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict)
     }
+
     // this.spinner.show();
     this.http.post('https://localhost:44341/api/login/userlogin/', body, requestOptions).subscribe((res) => {
       const responce = {
