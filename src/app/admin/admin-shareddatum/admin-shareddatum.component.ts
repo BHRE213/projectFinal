@@ -32,7 +32,7 @@ export class AdminShareddatumComponent implements OnInit {
   })
 
   updatForm: FormGroup = new FormGroup({
-    Shareddataid: new FormControl('', Validators.required),
+    shareddataid: new FormControl('', Validators.required),
     title: new FormControl('', Validators.required),
     txt: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
@@ -51,7 +51,7 @@ export class AdminShareddatumComponent implements OnInit {
   }
 
   save() {
-    this.shareddata.createShared(this.CreateForm.value);
+    this.shareddata.createAboutus(this.CreateForm.value);
     window.location.reload();
   }
 
@@ -74,13 +74,13 @@ export class AdminShareddatumComponent implements OnInit {
   }
   openUpdateDailog(Shareddataid1: any, title1: any, txt1: any, image1: any) {
     this.shared = {
-      Shareddataid: Shareddataid1,
+      shareddataid: Shareddataid1,
       title: title1,
       txt: txt1,
       image: image1,
     }
 
-     this.updatForm.controls['abuotusid'].setValue(Shareddataid1);
+     this.updatForm.controls['shareddataid'].setValue(Shareddataid1);
      this.updatForm.controls['image'].setValue(image1);
     this.dialog.open(this.callUpdateDialog)
 
@@ -88,7 +88,7 @@ export class AdminShareddatumComponent implements OnInit {
 
   updateShared() {
 
-    this.shareddata.UpdateShared(this.updatForm.value);
+    this.shareddata.UpdateAbput(this.updatForm.value);
     window.location.reload();
 
   }

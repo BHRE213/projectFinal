@@ -9,11 +9,11 @@ export class ShareddataService {
 
   constructor(private httpshared : HttpClient) { }
 
-  shared : any =[{}];
+  shared : any =[];
   display_Image: any;
 
   getAll(){
-    this.httpshared.get('https://localhost:44341/api/SharedData').subscribe((res) => {
+    this.httpshared.get('https://localhost:44341/api/SharedData/').subscribe((res) => {
       this.shared = res;
       //hide spinner
       // this.spinner.hide();
@@ -34,10 +34,10 @@ uploadAttachment(file: FormData) {
     })
 }
 
-createShared(data: any) {
+createAboutus(data: any) {
   // this.spinner.show();
   data.image = this.display_Image;
-  this.httpshared.post('https://localhost:44341/api/SharedData', data)
+  this.httpshared.post('https://localhost:44341/api/SharedData/', data)
     .subscribe((res: any) => {
       // this.spinner.hide();
       // this.toastr.success('Created Successfully ✔️ ')
@@ -47,11 +47,11 @@ createShared(data: any) {
     })
 }
 
-UpdateShared(body: any) {
+UpdateAbput(body: any) {
   if (this.display_Image != undefined) {
     body.image = this.display_Image;
   }
-  this.httpshared.put('https://localhost:44341/api/SharedData', body).subscribe((res) => {
+  this.httpshared.put('https://localhost:44341/api/SharedData/', body).subscribe((res) => {
          // this.toastr.success('updated Successfully :)');
     }, err => {
       // this.toastr.error(err.status, err.message);
