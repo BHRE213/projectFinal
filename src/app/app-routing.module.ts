@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
 
 {
-  path:'countactus',
+  path:'contactus',
   component:ContactUsComponent
 
 },
@@ -26,7 +26,7 @@ const routes: Routes = [
 {
   path:'admin',
   loadChildren:() =>AdminModule,
-  canActivate:[AuthorizationGuard]
+ canActivate:[AuthorizationGuard]
 
 }
 

@@ -10,6 +10,8 @@ import { AdminTestimonialComponent } from './admin-testimonial/admin-testimonial
 import { AdminPharmaceBranchComponent } from './admin-pharmacy-branch/admin-pharmace-branch.component';
 import { AdminMedicineComponent } from './admin-medicine/admin-medicine.component';
 import { AdminMedicineCategoryComponent } from './admin-medicine-category/admin-medicine-category.component';
+import { AdminShareddatumComponent } from './admin-shareddatum/admin-shareddatum.component';
+import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.component';
 
 
 const routes: Routes = [
@@ -45,10 +47,7 @@ const routes: Routes = [
   path:'adminTestimonial',
   component:AdminTestimonialComponent
  },
- {
-  path:'adminMedicine',
-  component:AdminMedicineComponent
- },
+
   {
   path:'medicine',
   component:AdminMedicineComponent
@@ -56,6 +55,14 @@ const routes: Routes = [
  {
   path:'medicineCategory',
   component:AdminMedicineCategoryComponent
+ },
+ {
+  path:'shareddata',
+  component:AdminShareddatumComponent
+ },
+ {
+  path:'sitedata',
+  component:AdminSitedatumComponent
  }
 ];
 @NgModule({
