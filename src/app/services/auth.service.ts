@@ -48,7 +48,6 @@ export class AuthService {
       const responce = {
         token: res.toString()
       }
-      this.toastr.success('Login Successfully ✔️ ')
       // this.spinner.hide();
       localStorage.setItem('token', responce.token); // ecoded token
       let data: any = jwt_decode(responce.token); // decoded token

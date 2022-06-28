@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class AuthorizationGuard implements CanActivate {
-  constructor(private router: Router) {
+  constructor(private router: Router, private toastr:ToastrService) {
   }
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -19,11 +20,11 @@ export class AuthorizationGuard implements CanActivate {
         if (user) {
           user = JSON.parse(user);
           if (user.role == 'Admin') {
-            // this.toastr.success('Welcome in admin pages ');  
+            this.toastr.success('Welcome in admin pages ');  
             return true;
           }
           else {
-            // this.toastr.warning('this page for admin');  
+            this.toastr.warning('this page for admin');  
             this.router.navigate(['']);
             return false;
           }
@@ -31,14 +32,14 @@ export class AuthorizationGuard implements CanActivate {
       }
       else {
         this.router.navigate(['']);
-        // this.toastr.warning('you are not user from db');  
+        this.toastr.warning('you are not user from db');  
         return false;
       }
       return true;
     }
     else {
       this.router.navigate(['']);
-      // this.toastr.warning('you are not autherize to login!!')
+      this.toastr.warning('you are not autherize to login!!')
       return false;
     }
 
