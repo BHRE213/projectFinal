@@ -35,7 +35,6 @@ export class MedicineCategoryService {
        
       })
   }
-
   createMedicineCategory(data: any) {
     // this.spinner.show();
     data.imagepath = this.display_Image;
