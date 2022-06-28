@@ -1,146 +1,81 @@
 <app-header></app-header>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-<div class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            
-            </div>
-       
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="wrapper">
-                    <div class="row no-gutters mb-5">
-                        <div class="col-md-7">
-                            <div class="contact-wrap w-100 p-md-5 p-4">
-                                <h3 class="mb-4">Contact Us</h3>
-                                <div class="mb-4">
-                               
-
-                                <form [formGroup]="CreateForm" class="example-form">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <mat-form-field >
-                                                <label asp-for="Name" class="label"></label>
-                                                <input asp-for="Name" class="form-control"  matInput formControlName="name" placeholder="Name" required />
-                                                <span asp-validation-for="name" class="text-danger"></span>
-                                                <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
-                                                    feild is <strong>required</strong>
-                                                </mat-error>
-                                            </mat-form-field>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <mat-form-field >
-                                                <label asp-for="Email" class="label"></label>
-                                                <input asp-for="Email" class="form-control"matInput formControlName="email" placeholder="Email" required />
-                                                <span asp-validation-for="email" class="text-danger"></span>
-                                                <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
-                                                    feild is <strong>required</strong>
-                                                </mat-error></mat-form-field>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <mat-form-field >
-                                                <label asp-for="Title" class="label"></label>
-                                                <input asp-for="Title" class="form-control" class="form-control"matInput formControlName="title"name="subject" id="subject" placeholder="Title" required/>
-                                                <span asp-validation-for="Title" class="text-danger"></span>
-                                                <mat-error *ngIf="CreateForm.controls['title'].hasError('required')">
-                                                    feild is <strong>required</strong>
-                                                </mat-error></mat-form-field>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <mat-form-field a>
-                                                <label asp-for="Detail" class="label"></label>
-                                                <textarea asp-for="Detail" matInput formControlName="feedback"name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message" required></textarea>
-
-                                                <span asp-validation-for="Detail" class="text-danger"></span>
-                                                <mat-error *ngIf="CreateForm.controls['feedback'].hasError('required')">
-                                                    feild is <strong>required</strong>
-                                                </mat-error></mat-form-field>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="submit" value="Create" class="btn btn-primary" (click)="create()" />
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-md-5 d-flex align-items-stretch">
-                            <div id="map">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.276392940149!2d35.79062431500879!3d32.00762598121114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x34e56e9c55c9a5be!2zMzLCsDAwJzI3LjUiTiAzNcKwNDcnMzQuMSJF!5e0!3m2!1sen!2sjo!4v1649957248411!5m2!1sen!2sjo" width="600" height="590" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                        </div>
+<div style="padding-top:200px;padding-bottom: 150px;">
+    <section class="page-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-text">
+                        <h4>To Contact Us</h4>
+                        <h1>Contact<span style="color: #56a3f5;"> Us </span></h1>
                     </div>
-                   
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="dbox w-100 text-center">
-                                    <div class="icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-map-marker"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><span>Address:</span><br /> @item.Address</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="dbox w-100 text-center">
-                                    <div class="icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-phone"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><span>Phone:</span> <br /><a href="tel://1234567920">@item.Phon</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="dbox w-100 text-center">
-                                    <div class="icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-paper-plane"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><span>Email:</span><br /> <a href="mailto:info@yoursite.com">@item.Email</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="dbox w-100 text-center">
-                                    <div class="icon d-flex align-items-center justify-content-center">
-                                        <span class="fa fa-globe"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><span>Website</span> <br /><a href="#">@item.C</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                 </div>
             </div>
         </div>
+    </section>
 
-    </div>    </div>
+    <section class="contact-us2">
+        <div class="container">
+            <div class="row">
 
+                <div class="col-lg-4">
+                    <form id="contact" [formGroup]="CreateForm" class="example-form">
+                        <div class="col-lg-12">
+                            <div class="section-heading">
+                                <h6>Contact Us</h6>
+                                <h4>Say <em>Hello</em></h4>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Enter Your Name </mat-label>
+                                    <input type="text" matInput formControlName="name" placeholder="name">
+                                    <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                                        name is <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </li>
+                            <li>
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Enter Your Email </mat-label>
+                                    <input type="email" matInput formControlName="email" placeholder="email">
+                                    <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+                                        email <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </li>
+                            <li>
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Enter title </mat-label>
+                                    <input type="text" matInput formControlName="title" placeholder="title">
+                                    <mat-error *ngIf="CreateForm.controls['title'].hasError('required')">
+                                        title is <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </li>
+                            <li>
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Enter Your phonenumber </mat-label>
+                                    <input type="text" matInput formControlName="phonenumber" placeholder="phonenumber">
+                                </mat-form-field>
+                            </li>
+                            <li>
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label> Feedback </mat-label>
+                                    <input style="height:100px ; width:150px" type="text" matInput formControlName="feedback" placeholder="feedback">
+                                    <mat-error *ngIf="CreateForm.controls['feedback'].hasError('required')">
+                                        feedback is <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </li>
+                        </ul>
+                        <button mat-button [mat-dialog-close]="true" (click)="send()" cdkFocusInitial>Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
-    
 <app-footer></app-footer>
