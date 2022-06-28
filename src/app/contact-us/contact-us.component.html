@@ -30,39 +30,57 @@
                                 <div class="mb-4">
                                
 
-                                <form asp-action="Create">
+                                <form [formGroup]="CreateForm" class="example-form">
                                     <div class="row justify-content-center">
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <mat-form-field >
                                                 <label asp-for="Name" class="label"></label>
-                                                <input asp-for="Name" class="form-control" placeholder="Name" required />
-                                                <span asp-validation-for="Name" class="text-danger"></span>
+                                                <input asp-for="Name" class="form-control"  matInput formControlName="name" placeholder="Name" required />
+                                                <span asp-validation-for="name" class="text-danger"></span>
+                                                <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                                                    feild is <strong>required</strong>
+                                                </mat-error>
+                                            </mat-form-field>
                                             </div>
+                                            
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <mat-form-field >
                                                 <label asp-for="Email" class="label"></label>
-                                                <input asp-for="Email" class="form-control" placeholder="Email" required />
-                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                                <input asp-for="Email" class="form-control"matInput formControlName="email" placeholder="Email" required />
+                                                <span asp-validation-for="email" class="text-danger"></span>
+                                                <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+                                                    feild is <strong>required</strong>
+                                                </mat-error></mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
+                                                <mat-form-field >
                                                 <label asp-for="Title" class="label"></label>
-                                                <input asp-for="Title" class="form-control" name="subject" id="subject" placeholder="Title" required/>
+                                                <input asp-for="Title" class="form-control" class="form-control"matInput formControlName="title"name="subject" id="subject" placeholder="Title" required/>
                                                 <span asp-validation-for="Title" class="text-danger"></span>
+                                                <mat-error *ngIf="CreateForm.controls['title'].hasError('required')">
+                                                    feild is <strong>required</strong>
+                                                </mat-error></mat-form-field>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label asp-for="Detail" class="label">Message</label>
-                                                <textarea asp-for="Detail" name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message" required></textarea>
+                                                <mat-form-field a>
+                                                <label asp-for="Detail" class="label"></label>
+                                                <textarea asp-for="Detail" matInput formControlName="feedback"name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message" required></textarea>
 
                                                 <span asp-validation-for="Detail" class="text-danger"></span>
+                                                <mat-error *ngIf="CreateForm.controls['feedback'].hasError('required')">
+                                                    feild is <strong>required</strong>
+                                                </mat-error></mat-form-field>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="submit" value="Create" class="btn btn-primary" />
+                                            <input type="submit" value="Create" class="btn btn-primary" (click)="create()" />
                                         </div>
                                     </div>
                                 </form>
