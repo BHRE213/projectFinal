@@ -14,6 +14,7 @@
                 <thead>
                     <tr>
                         <th>testimonialid</th>
+                        <th>name</th>
                         <th>txt</th>
                         <th>title</th>
                         <th>image </th>
@@ -25,13 +26,14 @@
                 <tbody>
                     <tr *ngFor="let item of testimonial.testimonialData" style="padding-left:30px ">
                         <td style="padding-left:30px ">{{item.testimonialid}}</td>
+                        <td style="padding-left:30px ">{{item.name}}</td>
                         <td style="padding-left:30px ">{{item.txt}}</td>
                         <td style="padding-left:30px ">{{item.title}}</td>
                         <td><img src="../../../assets/image/{{item.image}}" style="height: 100px;width: 100px;"></td>
                         <td style="padding-left:30px ">{{item.status}}</td>
                         <td class="col-lg-2">
                             <button class="btn btn-secondary"
-                                (click)="openUpdateDailog(item.testimonialid,item.txt,item.title,item.image,item.status)">Update</button>
+                                (click)="openUpdateDailog(item.testimonialid,item.name,item.txt,item.title,item.image,item.status)">Update</button>
                         </td>
                     </tr>
                 </tbody>
