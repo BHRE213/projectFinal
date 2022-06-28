@@ -36,4 +36,17 @@ export class ContactUsService {
     }, error => {
     })
   }
+  createcontact(data: any) {
+    // this.spinner.show();
+ 
+    this.http.post('https://localhost:44341/api/Contact/CreateContactUsForm', data)
+      .subscribe((res: any) => {
+        // this.spinner.hide();
+       this.toastr.success('Created Successfully ✔️ ')
+      }, err => {
+        // this.spinner.hide();
+        // this.toastr.error(err.message, err.status)
+      })
+  }
+
 }
