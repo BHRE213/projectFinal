@@ -17,6 +17,7 @@ export class AdminMedicineCategoryComponent implements OnInit {
   @ViewChild('callDeleteDailog') callDeleteDailog!: TemplateRef<any>
   @ViewChild('callUpdateDialog') callUpdateDialog!: TemplateRef<any>
 
+  medicineeCategory: any = {};
   ngOnInit(): void {
     this.medicineCategory.getAll();
   }
@@ -66,7 +67,7 @@ export class AdminMedicineCategoryComponent implements OnInit {
   }
   openUpdateDailog(medicineid1: any, type1: any, imagepath1: any) {
    
-    this.medicineCategory = {
+    this.medicineeCategory = {
       medicinecategoryid: medicineid1,
       type: type1,
       imagepath: imagepath1
@@ -78,7 +79,7 @@ export class AdminMedicineCategoryComponent implements OnInit {
 
   }
 
-  UpdateMedicine() {
+  UpdateMedicineCategory() {
 
     this.medicineCategory.UpdateMedicineCategory(this.updatForm.value);
     window.location.reload();
