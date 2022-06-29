@@ -70,6 +70,32 @@
     </mat-dialog-content>
 </ng-template>
 
+<ng-template #callUpdateDialog>
+    <h2 class="text-uppercase"> Update Medicine Category </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updatForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Category</mat-label>
+                        <input type="text" matInput formControlName="type" [(ngModel)]="medicineeCategory.type"
+                            placeholder="Enter Medicine Name">
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="UpdateMedicineCategory()"
+                cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
 
 <ng-template #callDeleteDailog>
     <h2 class="text-uppercase">Are You Sure You Want To Delete This!</h2>
