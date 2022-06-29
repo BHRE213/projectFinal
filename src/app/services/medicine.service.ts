@@ -11,6 +11,9 @@ export class MedicineService {
   medicineData: any = [];
   medicineCategoryData: any = [];
   display_Image: any;
+  medicineId:any;
+  singleMedicineData: any = [];
+
   getAll() {
     this.http.get('https://localhost:44341/api/Medicine/GetMedicne/').subscribe((res) => {
       this.medicineData = res;
@@ -99,5 +102,19 @@ export class MedicineService {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)
     })
+  }
+
+  getMedicineById(data: any) {
+    // this.spinner.show();
+    data.imagepath = this.display_Image;
+    this.http.post('https://localhost:44341/api/Medicine/GetMedicineBtId/', data)
+      .subscribe((res: any) => {
+        this.singleMedicineData = res;
+        // this.spinner.hide();
+       
+      }, err => {
+        // this.spinner.hide();
+        this.toastr.error(err.message, err.status)
+      })
   }
 }
