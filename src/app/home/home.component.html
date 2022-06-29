@@ -3,13 +3,13 @@
 <section class="banner_main">
     <div id="banner1" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#banner1" data-slide-to="0" class="active"></li>
-            <li data-target="#banner1" data-slide-to="1"></li>
-            <li data-target="#banner1" data-slide-to="2"></li>
+            <li data-target="#banner1" data-slide-to="[0]" class="active"></li>
+            <li data-target="#banner1" data-slide-to="[1]"></li>
+            <li data-target="#banner1" data-slide-to="[2]"></li>
         </ol>
       
-        <div class="carousel-inner"  *ngFor="let item of sitedata.shared" ng-style="margin:100px;">
-            <div class="carousel-item active">
+        <div class="carousel-inner" ng-style="margin:100px;">
+            <div class="carousel-item active"  *ngFor="let item of sitedata.shared" >
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="text-bg">
@@ -19,27 +19,7 @@
                     </div>
                 </div>
             </div>
-           <div class="carousel-item">
-                <div class="container">
-                 <div class="carousel-caption">
-                      <!--     <div class="text-bg">
-                            <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
-                            <figure><img src="../../assets/images/product_03.png" alt="#" /></figure>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="carousel-caption">
-                     <!--   <div class="text-bg">
-                            <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
-                            <figure><img src="../../assets/images/product_01.png" alt="#" /></figure>
-                        </div>-->
-                    </div>
-                </div>
-            </div>
-        </div>
+              </div>
         <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
         </a>
