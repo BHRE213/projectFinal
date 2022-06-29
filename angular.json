@@ -38,7 +38,14 @@
               "src/assets/js/jquery.magnific-popup.min.js",
               "src/assets/js/aos.js",
             
-             "src/assets/js/main.js"]
+             "src/assets/js/main.js",
+          "src/assets/assestTemp//js/main.js",
+          "src/assets/assestTemp/vendor/purecounter/purecounter.js",
+             "src/assets/assestTemp/asset/vendor/aos/aos.js",
+             "src/assets/assestTemp/asset/vendor/bootstrap/js/bootstrap.bundle.min.js",
+            "src/assets/assestTemp/asset/vendor/glightbox/js/glightbox.min.js",
+            "src/assets/assestTemp/asset/vendor/swiper/swiper-bundle.min.js",
+             "src/assets/assestTemp/asset/vendor/php-email-form/validate.js"]
           },
           "configurations": {
             "production": {
