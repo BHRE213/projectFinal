@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MedicineService } from '../services/medicine.service';
+import { ShareddataService } from '../services/shareddata.service';
+import { SitedataService } from '../services/sitedata.service';
 
 @Component({
   selector: 'app-medicine',
@@ -8,7 +10,7 @@ import { MedicineService } from '../services/medicine.service';
 })
 export class MedicineComponent implements OnInit {
 
-  constructor(public medicineService: MedicineService) { }
+  constructor(public medicineService: MedicineService,public sitedata:SitedataService ) { }
   name:any='';
 
   ngOnInit(): void {
