@@ -24,6 +24,18 @@ export class TestimonialService {
       this.toastr.error(err.message, err.status)
     })    
   }
+  getAcctest(){
+    this.http.get('https://localhost:44341/api/Testemonial/GetAccTest').subscribe((res) => {
+      this.testimonialData = res;
+      //hide spinner
+      // this.spinner.hide();
+      // res --> show toastr
+ 
+    }, err => {
+      // this.spinner.hide();
+      this.toastr.error(err.message, err.status)
+    })    
+  }
 
   
   getAllStatusData(){
