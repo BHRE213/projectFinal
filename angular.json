@@ -94,6 +94,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
+                  "maximumError": "1mb"
 >>>>>>> Stashed changes
                 },
                 "serve": {
