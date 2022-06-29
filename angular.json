@@ -84,9 +84,14 @@
               "src/assets/js/jquery.magnific-popup.min.js",
               "src/assets/js/aos.js",
             
+<<<<<<< Updated upstream
              "src/assets/js/main.js",
           "src/assets/assestTemp//js/main.js" 
                  ]
+=======
+             "src/assets/js/main.js"
+         ]
+>>>>>>> Stashed changes
           },
           "configurations": {
             "production": {
