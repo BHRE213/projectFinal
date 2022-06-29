@@ -64,4 +64,14 @@ export class MedicineCategoryService {
 
     
   }
+  UpdateMedicineCategory(body: any) {
+    if (this.display_Image != undefined) {
+      body.imagepath = this.display_Image;
+    }
+    this.http.put('https://localhost:44341/api/MedicineCategory/update/', body).subscribe((res) => {
+          // this.toastr.success('updated Successfully  ✔️');
+      }, err => {
+       // this.toastr.error(err.status, err.message);
+      })
+    }
 }

@@ -28,7 +28,11 @@
                         <td style="padding-left:30px " >{{item.medicinecategoryid}}</td >
                             <td style="padding-left:25px " >{{item.type}}</td>
                             <td><img src="../../../assets/image/{{item.imagepath}}" style="height: 100px;width: 100px;"></td>
-                        <td class="col-lg-2" >
+                            <td class="col-lg-2">
+                                <button class="btn btn-secondary"
+                                    (click)="openUpdateDailog(item.medicinecategoryid,item.type,item.imagepath)">Update</button>
+                            </td>
+                            <td class="col-lg-2" >
                             <button class="btn btn-danger" (click)="openDeleteDailog(item.medicinecategoryid)">Delete</button>
                         </td>
                     </tr>
