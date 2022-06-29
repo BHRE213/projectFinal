@@ -1,0 +1,11 @@
+<div>
+    <div class="row">
+
+        <div class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
+            <img src="../../../assets/image/{{item.imagepath}}" style="height:300px; width:250px " alt="Image " />
+            <h3 class="text-dark " style="font-size:25px "> {{item.name}} </h3>
+            <strong class="text-primary h4 "> ${{item.price}}</strong>
+        </div>
+
+    </div>
+</div>
