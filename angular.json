@@ -27,7 +27,6 @@
                             "src/styles.css",
                             "node_modules/ngx-toastr/toastr.css"
 
-<<<<<<< Updated upstream
                         ],
                         "scripts": ["node_modules/jquery/dist/jquery.min.js",
                             "node_modules/bootstrap/dist/js/bootstrap.min.js",
@@ -72,6 +71,7 @@
                         }
                     },
                     "defaultConfiguration": "production"
+<<<<<<< HEAD
 =======
             ],
             "scripts":["node_modules/jquery/dist/jquery.min.js",
@@ -101,6 +101,8 @@
                   "maximumWarning": "500kb",
                   "maximumError": "1mb"
 >>>>>>> Stashed changes
+=======
+>>>>>>> e98a3f07354c09e289cde73b5f8673d8a53b1de0
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",

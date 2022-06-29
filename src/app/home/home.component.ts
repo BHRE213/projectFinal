@@ -13,9 +13,10 @@ import { TestimonialService } from '../services/testimonial.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public testimonial: TestimonialService,public sharedhttp : ShareddataService,public sitehttp : SitedataService,private spinner : NgxSpinnerService,public sitedata:SitedataService ) { }
+  constructor(public testimonial: TestimonialService,public sharedhttp : ShareddataService,public sitehttp : SitedataService,private spinner : NgxSpinnerService,public sitedata:SitedataService,public shareddata: ShareddataService ) { }
 
   ngOnInit(): void {
+    this.shareddata.getAll();
     this.sitedata.getAll();
     this.testimonial.getAll();
     this.spinner.show();
