@@ -71,6 +71,38 @@
                         }
                     },
                     "defaultConfiguration": "production"
+<<<<<<< HEAD
+=======
+            ],
+            "scripts":["node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+               "src/assets/js/jquery-3.3.1.min.js",
+              "src/assets/js/jquery-ui.js",
+             "src/assets/js/popper.min.js",
+           "src/assets/js/bootstrap.min.js",
+             "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/aos.js",
+            
+<<<<<<< Updated upstream
+             "src/assets/js/main.js",
+          "src/assets/assestTemp//js/main.js" 
+                 ]
+=======
+             "src/assets/js/main.js"
+         ]
+>>>>>>> Stashed changes
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+>>>>>>> Stashed changes
+=======
+>>>>>>> e98a3f07354c09e289cde73b5f8673d8a53b1de0
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
