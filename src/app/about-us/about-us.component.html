@@ -1,3 +1,33 @@
 <app-header></app-header>
-<p>about workss!</p>
+
+<div  *ngFor="let item of aboutUs.aboutUsData" >
+<div class="site-section bg-light custom-border-bottom" data-aos="fade">
+    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 order-md-2">
+          <div class="block-16">
+            <figure>
+              <img src="../../../assets/image/{{item.image}}" alt="Image placeholder" class="img-fluid rounded">
+              
+  
+            </figure>
+          </div>
+        </div>
+        <div class="col-md-5 mr-auto">
+  
+  
+          <div class="site-section-heading pt-3 mb-4">
+            <h2 class="text-black">{{item.title}}</h2>
+          </div>
+          <p class="text-black">{{item.txt}}</p>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+<app-footer></app-footer>
 
