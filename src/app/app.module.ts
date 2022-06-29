@@ -16,6 +16,7 @@ import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { MedicineComponent } from './medicine/medicine.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HomeComponent,
     TestimonialComponent,   
     ReviewComponent, 
-    AboutUsComponent 
+    AboutUsComponent, MedicineComponent 
   ],
   imports: [
     BrowserModule,

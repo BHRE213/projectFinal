@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthorizationGuard } from './authorization.guard';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
+import { MedicineComponent } from './medicine/medicine.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 
 const routes: Routes = [
@@ -37,7 +38,10 @@ const routes: Routes = [
   loadChildren:() =>AdminModule,
  canActivate:[AuthorizationGuard]
 
-}
+},{
+  path:'medicine',
+  component:MedicineComponent
+},
 
 
 
