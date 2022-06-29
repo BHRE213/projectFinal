@@ -7,34 +7,35 @@
             <li data-target="#banner1" data-slide-to="1"></li>
             <li data-target="#banner1" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
+      
+        <div class="carousel-inner"  *ngFor="let item of sitedata.shared" ng-style="margin:100px;">
             <div class="carousel-item active">
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="text-bg">
                             <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
-                            <figure><img src="../../assets/images/product_01.png" alt="#" /></figure>
+                            <figure><img src="../../../assets/image/{{item.image}}" alt="#" /></figure>
                         </div>
+                    </div>
+                </div>
+            </div>
+           <div class="carousel-item">
+                <div class="container">
+                 <div class="carousel-caption">
+                      <!--     <div class="text-bg">
+                            <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
+                            <figure><img src="../../assets/images/product_03.png" alt="#" /></figure>
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="container">
                     <div class="carousel-caption">
-                        <div class="text-bg">
-                            <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
-                            <figure><img src="../../assets/images" alt="#" /></figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <div class="text-bg">
+                     <!--   <div class="text-bg">
                             <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
                             <figure><img src="../../assets/images/product_01.png" alt="#" /></figure>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -48,14 +49,43 @@
     </div>
 </section>
 
-<script src="../../assets/newNavbar/js/jquery-3.3.1.min.js"></script>
-<script src="../../assets/newNavbar/js/jquery-ui.js"></script>
-<script src="../../assets/newNavbar/js/popper.min.js"></script>
-<script src="../../assets/newNavbar/js/bootstrap.min.js"></script>
-<script src="../../assets/newNavbar/js/owl.carousel.min.js"></script>
-<script src="../../assets/newNavbar/js/jquery.magnific-popup.min.js"></script>
-<script src="../../assets/newNavbar/js/aos.js"></script>
+<div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="title-section text-center col-12">
+          <h2 class="text-uppercase">Testimonials</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 block-3 products-wrap">
+          <div class="nonloop-block-3 no-direction owl-carousel">
+      
+      
+           
+            <div class="testimony" *ngFor="let item of testimonial.testimonialData" >
+              <blockquote>
+                <img src="../../../assets/image/{{item.image}}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                <p>{{item.txt}}</p>
+              </blockquote>
+            
+              <p>{{item.name}}</p>
+            </div>
+      
+      
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<script src="../../assets/newNavbar/js/main.js"></script>
+<script src="../../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../../assets/js/jquery-ui.js"></script>
+  <script src="../../assets/js/popper.min.js"></script>
+  <script src="../../assets/js/bootstrap.min.js"></script>
+  <script src="../../assets/js/owl.carousel.min.js"></script>
+  <script src="../../assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="../../assets/js/aos.js"></script>
+
+  <script src="../../assets/js/main.js"></script>
 
 <app-footer></app-footer>
