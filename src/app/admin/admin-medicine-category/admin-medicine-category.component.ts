@@ -15,13 +15,21 @@ export class AdminMedicineCategoryComponent implements OnInit {
   constructor(public medicineCategory: MedicineCategoryService, private dialog: MatDialog) { }
   @ViewChild('callCreateDialog') callCreateDialog!: TemplateRef<any>
   @ViewChild('callDeleteDailog') callDeleteDailog!: TemplateRef<any>
+  @ViewChild('callUpdateDialog') callUpdateDialog!: TemplateRef<any>
 
+  medicineeCategory: any = {};
   ngOnInit(): void {
     this.medicineCategory.getAll();
   }
   CreateForm: FormGroup = new FormGroup({
     type: new FormControl('', Validators.required),
     imagepath: new FormControl('', Validators.required),
+  })
+  updatForm: FormGroup = new FormGroup({
+    medicinecategoryid: new FormControl('', Validators.required),
+    type: new FormControl('', Validators.required),
+    imagepath: new FormControl('', Validators.required),
+
   })
 
   uploadFile(file: any) {
@@ -56,5 +64,25 @@ export class AdminMedicineCategoryComponent implements OnInit {
           console.log('Thank you');
       }
     })
+  }
+  openUpdateDailog(medicineid1: any, type1: any, imagepath1: any) {
+   
+    this.medicineeCategory = {
+      medicinecategoryid: medicineid1,
+      type: type1,
+      imagepath: imagepath1
+    }
+
+    this.updatForm.controls['medicinecategoryid'].setValue(medicineid1);
+    this.updatForm.controls['imagepath'].setValue(imagepath1);
+    this.dialog.open(this.callUpdateDialog)
+
+  }
+
+  UpdateMedicineCategory() {
+
+    this.medicineCategory.UpdateMedicineCategory(this.updatForm.value);
+    window.location.reload();
+
   }
 }
