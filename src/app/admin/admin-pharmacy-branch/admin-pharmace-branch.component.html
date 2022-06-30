@@ -16,7 +16,6 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Text</th>
                         <th>phone</th>
@@ -29,8 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of pharmacy.pharmacyData" style="padding-left:30px ">
-                        <td style="padding-left:30px ">{{item.pharmacybranchesid}}</td>
+                    <tr *ngFor="let item of pharmacy.pharmacyData" style="padding-left:30px ">                 
                         <td style="padding-left:30px ">{{item.name}}</td>
                         <td style="padding-left:30px ">{{item.text}}</td>
                         <td style="padding-left:30px ">{{item.phone}}</td>

@@ -106,7 +106,7 @@ export class MedicineService {
 
   getMedicineById(data: any) {
     // this.spinner.show();
-    data.imagepath = this.display_Image;
+  
     this.http.post('https://localhost:44341/api/Medicine/GetMedicineBtId/', data)
       .subscribe((res: any) => {
         this.singleMedicineData = res;

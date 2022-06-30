@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MedicineService } from '../services/medicine.service';
+import { ShareddataService } from '../services/shareddata.service';
+import { SitedataService } from '../services/sitedata.service';
 
 @Component({
   selector: 'app-medicine',
@@ -8,7 +11,7 @@ import { MedicineService } from '../services/medicine.service';
 })
 export class MedicineComponent implements OnInit {
 
-  constructor(public medicineService: MedicineService) { }
+  constructor(public medicineService: MedicineService,public sitedata:SitedataService  ,private router:Router) { }
   name:any='';
 
   ngOnInit(): void {
@@ -32,5 +35,7 @@ export class MedicineComponent implements OnInit {
 
   openSingelPage(id:any){
     this.medicineService.medicineId=id;
+    console.log('id',id)
+    this.router.navigate(['singleMedicine'])
   }
 }

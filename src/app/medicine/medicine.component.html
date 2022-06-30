@@ -1,42 +1,41 @@
 <app-header></app-header>
 
-<div style="padding-top: 200px">
+<div>
+    <div class="bg-light py-3" style="margin-top: 3%;">
+        <div class="container">
+            <div class="col-md-12 mb-0">
+                <a href="">Home</a> <span class="mx-2 mb-0">/</span>
+                <a href="medicine">Store</a> <span class="mx-2 mb-0"></span>
+            </div>
+        </div>
+    </div>
 
-    <div class="section-heading" style=" text-align: center;padding-top: 2%; padding-bottom: 5%;">
+    <div class="section-heading" style=" text-align: center;padding-top: 2%; padding-bottom: 3%;">
         <h4>Our <em>Medicines</em></h4>
     </div>
     <form class="form-inline waves-light" mdbWavesEffect>
-        <!-- <div class="md-form mt-0">
-            <input style="border-color: rgb(52, 74, 218);border-radius: 3px; border-width: 1px;" class="form-control mr-sm-2" (change)="enterName($event)" type="text" placeholder="Search">
+        <div class="input-group" style=" margin-left:15%;margin-bottom: 2%;">
+            <div class="form-outline">
+                <input (change)="enterName($event)" placeholder="search" class="form-control border-end-0 border rounded-pill" type="text" id="example-search-input" style="border-radius:50%" />
+            </div>
+            <button style="border-radius:50%;margin-top: 2%;" type="button" class="btn btn-primary">
+                <i (click)=" search()" mdbWavesEffect class="fas fa-search"></i>
+            </button>
         </div>
-        <div style="margin-top: 15px;">
-            <button class="btn btn-light" type="button" (click)=" search()" mdbWavesEffect>Search</button>
-            <i style="size: 100px;" class="fa fa-search" (click)=" search()" mdbWavesEffect aria-hidden="true"></i>
-        </div> -->
-
-        <div class="input-group">
-            <input (change)="enterName($event)" class="form-control border-end-0 border rounded-pill" type="text" placeholder="search" id="example-search-input">
-            <span class="input-group-append">
-                <button style="margin-left:5px ;" class="btn btn-outline-secondary bg-white border-start-0 border rounded-pill ms-n3" type="button">
-                    <i  (click)=" search()"  mdbWavesEffect class="fa fa-search"></i>
-                </button>
-            </span>
-        </div>
-
-
-
     </form>
-    <div class="row">
-        <div class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
-            <img src="../../../assets/image/{{item.imagepath}}" style="height:300px; width:250px " alt="Image " />
-            <h3 class="text-dark " style="font-size:25px "> {{item.name}} </h3>
-            <strong class="text-primary h4 "> ${{item.price}}</strong>
-            <button class="btn btn-light" type="button" (click)="openSingelPage(item.medicineid)" mdbWavesEffect>open</button>
-
+    <div style="border-width: 1%;">
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
+                <img src="../../../assets/image/{{item.imagepath}}" style="height:200px; width:200px " alt="Image " />
+                <h3 style="font-size:25px ; color: #3d71ff ;padding-top:10%"> {{item.name}} </h3>
+                <strong style="color: #3d71ff ;font-size:25px ">price: ${{item.price}}</strong>
+                <div style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;">
+                    <button class="btn btn-light" type="button" (click)="openSingelPage(item.medicineid)" mdbWavesEffect>open</button>
+                </div>
+            </div>
         </div>
+
 
     </div>
 </div>
-<app-footer>
-
-</app-footer>
+<app-footer></app-footer>
