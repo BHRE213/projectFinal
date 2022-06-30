@@ -25,7 +25,7 @@
 
 .section-heading h4 em {
     font-style: normal;
-    color: #3d71ff;
+    color: #03cafc;
 }
 
 .single_element_text p a {
@@ -271,7 +271,7 @@
     font-size: 13px;
     color: #fff;
     background: rgb(119, 199, 228);
-    background: linear-gradient(-145deg, rgb(104, 135, 213) 0%, rgb(32, 32, 160) 100%);
+    background: linear-gradient(-145deg, rgb(3, 202, 252) 0%, rgb(0, 87, 180) 100%);
     padding: 12px 30px;
     display: inline-block;
     border-radius: 5px;
@@ -282,7 +282,7 @@
 
 .main-button-gradient:hover {
     color: white;
-    background: rgb(119, 81, 231);
-    background: linear-gradient(-145deg, rgb(99, 77, 247) 0%, rgb(91, 83, 251) 100%);
+    background: rgb(119, 199, 228);
+    background: linear-gradient(-145deg, rgb(0, 87, 180) 0%, rgb(3, 202, 252) 100%);
     opacity: 0.9;
 }
