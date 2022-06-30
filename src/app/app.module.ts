@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MedicineComponent } from './medicine/medicine.component';
+import { SingleMedicinePageComponent } from './single-medicine-page/single-medicine-page.component';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { MedicineComponent } from './medicine/medicine.component';
     HomeComponent,
     TestimonialComponent,   
     ReviewComponent, 
-    AboutUsComponent, MedicineComponent 
+    AboutUsComponent, MedicineComponent, SingleMedicinePageComponent 
   ],
   imports: [
     BrowserModule,
