@@ -1,5 +1,4 @@
 <app-header></app-header>
-
 <div style="padding-top: 200px">
     <div class="section-heading" style=" text-align: center;padding-top: 2%; padding-bottom: 3%;">
         <h4>Our <em>Medicines</em></h4>
@@ -17,18 +16,15 @@
         </div>
     </form>
     <div class="row">
-        <div   class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
+        <div class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
             <img src="../../../assets/image/{{item.imagepath}}" style="height:200px; width:200px " alt="Image " />
-            <h3 style="font-size:25px ; color: #3d71ff ;padding-top:10%" > {{item.name}} </h3>
-            <strong style="color: #3d71ff ;font-size:25px " >price: ${{item.price}}</strong>
+            <h3 style="font-size:25px ; color: #3d71ff ;padding-top:10%"> {{item.name}} </h3>
+            <strong style="color: #3d71ff ;font-size:25px ">price: ${{item.price}}</strong>
             <div style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;">
                 <button class="btn btn-light" type="button" (click)="openSingelPage(item.medicineid)"
                     mdbWavesEffect>open</button>
             </div>
         </div>
-
     </div>
 </div>
-<app-footer>
-
-</app-footer>
+<app-footer></app-footer>
