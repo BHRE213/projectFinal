@@ -16,7 +16,6 @@
             <table class="table table-hover" >
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Title</th>
                         <th>Text</th>
                         <th>Image </th>
@@ -25,7 +24,6 @@
                 </thead>
                 <tbody >
                     <tr *ngFor="let item of sitedata.shared" style="padding-left:30px " >
-                        <td style="padding-left:30px " >{{item.sitedataid}}</td >
                         <td style="padding-left:30px " >{{item.title}}</td>
                         <td style="padding-left:26px " class="text-wrap">{{item.txt}}</td>
                         <td><img src="../../../assets/image/{{item.image}}" style="height: 100px;width: 100px;"></td>
