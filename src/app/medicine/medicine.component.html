@@ -23,20 +23,19 @@
             </button>
         </div>
     </form>
-    <div class="row">
-        <div class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
-            <img src="../../../assets/image/{{item.imagepath}}" style="height:200px; width:200px " alt="Image " />
-            <h3 style="font-size:25px ; color: #3d71ff ;padding-top:10%"> {{item.name}} </h3>
-            <strong style="color: #3d71ff ;font-size:25px ">price: ${{item.price}}</strong>
-            <div style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;">
-                <button class="btn btn-light" type="button" (click)="openSingelPage(item.medicineid)" mdbWavesEffect>open</button>
+    <div style="border-width: 1%;">
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
+                <img src="../../../assets/image/{{item.imagepath}}" style="height:200px; width:200px " alt="Image " />
+                <h3 style="font-size:25px ; color: #3d71ff ;padding-top:10%"> {{item.name}} </h3>
+                <strong style="color: #3d71ff ;font-size:25px ">price: ${{item.price}}</strong>
+                <div style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;">
+                    <button class="btn btn-light" type="button" (click)="openSingelPage(item.medicineid)" mdbWavesEffect>open</button>
+                </div>
             </div>
         </div>
 
+
     </div>
-
-
 </div>
-<app-footer>
-
-</app-footer>
+<app-footer></app-footer>

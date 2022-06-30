@@ -30,7 +30,6 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Medicine Name</th>
                                 <th>Medicine quantity</th>
                                 <th>Cost </th>
@@ -42,8 +41,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of medicine.medicineData" style="padding-left:30px ">
-                                <td style="padding-left:30px ">{{item.medicineid}}</td>
+                            <tr *ngFor="let item of medicine.medicineData" style="padding-left:30px ">                             
                                 <td style="padding-left:30px ">{{item.name}}</td>
                                 <td style="padding-left:26px ">{{item.medicinenumber}}</td>
                                 <td style="padding-left:30px ">{{item.cost}}</td>
