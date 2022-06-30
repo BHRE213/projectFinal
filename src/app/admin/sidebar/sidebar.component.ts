@@ -11,8 +11,7 @@ export class SidebarComponent implements OnInit {
   constructor(private spinner : NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this.spinner.show();
-    setTimeout(() =>{
+        setTimeout(() =>{
       this.spinner.hide();
     },2000);
   }
