@@ -35,11 +35,11 @@
                         <div class="section-heading" style="margin-left: 30%;  margin-bottom: 3%; text-align: center;">
                             <h4>Give Us Your <em>Testimonial</em></h4>
                         </div>
-                        <div class="s_comment_inner">
-                            <form [formGroup]="CreateForm" class="example-form">
+                        <div >
+                            <form [formGroup]="CreateForm" style="margin-left: 200px;" class="example-form">
                                 <ul>
                                     <li>
-                                        <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-form-field class="example-full-width" appearance="outline">
                                             <mat-label>Enter Your Name </mat-label>
                                             <input type="text" matInput formControlName="name" placeholder="name ">
                                             <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
@@ -48,7 +48,7 @@
                                         </mat-form-field>
                                     </li>
                                     <li>
-                                        <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-form-field class="example-full-width" appearance="outline">
                                             <mat-label>Enter Your Feedback </mat-label>
                                             <input type="text" matInput formControlName="txt" placeholder="feedback ">
                                             <mat-error *ngIf="CreateForm.controls['txt'].hasError('required')">
