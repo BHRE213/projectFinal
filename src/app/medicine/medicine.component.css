@@ -1,0 +1,23 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 150px;
+    margin-left: 150px;
+    margin-bottom: 20px;
+    color: #3d71ff
+}
+
+.section-heading h4 {
+    margin-top: 10px;
+    line-height: 40px;
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: capitalize;
+    color: #111;
+    letter-spacing: 1px;
+}
+
+.section-heading h4 em {
+    font-style: normal;
+    color: #3d71ff;
+}

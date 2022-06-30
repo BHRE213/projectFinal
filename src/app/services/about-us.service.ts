@@ -73,5 +73,5 @@ UpdateAbput(body: any) {
     }, err => {
       this.toastr.error(err.status, err.message);
     })
-}
+  }
 }

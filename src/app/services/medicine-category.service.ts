@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
+
 })
 export class MedicineCategoryService {
 
 
-  constructor(private http: HttpClient,private toastr: ToastrService) { }
+  constructor(private http: HttpClient) { }
   medicineCategoryData:any=[];
   display_Image: any;
 
@@ -18,10 +18,10 @@ export class MedicineCategoryService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      // this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      this.toastr.error(err.message, err.status)
+      // this.toastr.error(err.message, err.status)
     })
 
     
@@ -31,23 +31,20 @@ export class MedicineCategoryService {
     this.http.post('https://localhost:44341/api/MedicineCategory/Upload', file)
       .subscribe((res: any) => {     
         this.display_Image = res.imagepath;
-        console.log(this.display_Image)
       }, err => {
        
       })
   }
-
   createMedicineCategory(data: any) {
     // this.spinner.show();
     data.imagepath = this.display_Image;
     this.http.post('https://localhost:44341/api/MedicineCategory/CreateMedicineCategory', data)
       .subscribe((res: any) => {
         // this.spinner.hide();
-        this.toastr.success('Created Successfully ✔️ ')
-        console.log(this.display_Image)
+        // this.toastr.success('Created Successfully ✔️ ')
       }, err => {
         // this.spinner.hide();
-        this.toastr.error(err.message, err.status)
+        // this.toastr.error(err.message, err.status)
       })
   }
 
@@ -58,13 +55,23 @@ export class MedicineCategoryService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      // this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      this.toastr.error(err.message, err.status)
+      // this.toastr.error(err.message, err.status)
     })
 
 
     
   }
+  UpdateMedicineCategory(body: any) {
+    if (this.display_Image != undefined) {
+      body.imagepath = this.display_Image;
+    }
+    this.http.put('https://localhost:44341/api/MedicineCategory/UpdateMedicineCategory/', body).subscribe((res) => {
+          // this.toastr.success('updated Successfully  ✔️');
+      }, err => {
+       // this.toastr.error(err.status, err.message);
+      })
+    }
 }

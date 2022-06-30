@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 
-
+import {MatIconModule} from '@angular/material/icon';
 
 import { AdminRoutingModule } from './admin-routing.module';
 
@@ -63,6 +63,7 @@ declarations: [
 ],
 
 imports: [
+  MatIconModule,
   CommonModule,
   AdminRoutingModule,
   SharedModule,

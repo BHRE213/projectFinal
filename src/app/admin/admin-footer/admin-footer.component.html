@@ -1,4 +1,7 @@
-<div class="page-header mt-4" style="margin-top: 10px;">
+
+<app-sidebar></app-sidebar>
+<div style="margin-left: 300px;">
+    <div class="page-header mt-4" style="margin-top: 10px;">
     <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
             <i class="mdi mdi-information-outline"></i>
@@ -11,7 +14,6 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>About Text</th>
                         <th>Location</th>
                         <th>Email </th>
@@ -21,7 +23,6 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of footer.footerData">
-                        <td style="padding-left:23px ;">{{item.footerid}}</td>
                         <td style="padding-left:20px ;">{{item.about}}</td>
                         <td style="padding-left:20px ;">{{item.location}}</td>
                         <td style="padding-left:20px;">{{item.email}}</td>
@@ -36,7 +37,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <ng-template #callUpdateDialog>
     <h2 class="text-uppercase"> Update Footer </h2>
     <mat-dialog-content class="mat-typography">

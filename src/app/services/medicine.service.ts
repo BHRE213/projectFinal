@@ -11,13 +11,16 @@ export class MedicineService {
   medicineData: any = [];
   medicineCategoryData: any = [];
   display_Image: any;
+  medicineId:any;
+  singleMedicineData: any = [];
+
   getAll() {
     this.http.get('https://localhost:44341/api/Medicine/GetMedicne/').subscribe((res) => {
       this.medicineData = res;
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+     
     }, err => {
       // this.spinner.hide();
       // this.toastr.error(err.message, err.status)
@@ -29,7 +32,7 @@ export class MedicineService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+     
     }, err => {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)
@@ -80,7 +83,7 @@ export class MedicineService {
       body.imagepath = this.display_Image;
     }
     this.http.put('https://localhost:44341/api/Medicine/UpdateMedicen/', body).subscribe((res) => {
-      this.toastr.success('updated Successfully  ✔️');
+      this.toastr.success('updated Successfully  ');
  }, err => {
    this.toastr.error(err.status, err.message);
  })
@@ -99,5 +102,19 @@ export class MedicineService {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)
     })
+  }
+
+  getMedicineById(data: any) {
+    // this.spinner.show();
+  
+    this.http.post('https://localhost:44341/api/Medicine/GetMedicineBtId/', data)
+      .subscribe((res: any) => {
+        this.singleMedicineData = res;
+        // this.spinner.hide();
+       
+      }, err => {
+        // this.spinner.hide();
+        this.toastr.error(err.message, err.status)
+      })
   }
 }

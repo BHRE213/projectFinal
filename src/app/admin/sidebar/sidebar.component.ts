@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-
+import {MatIconModule} from '@angular/material/icon';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -11,8 +11,7 @@ export class SidebarComponent implements OnInit {
   constructor(private spinner : NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this.spinner.show();
-    setTimeout(() =>{
+        setTimeout(() =>{
       this.spinner.hide();
     },2000);
   }

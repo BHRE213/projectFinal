@@ -1,2 +1,83 @@
-<ngx-spinner type="ball-clip-rotate-multiple"></ngx-spinner>
-<p>testimonial works!</p>
+<app-header></app-header>
+<div>
+    <!--================Testimonials item Area =================-->
+    <section class="testimonials_item_area p_100">
+        <div class="container">
+            <div class="col-lg-12">
+            </div>
+            <div class="testi_item_inner" *ngFor="let item of this.testomonal.testimonialData">
+                <div class="media" *ngIf="item.status=='Approved'">
+                    <div class="d-flex">
+                        <img src="../../../assets/image/{{item.image}}" style="width: 15%;" alt="">
+                        <h3>“</h3>
+                        <div class="media-body">
+                            <p>{{item.txt}}</p>
+                            <h5>- {{item.name}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Testimonials item Area =================-->
+
+    <!--================Your Testimonial Area =================-->
+    <section class="main_blog_area pb_100">
+        <div class="container">
+            <div class="row blog_area_inner">
+                <div class="col-lg-9">
+                    <div class="main_blog_inner single_blog_inner">
+                        <div class="s_comment_area">
+                            <div class="section-heading"
+                                style="margin-left: 30%;  margin-bottom: 3%; text-align: center;">
+                                <h4>Give Us Your <em>Testimonial</em></h4>
+                            </div>
+                            <div>
+                                <form [formGroup]="CreateForm" style="margin-left: 200px;" class="example-form">
+                                    <ul>
+                                        <li>
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label>Enter Your Name </mat-label>
+                                                <input type="text" matInput formControlName="name" placeholder="name ">
+                                                <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                                                    Name is <strong>required</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </li>
+                                        <li>
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label>Enter Your Feedback </mat-label>
+                                                <input type="text" matInput formControlName="txt"
+                                                    placeholder="feedback ">
+                                                <mat-error *ngIf="CreateForm.controls['txt'].hasError('required')">
+                                                    Feedback is <strong>required</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </li>
+                                        <li>
+                                            <input type="file" #file placeholder="Choose Image" formControlName="image"
+                                                (change)="uploadFile(file.files)" style="display:none;">
+                                            <button class="main-button-gradient" (click)="file.click()">Upload
+                                                Image</button>
+                                        </li>
+                                    </ul>
+                                    <button class="main-button-gradient"
+                                        style="float: right; padding: 0; width: 100px;height: 40px;" mat-button
+                                        [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Your Testimonial Area =================-->
+</div>
+
+
+
+
+
+
+<app-footer></app-footer>

@@ -1,3 +1,5 @@
+<app-sidebar></app-sidebar>
+<div style="margin-left: 300px;">
 <div class="page-header mt-4" style="margin-top: 10px;" >
     <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
@@ -14,7 +16,6 @@
             <table class="table table-hover" >
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Title</th>
                         <th>Text</th>
                         <th>Image </th>
@@ -23,7 +24,6 @@
                 </thead>
                 <tbody >
                     <tr *ngFor="let item of sitedata.shared" style="padding-left:30px " >
-                        <td style="padding-left:30px " >{{item.sitedataid}}</td >
                         <td style="padding-left:30px " >{{item.title}}</td>
                         <td style="padding-left:26px " class="text-wrap">{{item.txt}}</td>
                         <td><img src="../../../assets/image/{{item.image}}" style="height: 100px;width: 100px;"></td>
@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <ng-template #callCreateDialog>
     <h2 class="text-uppercase"> Add New Site Data</h2>
     <mat-dialog-content class="mat-typography">
