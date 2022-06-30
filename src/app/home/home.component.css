@@ -16,7 +16,6 @@ h2::after {
 	position: absolute;
 	margin: 0 auto;
 	height: 3px;
-	background: #8fbc54;
 	left: 0;
 	right: 0;
 	bottom: -10px;
