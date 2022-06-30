@@ -1,0 +1,13 @@
+.p-5 {
+    padding: 3rem!important;
+}
+
+.img-fluid {
+    width: 450px;
+    height: 600px;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
