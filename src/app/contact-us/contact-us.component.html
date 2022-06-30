@@ -14,68 +14,75 @@
         </div>
     </section>
 
-    <section class="contact-us2">
+    <!--<section class="contact-us2">
         <div class="container">
-            <div class="row">
-
-                <div class="col-lg-4">
-                    <form id="contact" [formGroup]="CreateForm" class="example-form">
-                        <div class="col-lg-12">
-                            <div class="section-heading">
-                                <h6>Contact Us</h6>
-                                <h4>Say <em>Hello</em></h4>
+            <div class="row">!-->
+    <section class="main_blog_area pb_100">
+        <div class="container">
+            <div class="row blog_area_inner">
+                <div class="col-lg-9">
+                    <div class="main_blog_inner single_blog_inner">
+                        <div class="s_comment_area">
+                            <div class="section-heading" style="margin-left: 30%;  margin-bottom: 3%; text-align: center;">
+                                <h4>Give Us Your <em>Testimonial</em></h4>
                             </div>
+                        <div >
+                            <form [formGroup]="CreateForm" style="margin-left: 200px;" class="example-form">
+                                <ul>
+                                    <li>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Enter Your Name </mat-label>
+                                            <input type="text" matInput formControlName="name" placeholder="name">
+                                            <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                                                name is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Enter Your Email </mat-label>
+                                            <input type="email" matInput formControlName="email" placeholder="email">
+                                            <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+                                                email <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Enter title </mat-label>
+                                            <input type="text" matInput formControlName="title" placeholder="title">
+                                            <mat-error *ngIf="CreateForm.controls['title'].hasError('required')">
+                                                title is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Your phonenumber </mat-label>
+                                            <input style="width: 50%;" type="text" matInput formControlName="phonenumber" placeholder="phonenumber">
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Feedback </mat-label>
+                                            <input style="height:100px ; width:150px"  type="text" matInput formControlName="feedback" placeholder="feedback">
+                                            <mat-error *ngIf="CreateForm.controls['feedback'].hasError('required')">
+                                                feedback is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <button mat-button [mat-dialog-close]="true" style="background-color: #56a3f5; border-radius: 4px; font-size: 16px; padding: 10px 14px;" (click)="send()" cdkFocusInitial>Send</button>
+                                    </li>  
+                                </ul>
+                            </form>
                         </div>
-                        <ul>
-                            <li>
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                    <mat-label>Enter Your Name </mat-label>
-                                    <input type="text" matInput formControlName="name" placeholder="name">
-                                    <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
-                                        name is <strong>required</strong>
-                                    </mat-error>
-                                </mat-form-field>
-                            </li>
-                            <li>
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                    <mat-label>Enter Your Email </mat-label>
-                                    <input type="email" matInput formControlName="email" placeholder="email">
-                                    <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
-                                        email <strong>required</strong>
-                                    </mat-error>
-                                </mat-form-field>
-                            </li>
-                            <li>
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                    <mat-label>Enter title </mat-label>
-                                    <input type="text" matInput formControlName="title" placeholder="title">
-                                    <mat-error *ngIf="CreateForm.controls['title'].hasError('required')">
-                                        title is <strong>required</strong>
-                                    </mat-error>
-                                </mat-form-field>
-                            </li>
-                            <li>
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                    <mat-label>Enter Your phonenumber </mat-label>
-                                    <input type="text" matInput formControlName="phonenumber" placeholder="phonenumber">
-                                </mat-form-field>
-                            </li>
-                            <li>
-                                <mat-form-field class="example-full-width" appearance="fill">
-                                    <mat-label> Feedback </mat-label>
-                                    <input style="height:100px ; width:150px" type="text" matInput formControlName="feedback" placeholder="feedback">
-                                    <mat-error *ngIf="CreateForm.controls['feedback'].hasError('required')">
-                                        feedback is <strong>required</strong>
-                                    </mat-error>
-                                </mat-form-field>
-                            </li>
-                        </ul>
-                        <button mat-button [mat-dialog-close]="true" (click)="send()" cdkFocusInitial>Send</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 </div>
 
 <app-footer></app-footer>
