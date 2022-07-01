@@ -60,9 +60,17 @@ export class OrdderService {
     }, err => {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)
-    })
-
-
-    
+    })    
   }
+
+
+  createOrder(data: any) {   
+    this.http.post('https://localhost:44341/api/Order/createOrder/', data)
+      .subscribe((res: any) => {
+        this.toastr.success('Added To Cart ✔️ ')
+      }, err => {    
+        this.toastr.error(err.message, err.status)
+      })
+  }
+
 }
