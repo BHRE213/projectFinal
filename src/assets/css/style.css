@@ -3,7 +3,9 @@ body {
   line-height: 1.7;
   color: #8c92a0;
   font-weight: 300;
-  font-size: 16px; }
+  font-size: 16px; 
+
+}
 
 ::-moz-selection {
   background: #000;
@@ -77,6 +79,7 @@ a {
     box-shadow: none !important; }
 
 .site-section {
+
   padding: 2.5em 0; }
   @media (min-width: 768px) {
     .site-section {
@@ -1094,7 +1097,8 @@ a {
 
 .bg-image {
   background-size: cover;
-  position: relative; }
+  position: relative;
+ }
   .bg-image:after {
     content: "";
     position: absolute;
@@ -1102,7 +1106,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(81, 234, 234, 0.9);
+    background: rgba(203, 250, 250, 0.9);
     z-index: 1; }
   .bg-image > .container {
     position: relative;
