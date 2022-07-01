@@ -17,8 +17,8 @@ export class RegisterComponent implements OnInit {
     username : new FormControl('',[Validators.required]),
     fullname : new FormControl('',[Validators.required]),
     phonenumber : new FormControl('',[Validators.required]),
-    password: new FormControl('',[Validators.required,Validators.minLength(8)]),
-    confirmpassword: new FormControl('',[Validators.required,Validators.minLength(8)]),
+    password: new FormControl('',[Validators.required,Validators.minLength(6)]),
+    confirmpassword: new FormControl('',[Validators.required]),
     imagepath:new FormControl()
      })
 
@@ -72,3 +72,4 @@ export class RegisterComponent implements OnInit {
       });
     }
 }
+

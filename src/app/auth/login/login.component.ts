@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   emailFormControl = new FormControl('', [ Validators.required]);
-  passFormControl = new FormControl('', Validators.minLength(6));
+  passFormControl = new FormControl('',[ Validators.minLength(6),Validators.required]);
 
   constructor(private router:Router, public authService: AuthService,private spinner : NgxSpinnerService) { }
 
