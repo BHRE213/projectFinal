@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable({
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ShareddataService {
 
-  constructor(private httpshared : HttpClient) { }
+  constructor(private httpshared : HttpClient,private toastr: ToastrService) { }
 
   shared : any =[];
   display_Image: any;
@@ -18,10 +19,10 @@ export class ShareddataService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      //this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      //this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
 }
 
@@ -40,10 +41,10 @@ createAboutus(data: any) {
   this.httpshared.post('https://localhost:44341/api/SharedData/', data)
     .subscribe((res: any) => {
       // this.spinner.hide();
-      // this.toastr.success('Created Successfully ✔️ ')
+      this.toastr.success('Created Successfully ✔️ ')
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
 }
 
@@ -52,9 +53,9 @@ UpdateAbput(body: any) {
     body.image = this.display_Image;
   }
   this.httpshared.put('https://localhost:44341/api/SharedData/', body).subscribe((res) => {
-         // this.toastr.success('updated Successfully :)');
+         this.toastr.success('updated Successfully :)');
     }, err => {
-      // this.toastr.error(err.status, err.message);
+      this.toastr.error(err.status, err.message);
     })
 }
 
@@ -64,10 +65,10 @@ deleteAbout(id:number){
     //hide spinner
     // this.spinner.hide();
     // res --> show toastr
-    // this.toastr.success('Data Retrieved !!');
+    this.toastr.success('Data Retrieved !!');
   }, err => {
     // this.spinner.hide();
-    // this.toastr.error(err.message, err.status)
+    this.toastr.error(err.message, err.status)
   })
 
 }

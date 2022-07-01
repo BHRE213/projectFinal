@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdderService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private toastr: ToastrService) { }
 
   allorder:any=[];
   getAll(){
@@ -15,10 +16,10 @@ export class OrdderService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
 
     
@@ -29,14 +30,11 @@ export class OrdderService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
-    })
-
-
-    
+      this.toastr.error(err.message, err.status)
+    })   
   }
 
   acceptorder(id:number){
@@ -45,14 +43,11 @@ export class OrdderService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
-    })
-
-
-    
+      this.toastr.error(err.message, err.status)
+    })   
   }
 
   rejectorder(id:number){
@@ -61,10 +56,10 @@ export class OrdderService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
 
 

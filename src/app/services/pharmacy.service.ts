@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class PharmacyService {
 
  
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private toastr: ToastrService) { }
   pharmacyData:any=[];
   display_Image: any;
 
@@ -17,10 +18,10 @@ export class PharmacyService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })    
   }
 
@@ -28,8 +29,7 @@ export class PharmacyService {
     this.http.post('https://localhost:44341/api/PharmacyBranches/Upload', file)
       .subscribe((res: any) => {     
         this.display_Image = res.image;
-      }, err => {
-       
+      }, err => {  this.toastr.error(err.message, err.status)
       })
   }
 
@@ -39,10 +39,10 @@ export class PharmacyService {
     this.http.post('https://localhost:44341/api/PharmacyBranches/createPharmacyBranches/', data)
       .subscribe((res: any) => {
         // this.spinner.hide();
-        // this.toastr.success('Created Successfully ✔️ ')
+        this.toastr.success('Created Successfully ✔️ ')
       }, err => {
         // this.spinner.hide();
-        // this.toastr.error(err.message, err.status)
+        this.toastr.error(err.message, err.status)
       })
   }
 
@@ -53,10 +53,10 @@ export class PharmacyService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
 
 
@@ -67,9 +67,9 @@ UpdatePharmacy(body: any) {
     body.image = this.display_Image;
   }
   this.http.put('https://localhost:44341/api/PharmacyBranches/updatePharmacyBranches', body).subscribe((res) => {
-         // this.toastr.success('updated Successfully :)');
+         this.toastr.success('updated Successfully :)');
     }, err => {
-      // this.toastr.error(err.status, err.message);
+      this.toastr.error(err.status, err.message);
     })
 }
 }

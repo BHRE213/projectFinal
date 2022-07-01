@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ContactUsService } from '../services/contact-us.service';
+import { ShareddataService } from '../services/shareddata.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -8,13 +12,32 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ContactUsComponent implements OnInit {
 
-  constructor(private spinner : NgxSpinnerService) { }
+
+  constructor(private contactusService:ContactUsService,private router:Router, private toastr: ToastrService,public shareddata: ShareddataService) { }
+
+  CreateForm :FormGroup =new FormGroup({
+    title:new FormControl('',Validators.required),
+    feedback:new FormControl('',Validators.required),
+    name:new FormControl('',Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phonenumber:new FormControl(''),    
+  })
+
+
 
   ngOnInit(): void {
-    this.spinner.show();
-    setTimeout(() =>{
-      this.spinner.hide();
-    },2000);
+    this.shareddata.getAll();
   }
 
+
+  send(){
+    this.contactusService.create(this.CreateForm.value);
+    this.toastr.success('Thank you for contacting us ❤️ ')
+    window.location.reload();
+  }
+
+
+
+
 }
+

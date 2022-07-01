@@ -13,7 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Token } from '@angular/compiler';
 import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { MedicineComponent } from './medicine/medicine.component';
+import { SingleMedicinePageComponent } from './single-medicine-page/single-medicine-page.component';
 
 
 @NgModule({
@@ -23,13 +27,15 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HomeComponent,
     TestimonialComponent,   
     ReviewComponent, 
-    AboutUsComponent 
+    AboutUsComponent, MedicineComponent, SingleMedicinePageComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
+    MatDialogModule,
+    ToastrModule.forRoot(),
     NgxSpinnerModule
   ],
   

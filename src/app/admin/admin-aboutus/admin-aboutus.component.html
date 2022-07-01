@@ -1,4 +1,6 @@
-<div class="page-header mt-4" style="margin-top: 10px;" >
+<app-sidebar></app-sidebar>
+<div style="padding-left: 300px ;"  >
+<div class="page-header mt-4" style="margin-top: 10px; " >
     <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
             <i class="mdi mdi-information-outline"></i>
@@ -14,7 +16,6 @@
             <table class="table table-hover" >
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Title</th>
                         <th>Text</th>
                         <th>Image </th>
@@ -22,8 +23,7 @@
                     </tr>
                 </thead>
                 <tbody >
-                    <tr *ngFor="let item of aboutUs.aboutUsData" style="padding-left:30px " >
-                        <td style="padding-left:30px " >{{item.abuotusid}}</td >
+                    <tr *ngFor="let item of aboutUs.aboutUsData" style="padding-left:30px " >                      
                         <td style="padding-left:30px " >{{item.title}}</td>
                         <td style="padding-left:26px " class="text-wrap">{{item.txt}}</td>
                         <td><img src="../../../assets/image/{{item.image}}" style="height: 100px;width: 100px;"></td>
@@ -78,7 +78,7 @@
         </mat-dialog-actions>
     </mat-dialog-content>
 </ng-template>
-
+</div>
 
 <ng-template #callUpdateDialog>
     <h2 class="text-uppercase"> Update About Us  </h2>

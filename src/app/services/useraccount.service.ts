@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UseraccountService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private toastr: ToastrService) { }
 
   allusers:any=[];
   getAll(){
@@ -15,10 +16,10 @@ export class UseraccountService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+      this.toastr.error(err.message, err.status)
     })
 
     
@@ -29,13 +30,10 @@ export class UseraccountService {
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-      // this.toastr.success('Data Retrieved !!');
+      this.toastr.success('Data Retrieved !!');
     }, err => {
       // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
-    })
-
-
-    
+      this.toastr.error(err.message, err.status)
+    })    
   }
 }

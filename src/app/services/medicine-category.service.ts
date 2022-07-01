@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
+
 })
 export class MedicineCategoryService {
 
@@ -30,12 +31,10 @@ export class MedicineCategoryService {
     this.http.post('https://localhost:44341/api/MedicineCategory/Upload', file)
       .subscribe((res: any) => {     
         this.display_Image = res.imagepath;
-        console.log(this.display_Image)
       }, err => {
        
       })
   }
-
   createMedicineCategory(data: any) {
     // this.spinner.show();
     data.imagepath = this.display_Image;
@@ -43,7 +42,6 @@ export class MedicineCategoryService {
       .subscribe((res: any) => {
         // this.spinner.hide();
         // this.toastr.success('Created Successfully ✔️ ')
-        console.log(this.display_Image)
       }, err => {
         // this.spinner.hide();
         // this.toastr.error(err.message, err.status)
@@ -66,4 +64,14 @@ export class MedicineCategoryService {
 
     
   }
+  UpdateMedicineCategory(body: any) {
+    if (this.display_Image != undefined) {
+      body.imagepath = this.display_Image;
+    }
+    this.http.put('https://localhost:44341/api/MedicineCategory/UpdateMedicineCategory/', body).subscribe((res) => {
+          // this.toastr.success('updated Successfully  ✔️');
+      }, err => {
+       // this.toastr.error(err.status, err.message);
+      })
+    }
 }

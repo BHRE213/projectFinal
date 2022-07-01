@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ShareddataService } from '../services/shareddata.service';
 import { SitedataService } from '../services/sitedata.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { TestimonialService } from '../services/testimonial.service';
 
 
 @Component({
@@ -12,9 +13,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public sharedhttp : ShareddataService,public sitehttp : SitedataService,private spinner : NgxSpinnerService) { }
+  constructor(public testimonial: TestimonialService,public sharedhttp : ShareddataService,public sitehttp : SitedataService,private spinner : NgxSpinnerService,public sitedata:SitedataService,public shareddata: ShareddataService ) { }
 
   ngOnInit(): void {
+    this.shareddata.getAll();
+    this.sitedata.getAll();
+    this.testimonial.getAcctest();
     this.spinner.show();
     setTimeout(() =>{
       this.spinner.hide();

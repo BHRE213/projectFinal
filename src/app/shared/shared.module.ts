@@ -7,7 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -21,9 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatInputModule,    
     HttpClientModule,
-    MatDialogModule,
-
-    
+   
   ],
   exports:[
     HeaderComponent,
@@ -33,10 +32,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    MatDialogModule,
-    
-    
-    
+    MatDialogModule,    
+    ToastrModule
   ]
 })
 export class SharedModule {

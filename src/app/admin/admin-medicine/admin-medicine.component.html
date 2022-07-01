@@ -1,62 +1,71 @@
-<div class="page-header mt-4" style="margin-top: 10px;">
-    <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
-        <span class="page-title-icon bg-gradient-primary text-white me-2">
-            <i class="mdi mdi-information-outline"></i>
-        </span> manage medicine table
-    </h3>
-</div>
-<div style="margin-top: 50px;">
-    <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
-</div>
-<div>
-    <form class="form-inline waves-light" mdbWavesEffect>
-        <div class="md-form mt-0">
-            <input class="form-control mr-sm-2" (change)="enterName($event)" type="text" placeholder="Search">
+<app-sidebar></app-sidebar>
+<div >
+    <div style="padding-left: 300px ; "  >
+        <div class="page-header mt-4" style="margin-top: 10px;">
+            <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-information-outline"></i>
+                </span> manage medicine table
+            </h3>
+              </div>
+          <div style="margin-top: 50px;">
+            <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+           </div>
+           <div>
+            <form class="form-inline waves-light" mdbWavesEffect>
+                <div class="md-form mt-0">
+                    <input class="form-control mr-sm-2" (change)="enterName($event)" type="text" placeholder="Search">
+                </div>
+                <div style="margin-top: 15px;">
+                    <button class="btn btn-light" type="button" (click)=" search()" mdbWavesEffect>Search</button>
+
+                </div>
+
+            </form>
         </div>
-        <button mdbBtn type="button" (click)=" search()" color="primary" mdbWavesEffect>Search</button>
-    </form>
-</div>
 
-<div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Medicine Name</th>
-                        <th>Medicine quantity</th>
-                        <th>Cost </th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Medicine Category </th>
-                        <th>Image</th>
-                        <th colspan="2">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of medicine.medicineData" style="padding-left:30px ">
-                        <td style="padding-left:30px ">{{item.medicineid}}</td>
-                        <td style="padding-left:30px ">{{item.name}}</td>
-                        <td style="padding-left:26px ">{{item.medicinenumber}}</td>
-                        <td style="padding-left:30px ">{{item.cost}}</td>
-                        <td style="padding-left:30px ">{{item.price}}</td>
-                        <td style="padding-left:26px " class="text-wrap">{{item.description}}</td>
-                        <td style="padding-left:26px ">{{item.type}}</td>
-                        <td><img src="../../../assets/image/{{item.imagepath}}" style="height: 100px;width: 100px;"></td>
-                        <td class="col-lg-2">
-                            <button class="btn btn-secondary" (click)="openUpdateDailog(item.medicineid,item.name,item.medicinenumber,item.cost,item.price,item.description,item.medicineCategoryId,item.imagepath)">Update</button>
-                        </td>
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Medicine Name</th>
+                                <th>Medicine quantity</th>
+                                <th>Cost </th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Medicine Category </th>
+                                <th>Image</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of medicine.medicineData" style="padding-left:30px ">                             
+                                <td style="padding-left:30px ">{{item.name}}</td>
+                                <td style="padding-left:26px ">{{item.medicinenumber}}</td>
+                                <td style="padding-left:30px ">{{item.cost}}</td>
+                                <td style="padding-left:30px ">{{item.price}}</td>
+                                <td style="padding-left:26px " class="text-wrap">{{item.description}}</td>
+                                <td style="padding-left:26px ">{{item.type}}</td>
+                                <td><img src="../../../assets/image/{{item.imagepath}}"
+                                        style="height: 100px;width: 100px;"></td>
+                                <td class="col-lg-2">
+                                    <button class="btn btn-secondary"
+                                        (click)="openUpdateDailog(item.medicineid,item.name,item.medicinenumber,item.cost,item.price,item.description,item.medicineCategoryId,item.imagepath)">Update</button>
+                                </td>
 
-                        <td class="col-lg-2">
-                            <button class="btn btn-danger" (click)="openDeleteDailog(item.medicineid)">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                                <td class="col-lg-2">
+                                    <button class="btn btn-danger"
+                                        (click)="openDeleteDailog(item.medicineid)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
 <ng-template #callCreateDialog>
     <h2 class="text-uppercase"> Add New Medicine </h2>
@@ -75,7 +84,8 @@
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Medicine quantity</mat-label>
-                        <input type="number" matInput formControlName="medicinenumber" placeholder="Enter Medicine quantity">
+                        <input type="number" matInput formControlName="medicinenumber"
+                            placeholder="Enter Medicine quantity">
                         <mat-error *ngIf="CreateForm.controls['medicinenumber'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
@@ -104,7 +114,8 @@
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Product Category</h4>
                     <select formControlName="medicineCategoryId">
                         <option [ngValue]="null" disabled> Product Category</option>
-                        <option *ngFor="let item of medicine.medicineCategoryData" [ngValue]="item.medicinecategoryid">{{item.type}}</option>
+                        <option *ngFor="let item of medicine.medicineCategoryData" [ngValue]="item.medicinecategoryid">
+                            {{item.type}}</option>
                     </select>
                 </li>
                 <li>
@@ -118,7 +129,8 @@
                 </li>
 
                 <li>
-                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath"
+                        (change)="uploadFile(file.files)" style="display:none;">
                     <button class="btn btn-info" (click)="file.click()">Upload Image</button>
                 </li>
             </ul>
@@ -132,55 +144,63 @@
 
 
 <ng-template #callUpdateDialog>
-    <h2 class="text-uppercase"> Update About Us </h2>
+    <h2 class="text-uppercase"> Update Medicine</h2>
     <mat-dialog-content class="mat-typography">
         <form [formGroup]="updatForm">
             <ul>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Medicine Name</mat-label>
-                        <input type="text" matInput formControlName="name" [(ngModel)]="medicinee.name" placeholder="Enter Medicine Name">
+                        <input type="text" matInput formControlName="name" [(ngModel)]="medicinee.name"
+                            placeholder="Enter Medicine Name">
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Medicine quantity</mat-label>
-                        <input type="number" matInput formControlName="medicinenumber" [(ngModel)]="medicinee.medicinenumber" placeholder="Enter Medicine quantity">
+                        <input type="number" matInput formControlName="medicinenumber"
+                            [(ngModel)]="medicinee.medicinenumber" placeholder="Enter Medicine quantity">
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Cost</mat-label>
-                        <input type="number" matInput formControlName="cost" [(ngModel)]="medicinee.cost" placeholder="Enter Cost">
+                        <input type="number" matInput formControlName="cost" [(ngModel)]="medicinee.cost"
+                            placeholder="Enter Cost">
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Price</mat-label>
-                        <input type="number" matInput formControlName="price" [(ngModel)]="medicinee.price" placeholder="Enter Price">
+                        <input type="number" matInput formControlName="price" [(ngModel)]="medicinee.price"
+                            placeholder="Enter Price">
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Description</mat-label>
-                        <input type="text" matInput formControlName="description" [(ngModel)]="medicinee.description" placeholder="Enter Description">
+                        <input type="text" matInput formControlName="description" [(ngModel)]="medicinee.description"
+                            placeholder="Enter Description">
                     </mat-form-field>
                 </li>
                 <li>
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Update Product Category</h4>
                     <select formControlName="medicineCategoryId">
                         <option [ngValue]="null" disabled> Product Category</option>
-                        <option *ngFor="let item of medicine.medicineCategoryData" [ngValue]="item.medicinecategoryid"> {{item.type}}</option>
+                        <option *ngFor="let item of medicine.medicineCategoryData" [ngValue]="item.medicinecategoryid">
+                            {{item.type}}</option>
                     </select>
                 </li>
                 <li>
-                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath"
+                        (change)="uploadFile(file.files)" style="display:none;">
                     <button class="btn btn-info" (click)="file.click()">Upload Image</button>
                 </li>
             </ul>
         </form>
         <mat-dialog-actions align="end">
-            <button class="btn btn-success" [mat-dialog-close]="true" (click)="UpdateMedicine()" cdkFocusInitial>Update</button>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="UpdateMedicine()"
+                cdkFocusInitial>Update</button>
             <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
     </mat-dialog-content>
