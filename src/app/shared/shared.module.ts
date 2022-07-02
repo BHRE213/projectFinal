@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     HttpClientModule,
     MatDialogModule,    
-    ToastrModule
+    ToastrModule,
+    MatCardModule
   ]
 })
 export class SharedModule {

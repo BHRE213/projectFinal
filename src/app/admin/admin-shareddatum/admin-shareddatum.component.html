@@ -17,7 +17,7 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Text</th>
+                        <th> Text</th>
                         <th>Image </th>
                         <th colspan="2">Action</th>
                     </tr>
@@ -25,7 +25,7 @@
                 <tbody >
                     <tr *ngFor="let item of shareddata.shared" style="padding-left:30px " >
                         <td style="padding-left:30px " >{{item.title}}</td>
-                        <td style="padding-left:26px " class="text-wrap">{{item.txt}}</td>
+                        <td style="padding-left:26px " class="text-wrap"><p>{{item.txt}}</p></td>
                         <td><img src="../../../assets/image/{{item.image}}" style="height: 100px;width: 100px;"></td>
                         <td class="col-lg-2">
                             <button class="btn btn-secondary"

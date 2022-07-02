@@ -14,9 +14,9 @@
                 <thead>
                     <tr>
                         <th>name</th>
-                        <th>txt</th>
+                        <th>text</th>
                         <th>image </th>
-                        <th>teststat </th>
+                        <th>status </th>
                       
                         <th colspan="2">Action</th>
                     </tr>
@@ -26,7 +26,7 @@
                         <td style="padding-left:30px ">{{item.name}}</td>
                         <td style="padding-left:30px ">{{item.txt}}</td>
                         <td><img src="../../../assets/image/{{item.image}}" style="height: 100px;width: 100px;"></td>
-                        <td style="padding-left:30px ">{{item.status}}</td>
+                        <td style="padding-left:30px ">{{item.statname}}</td>
                         <td class="col-lg-2">
                             <button class="btn btn-secondary"
                                 (click)="openUpdateDailog(item.testimonialid,item.name,item.txt,item.title,item.image,item.status)">Update</button>

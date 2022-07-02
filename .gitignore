@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 
+
 # IDEs and editors
 .idea/
 .project
@@ -36,3 +37,4 @@ testem.log
 .DS_Store
 Thumbs.db
 node_modules
+.gitignore
