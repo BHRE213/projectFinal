@@ -4,10 +4,13 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthorizationGuard } from './authorization.guard';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { MedicineComponent } from './medicine/medicine.component';
 import { SingleMedicinePageComponent } from './single-medicine-page/single-medicine-page.component';
+import { SuccesComponent } from './succes/succes.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 
 const routes: Routes = [
@@ -47,6 +50,19 @@ const routes: Routes = [
   path:'singleMedicine',
   component:SingleMedicinePageComponent
 },
+{
+  path:'cart',
+  component:CartComponent
+},
+{
+  path:'checkout',
+  component:CheckoutComponent
+},
+{
+  path:'success',
+  component:SuccesComponent
+}
+
 
 
 
