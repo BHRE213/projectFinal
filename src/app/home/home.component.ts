@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.spinner.show();
     setTimeout(() =>{
       this.spinner.hide();
-    },2000);
+    },500);
   }
 
 }
