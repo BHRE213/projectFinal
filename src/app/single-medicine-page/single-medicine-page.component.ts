@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { MedicineService } from '../services/medicine.service';
 import { OrdderService } from '../services/ordder.service';
 
@@ -11,7 +12,7 @@ import { OrdderService } from '../services/ordder.service';
 export class SingleMedicinePageComponent implements OnInit {
 
   quantity: number = 1;
-  constructor(public medicine: MedicineService, private order: OrdderService ,private router:Router) { }
+  constructor(public medicine: MedicineService, private order: OrdderService ,private router:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.medicine.getMedicineById({ medicineid: this.medicine.medicineId })
@@ -25,7 +26,11 @@ export class SingleMedicinePageComponent implements OnInit {
   }
 
   increase() {
+    if(this.quantity< this.medicine.singleMedicineData.medicinenumber){
     this.quantity = this.quantity + 1
+    }else{
+      this.toastr.warning('We Dont Have Enough Amount Of This Medicine')
+    }
 
   }
   decrease() {
