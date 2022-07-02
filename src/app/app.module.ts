@@ -18,6 +18,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MedicineComponent } from './medicine/medicine.component';
 import { SingleMedicinePageComponent } from './single-medicine-page/single-medicine-page.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { SuccesComponent } from './succes/succes.component';
 
 
 @NgModule({
@@ -27,7 +30,7 @@ import { SingleMedicinePageComponent } from './single-medicine-page/single-medic
     HomeComponent,
     TestimonialComponent,   
     ReviewComponent, 
-    AboutUsComponent, MedicineComponent, SingleMedicinePageComponent 
+    AboutUsComponent, MedicineComponent, SingleMedicinePageComponent, CartComponent, CheckoutComponent, SuccesComponent 
   ],
   imports: [
     BrowserModule,
