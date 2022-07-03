@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
     setTimeout(() =>{
       
       this.spinner.hide();
-    },2000);
+    },500);
   }
 
   uploadFile(file: any) {
