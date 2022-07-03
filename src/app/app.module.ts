@@ -21,6 +21,9 @@ import { SingleMedicinePageComponent } from './single-medicine-page/single-medic
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SuccesComponent } from './succes/succes.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -30,7 +33,7 @@ import { SuccesComponent } from './succes/succes.component';
     HomeComponent,
     TestimonialComponent,   
     ReviewComponent, 
-    AboutUsComponent, MedicineComponent, SingleMedicinePageComponent, CartComponent, CheckoutComponent, SuccesComponent 
+    AboutUsComponent, MedicineComponent, SingleMedicinePageComponent, CartComponent, CheckoutComponent, SuccesComponent, InvoiceComponent, OrderHistoryComponent, UserProfileComponent 
   ],
   imports: [
     BrowserModule,

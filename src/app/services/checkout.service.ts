@@ -14,6 +14,7 @@ export class CheckoutService {
     this.http.post('https://localhost:44341/api/Order/GetOrderById/', data)
       .subscribe((res: any) => {
         this.checkoutOrders = res;
+        console.log('sadddddddddd',this.checkoutOrders)
       }, err => {
       })
   }
@@ -38,4 +39,17 @@ export class CheckoutService {
       }, err => {       
       })
     }
+
+    updateCardBalance(body: any) {  
+      this.http.put('https://localhost:44341/api/Order/UpdateBalance/', body).subscribe((res) => {       
+        }, err => {       
+        })
+      }
+
+     returnStatusToIncard(body: any) {  
+        this.http.put('https://localhost:44341/api/Order/ReturnStatusToIncart/', body).subscribe((res) => {
+          
+          }, err => {       
+          })
+        }
 }

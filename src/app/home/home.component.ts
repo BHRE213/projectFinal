@@ -18,11 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.shareddata.getAll();
     this.sitedata.getAll();
-    this.testimonial.getAcctest();
-    this.spinner.show();
-    setTimeout(() =>{
-      this.spinner.hide();
-    },500);
+    this.testimonial.getAcctest();  
   }
 
 }

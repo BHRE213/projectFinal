@@ -44,12 +44,19 @@
 
                     </div>
 
+                    <div *ngIf="useraccountid!=null; then showCart else hideCart" style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;"></div>
+                    <ng-template #hideCart>
+                        <p><a href="auth/login" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">login for adding to cart</a></p>
+                    </ng-template>
+                    <ng-template #showCart>
+                        <p><a (click)="addToCart(medicine.singleMedicineData.medicineid)" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+
+                    </ng-template>
+
+                    <!-- <p><a href="auth/login" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">login for adding to cart</a></p>
 
 
-                    <p><a href="/LoginRegister/Login" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">login for adding to cart</a></p>
-
-
-                    <p><a (click)="addToCart(medicine.singleMedicineData.medicineid)" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+                    <p><a (click)="addToCart(medicine.singleMedicineData.medicineid)" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p> -->
 
 
 

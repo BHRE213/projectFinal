@@ -14,13 +14,8 @@ export class PharmacyService {
 
   getAll(){
     this.http.get('https://localhost:44341/api/PharmacyBranches/GetALLPharmacyBranches').subscribe((res) => {
-      this.pharmacyData = res;
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      this.pharmacyData = res;  
     }, err => {
-      // this.spinner.hide();
       this.toastr.error(err.message, err.status)
     })    
   }
