@@ -8,9 +8,12 @@ import { OrdderService } from 'src/app/services/ordder.service';
   styleUrls: ['./admin-ordder.component.css']
 })
 export class AdminOrdderComponent implements OnInit {
-
+ 
+  startdate=""
+  enddate=""
+nul=null
   constructor(public orders:OrdderService, private dialog: MatDialog) { }
-
+  
 
   @ViewChild('callDeleteDailog') callDeleteDailog!: TemplateRef<any>
   @ViewChild('callAcceptDailog') callAcceptDailog!: TemplateRef<any>
@@ -62,4 +65,35 @@ export class AdminOrdderComponent implements OnInit {
     })
   }
 
+ 
+  search()
+  {console.log(this.startdate)
+    console.log(this.enddate)
+    const searches={
+     
+      
+      start: this.startdate,
+      end: this.enddate
+    };
+    if(searches.start.length == 0 && searches.end.length==0){
+      window.location.reload();
+    }
+    else if(searches.start.length == 0 && searches.end.length!=0)
+    
+    {  const m={ 
+      start: null,
+      end: this.enddate}
+    this.orders.searchByaDate(m)}
+    else if(searches.start.length != 0 && searches.end.length==0)
+    {  const n={
+      start: this.startdate}
+      this.orders.searchByaDate(n)}
+    else if(searches.start.length != 0 && searches.end.length!=0)
+    
+    {  this.orders.searchByaDate(searches)}
+     
+  }
+
 }
+
+
