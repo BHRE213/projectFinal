@@ -99,10 +99,23 @@ export class OrdderService {
   }
 
   updateUserCartToCheckout(body: any) {  
+    console.log(body.start)
+    console.log(body.end)
     this.http.put('https://localhost:44341/api/Order/UpdateOrserStatusToCheckout/', body).subscribe((res) => {
       
       }, err => {       
       })
     }
+
+    searchByaDate(body: any){
+      this.http.post('https://localhost:44341/api/Order/GetOrderBettwenTwoDates', body).subscribe((res) => {
+      this.allorder=res
+      this.toastr.success('Data Retrieved !!');
+      }, err => {   
+         this.toastr.error(err.message, err.status)    
+      })
+    }
+
+    
 }
 
