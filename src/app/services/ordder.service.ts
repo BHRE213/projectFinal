@@ -15,13 +15,8 @@ export class OrdderService {
 
   getAll() {
     this.http.get('https://localhost:44341/api/order/GetAllOrder').subscribe((res) => {
-      this.allorder = res;
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
-    }, err => {
-      // this.spinner.hide();
+      this.allorder = res;  
+    }, err => { 
       this.toastr.error(err.message, err.status)
     })
 
@@ -38,24 +33,15 @@ export class OrdderService {
 
   acceptorder(id: number) {
     this.http.get('https://localhost:44341/api/Order/AcceptOrder/' + id).subscribe((res) => {
-
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+     
     }, err => {
-      // this.spinner.hide();
       this.toastr.error(err.message, err.status)
     })
   }
 
   rejectorder(id: number) {
     this.http.get('https://localhost:44341/api/Order/RejectOrder/' + id).subscribe((res) => {
-
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+     
     }, err => {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)
@@ -93,7 +79,6 @@ export class OrdderService {
     this.http.post('https://localhost:44341/api/Order/GetOrderById/', data)
       .subscribe((res: any) => {
         this.ordersInCart = res;
-        console.log('my orders',this.ordersInCart)
       }, err => {
       })
   }
@@ -104,5 +89,7 @@ export class OrdderService {
       }, err => {       
       })
     }
+
+  
 }
 

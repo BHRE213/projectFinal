@@ -17,24 +17,17 @@ export class MedicineService {
   getAll() {
     this.http.get('https://localhost:44341/api/Medicine/GetMedicne/').subscribe((res) => {
       this.medicineData = res;
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
      
     }, err => {
-      // this.spinner.hide();
-      // this.toastr.error(err.message, err.status)
+
     })
   }
   getMedicineCategoryData() {
     this.http.get('https://localhost:44341/api/MedicineCategory/').subscribe((res) => {
-      this.medicineCategoryData = res;
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
+      this.medicineCategoryData = res;   
      
     }, err => {
-      // this.spinner.hide();
+     
       this.toastr.error(err.message, err.status)
     })
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { OrdderService } from '../services/ordder.service';
 
 @Component({
@@ -9,16 +10,18 @@ import { OrdderService } from '../services/ordder.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(public order: OrdderService,private route:Router) { }
+  constructor(public order: OrdderService,private route:Router,private spinner: NgxSpinnerService) { }
   useraccountid: any = localStorage.getItem('id')
   totalPrice: any = 0;
   ngOnInit(): void {
+    this.spinner.show()
     this.order.userCartOrders({
       useraccountid: Number( this.useraccountid),
       orderstatesid: 1
     })
     setTimeout(() => {
-      this.total()
+      this.total();
+      this.spinner.hide();
     }, 500);
 
   }

@@ -13,12 +13,13 @@ export class SingleMedicinePageComponent implements OnInit {
 
   quantity: number = 1;
   constructor(public medicine: MedicineService, private order: OrdderService ,private router:Router,private toastr: ToastrService) { }
+  useraccountid: any = localStorage.getItem('id')
 
   ngOnInit(): void {
     this.medicine.getMedicineById({ medicineid: this.medicine.medicineId })
     setTimeout(() => {
       this.order.checkMedicineInCart({
-        useraccountid: 1,
+        useraccountid: Number(this.useraccountid),
         medicineid: this.medicine.medicineId
       })
     }, 1000);
