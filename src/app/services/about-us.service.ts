@@ -15,11 +15,7 @@ export class AboutUsService {
   getAll(){
     this.http.get('https://localhost:44341/api/aboutus/').subscribe((res) => {
       this.aboutUsData = res;
-      this.toastr.success('Get Successfully ✔️ ')
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+  
     }, err => {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)
