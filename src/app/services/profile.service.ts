@@ -14,14 +14,9 @@ export class ProfileService {
   viewProfile(data: any) {
     this.http.post('https://localhost:44341/api/Login/GetUserById/', data).subscribe((res) => {
 
-      this.profileData = res;
-      console.log(this.profileData.fullname);
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      this.profileData = res;   
     }, err => {
-      // this.spinner.hide();
+  
       this.toastr.error(err.message, err.status)
     })
   }

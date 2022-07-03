@@ -11,11 +11,7 @@ export class FooterService {
   footerData:any=[];
   getAll(){
     this.http.get('https://localhost:44341/api/Footer/').subscribe((res) => {
-      this.footerData = res;
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      this.footerData = res;   
     }, err => {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)

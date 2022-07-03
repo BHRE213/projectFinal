@@ -8,10 +8,14 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 import { MedicineComponent } from './medicine/medicine.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { InvoiceService } from './services/invoice.service';
 import { SingleMedicinePageComponent } from './single-medicine-page/single-medicine-page.component';
 import { SuccesComponent } from './succes/succes.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
 
@@ -61,6 +65,19 @@ const routes: Routes = [
 {
   path:'success',
   component:SuccesComponent
+},
+{
+  path:'invoice',
+  component:InvoiceComponent
+},
+{
+  path:'orderHistory',
+  component:OrderHistoryComponent
+}
+,
+{
+  path:'userProfile',
+  component:UserProfileComponent
 }
 
 

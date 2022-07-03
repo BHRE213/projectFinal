@@ -17,6 +17,7 @@ export class CheckoutComponent implements OnInit {
   totalPrice: any = 0;
 
   ngOnInit(): void {
+    this.spinner.show();
     this.checkoutService.userCheckoutOrders(
       {
         useraccountid: Number(this.useraccountid),
@@ -28,7 +29,8 @@ export class CheckoutComponent implements OnInit {
     })
     setTimeout(() => {
       this.total();
-    }, 500);
+      this.spinner.hide();
+    }, 1000);
   }
 
   total() {
@@ -44,6 +46,10 @@ export class CheckoutComponent implements OnInit {
     } 
     else {    
       this.spinner.show();
+      this.checkoutService.updateCardBalance({
+        balance:this.totalPrice,
+        useraccountid: Number(this.useraccountid)
+      })
       for (let i = 0; i < this.checkoutService.checkoutOrders.length; i++) {
         this.checkoutService.decreaseMedicenQuantity({
           medicineid: this.checkoutService.checkoutOrders[i].medicineid,
@@ -59,5 +65,15 @@ export class CheckoutComponent implements OnInit {
       }, 1500);
 
     }
+  }
+
+  cancel(){
+    this.checkoutService.returnStatusToIncard(
+      {  useraccountid: Number(this.useraccountid)}
+    )
+    setTimeout(()=>{
+      this.router.navigate(['cart'])
+    },300)
+    
   }
 }

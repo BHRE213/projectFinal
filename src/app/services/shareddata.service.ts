@@ -16,12 +16,8 @@ export class ShareddataService {
   getAll(){
     this.httpshared.get('https://localhost:44341/api/SharedData/').subscribe((res) => {
       this.shared = res;
-      //hide spinner
-      // this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
     }, err => {
-      // this.spinner.hide();
+    
       this.toastr.error(err.message, err.status)
     })
 }

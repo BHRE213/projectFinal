@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MedicineService } from '../services/medicine.service';
 import { ShareddataService } from '../services/shareddata.service';
 import { SitedataService } from '../services/sitedata.service';
@@ -11,11 +12,15 @@ import { SitedataService } from '../services/sitedata.service';
 })
 export class MedicineComponent implements OnInit {
 
-  constructor(public medicineService: MedicineService,public sitedata:SitedataService  ,private router:Router) { }
+  constructor(public medicineService: MedicineService,public sitedata:SitedataService  ,private router:Router,private spinner : NgxSpinnerService) { }
   name:any='';
 
   ngOnInit(): void {
+    this.spinner.show();
     this.medicineService.getAll();
+    setTimeout(() => {      
+      this.spinner.hide();
+    }, 1300);
   }
 
     
