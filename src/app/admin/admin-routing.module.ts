@@ -13,9 +13,14 @@ import { AdminMedicineCategoryComponent } from './admin-medicine-category/admin-
 import { AdminShareddatumComponent } from './admin-shareddatum/admin-shareddatum.component';
 import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
+  {
+   path:'',
+   component:DashboardComponent
+  },
  {
   path:'about',
   component:AdminAboutusComponent
