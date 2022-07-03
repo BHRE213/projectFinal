@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { MedicineService } from '../services/medicine.service';
 import { OrdderService } from '../services/ordder.service';
@@ -12,16 +13,18 @@ import { OrdderService } from '../services/ordder.service';
 export class SingleMedicinePageComponent implements OnInit {
 
   quantity: number = 1;
-  constructor(public medicine: MedicineService, private order: OrdderService ,private router:Router,private toastr: ToastrService) { }
+  constructor(public medicine: MedicineService, private order: OrdderService ,private router:Router,private toastr: ToastrService,private spinner : NgxSpinnerService) { }
   useraccountid: any = localStorage.getItem('id')
 
   ngOnInit(): void {
+    this.spinner.show();
     this.medicine.getMedicineById({ medicineid: this.medicine.medicineId })
     setTimeout(() => {
       this.order.checkMedicineInCart({
         useraccountid: Number(this.useraccountid),
         medicineid: this.medicine.medicineId
       })
+      this.spinner.hide();
     }, 1000);
 
   }

@@ -1,0 +1,93 @@
+<app-header></app-header>
+<div *ngIf="orderHistory.orders.length!=0; then show else hide"></div>
+<ng-template #hide>
+    <div class="site-section" style="margin-bottom: 5%; ;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <span class="icon-check_circle display-3 text-success"></span>
+                    <h2 class="display-3 text-black">Sorry!</h2>
+                    <p class="lead mb-5">You dont Any order </p>
+                    <p><a href="medicine" class="btn btn-md height-auto px-4 py-3 btn-primary">Back to store</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #show>
+    <div class="bg-light py-3">
+        <div class="container">
+            <div class="col-md-12 mb-0">
+                <a href="">Home</a> <span class="mx-2 mb-0">/</span>
+                <a href="orderHistory"></a> <span class="mx-2 mb-0">Your Orders History</span>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 2%;">
+        <h1 style=" text-decoration: bold ; color:#94d5f5">Your Orders History</h1>
+    </div>
+    <div class="site-section">
+        <div class="container">
+            <div class="row mb-5">
+                <form class="col-md-12" method="post">
+                    <div class="site-blocks-table" style="align-items: center;justify-content: center;">
+                        <table class=" table-bordered" style="width: 1100px;">
+                            <thead>
+                                <tr>
+                                    <th class="product-thumbnail">Image</th>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-quantity">Order Date</th>
+                                    <th class="product-total">Total</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of orderHistory.orders">
+                                    <td class=" product-thumbnail ">
+                                        <img src="../../../assets/image/{{item.imagepath}} " alt="Image " class="img-fluid " style="height:100px ; width:100px ">
+                                    </td>
+                                    <td class="product-name ">
+                                        <h2 class="h5 text-black ">{{item.name}} </h2>
+                                    </td>
+                                    <td>${{item.price |number}}</td>
+                                    <td>{{item.quantity |number}}</td>
+                                    <td>{{item.orderdate | date}}</td>
+                                    <td>${{item.price * item.quantity |number}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row " style="text-align: center; ">
+                <div class="col-md-6 pl-5 ">
+                    <div class="row justify-content-end ">
+                        <div class="col-md-7 ">
+                            <div class="row ">
+                                <div class="col-md-7 text-right border-bottom mb-5 ">
+                                    <h3 class="text-black h4 text-uppercase ">Orders Totals Cost</h3>
+                                </div>
+                            </div>
+                            <div class="row mb-5 ">
+                                <div class="col-md-6 ">
+                                    <span class="text-black ">Total</span>
+                                </div>
+                                <div class="col-md-6 text-right ">
+                                    <strong class="text-black ">${{totalPrice |number}}</strong>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</ng-template>
+<app-footer></app-footer>
