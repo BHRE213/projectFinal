@@ -7,6 +7,7 @@ import { AuthorizationGuard } from './authorization.guard';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { MedicineComponent } from './medicine/medicine.component';
+import { PdfComponent } from './pdf/pdf.component';
 import { SingleMedicinePageComponent } from './single-medicine-page/single-medicine-page.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 
@@ -42,6 +43,10 @@ const routes: Routes = [
 },{
   path:'medicine',
   component:MedicineComponent
+},
+{
+  path:'pdf',
+  component:PdfComponent
 },
 {
   path:'singleMedicine',

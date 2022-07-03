@@ -1,0 +1,7 @@
+<li>
+    <input type="file" #file placeholder="Choose Image" formControlName="imagepath"
+        (change)="uploadFile(file.files)" style="display:none;">
+    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+
+</li>
+<p>{{text}}</p>
