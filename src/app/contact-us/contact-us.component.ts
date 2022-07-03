@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AboutUsService } from '../services/about-us.service';
 import { ContactUsService } from '../services/contact-us.service';
+import { FooterService } from '../services/footer.service';
 import { ShareddataService } from '../services/shareddata.service';
 
 @Component({
@@ -12,8 +14,13 @@ import { ShareddataService } from '../services/shareddata.service';
 })
 export class ContactUsComponent implements OnInit {
 
+ 
 
-  constructor(private contactusService:ContactUsService,private router:Router, private toastr: ToastrService,public shareddata: ShareddataService) { }
+  
+  
+  
+
+  constructor(private contactusService:ContactUsService,private router:Router, public aboutUs:AboutUsService,public footer:FooterService,private toastr: ToastrService,public shareddata: ShareddataService) { }
 
   CreateForm :FormGroup =new FormGroup({
     title:new FormControl('',Validators.required),
@@ -26,6 +33,8 @@ export class ContactUsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.aboutUs.getAll();
+    this.footer.getAll();
     this.shareddata.getAll();
   }
 
