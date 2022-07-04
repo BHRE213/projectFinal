@@ -12,12 +12,10 @@ import { OrdderService } from 'src/app/services/ordder.service';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private spinner : NgxSpinnerService,private user:UseraccountService,private medicine:MedicineService,private order:OrdderService) { 
+  constructor(private spinner : NgxSpinnerService) { 
     
   }
- numberOfUsers : any = this.user.allusers;
- numberOfMedicines : any = this.medicine.medicineData;
- numberOfOrders : any = this.order.allorder;
+
 
   ngOnInit(): void {
         setTimeout(() =>{
