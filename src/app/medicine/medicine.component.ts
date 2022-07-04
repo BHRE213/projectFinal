@@ -16,6 +16,12 @@ export class MedicineComponent implements OnInit {
   name:any='';
 file:any 
   ngOnInit(): void {
+   /* var str = "Apples are round, and apples are juicy."; 
+var splitted = str.split(" "); 
+console.log(splitted)
+for (var val of splitted) {
+  console.log(val)
+  };*/
     this.medicineService.getAll();
   }
 
@@ -61,14 +67,23 @@ file:any
    
     reader.onload = () => {
         console.log(reader.result)
-        this.file=reader.result;
+        const m:string|any=reader.result;
+      const n:string|any=m.split(" "); 
+      if(m.length == 0){
+        window.location.reload();
+      }else{
+        for (var val of n) {
         const searches={
-          name: this.file
+          name: val
         };
-        if(searches.name.length == 0){
-          window.location.reload();
-        }else {  this.medicineService.searchByName(searches)} 
+        const l:any= this.medicineService.searchByName(searches)
+        if (l){
+
+        }
+      }
        
+      };
+        
     }
    
   }
