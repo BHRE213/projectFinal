@@ -1,7 +1,5 @@
-<li>
-    <input type="file" #file placeholder="Choose Image" formControlName="imagepath"
-        (change)="uploadFile(file.files)" style="display:none;">
-    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
-
-</li>
-<p>{{text}}</p>
+<tr>
+    <td>Select a File to Load:</td>
+    <td><input type="file" onclick="loadFileAsText($event)" id="fileToLoad"></td>
+    
+</tr>

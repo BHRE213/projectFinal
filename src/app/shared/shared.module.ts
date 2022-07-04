@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule ,EventEmitter} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -35,7 +35,8 @@ import {MatCardModule} from '@angular/material/card';
     HttpClientModule,
     MatDialogModule,    
     ToastrModule,
-    MatCardModule
+    MatCardModule,
+   
   ]
 })
 export class SharedModule {

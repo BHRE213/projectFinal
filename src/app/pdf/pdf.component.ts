@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { formatNumber } from '@angular/common';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, OnInit , ElementRef, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-pdf',
@@ -11,22 +13,42 @@ text:any=""
 upload=document.getElementById('upload')
 outputt=document.getElementById('output')
 
-  constructor() { }
+  constructor(public elementRef: ElementRef) { }
 
   ngOnInit(): void {
   }
+  changeListener($event:any) : void {
+    this.readThis($event.target);
+  }
+  complete :any = new EventEmitter();
+  readThis(inputValue: any) : void {
+    var file:File = inputValue.files[0]; 
+    var myReader:FileReader = new FileReader();
 
-  uploadFile(file: any) {
-    if (file.length === 0) {
-      return;
-    }
+    myReader.onloadend = function(e){
+      // you can perform an action with readed data here
+      console.log(myReader.result);
+    
+     
+        
   
+     
+    }
     
-    const fileread = new FileReader();
+    console.log(myReader.readAsText(file));
+   
 
-    fileread.readAsText(file[0]);
-    
-    this.text.value=fileread.result
-    
+  }
+  resultSet:any; // dont need it 
+
+ loadFileAsText($event:any){
+    var fileToLoad = $event.files[0];
+  
+    var fileReader = new FileReader();
+    fileReader.onload = function(){
+      fileReader.result
+    };
+  
+  
   }
 }
