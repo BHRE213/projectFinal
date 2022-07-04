@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
+import { GoogleMapsModule } from '@angular/google-maps';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -23,9 +24,11 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatInputModule,    
     HttpClientModule,
+    GoogleMapsModule,
    
   ],
   exports:[
+    GoogleMapsModule,
     HeaderComponent,
     FooterComponent,
     FormsModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AboutUsService } from '../services/about-us.service';
 import { ContactUsService } from '../services/contact-us.service';
@@ -20,7 +21,7 @@ export class ContactUsComponent implements OnInit {
   
   
 
-  constructor(private contactusService:ContactUsService,private router:Router, public aboutUs:AboutUsService,public footer:FooterService,private toastr: ToastrService,public shareddata: ShareddataService) { }
+  constructor(private contactusService:ContactUsService,private router:Router, public aboutUs:AboutUsService,public footer:FooterService,private toastr: ToastrService,public shareddata: ShareddataService,private spinner : NgxSpinnerService) { }
 
   CreateForm :FormGroup =new FormGroup({
     title:new FormControl('',Validators.required),
@@ -40,9 +41,15 @@ export class ContactUsComponent implements OnInit {
 
 
   send(){
+    this.spinner.show();
     this.contactusService.create(this.CreateForm.value);
-    this.toastr.success('Thank you for contacting us ❤️ ')
+  
+   setTimeout(() => { 
+    this.spinner.hide();     
+    this.toastr.success('Thank you for contacting us ❤️ ')     
     window.location.reload();
+    }, 1500);
+
   }
 
 
