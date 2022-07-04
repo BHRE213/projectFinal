@@ -10,6 +10,7 @@ export class AboutUsService {
 
   constructor(private http: HttpClient,private toastr: ToastrService) { }
   aboutUsData:any=[];
+  aboutUsData1:any=[];
   display_Image: any;
 
   getAll(){
@@ -69,5 +70,16 @@ UpdateAbput(body: any) {
     }, err => {
       this.toastr.error(err.status, err.message);
     })
+  }
+
+  
+  getAll1(){
+    this.http.get('https://localhost:44341/api/aboutus/').subscribe((res) => {
+      this.aboutUsData1 = res;
+  
+    }, err => {
+      // this.spinner.hide();
+      this.toastr.error(err.message, err.status)
+    })    
   }
 }

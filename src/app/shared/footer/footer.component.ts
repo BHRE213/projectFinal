@@ -15,8 +15,7 @@ export class FooterComponent implements OnInit {
  
 
   ngOnInit(): void {
-    this.aboutUs.getAll();
-    this.footer.getAll();
+  
   }
 
   

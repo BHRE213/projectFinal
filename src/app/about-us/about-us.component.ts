@@ -21,7 +21,7 @@ export class AboutUsComponent implements OnInit {
       this.shareddata.getAll();
       this.sitedata.getAll();
       this.aboutUs.getAll();
-
+      
   }
 
 }
