@@ -1,91 +1,115 @@
 <app-header></app-header>
-    <div class="main" style="background-image:url();">
-        <section class="main_blog_area pb_100">
-            <div class="container">
-                <div class="row blog_area_inner">
-                    <div class="col-lg-9">
-                        <div class="main_blog_inner single_blog_inner">
-                            <div class="s_comment_area">
-                                <div class="section-heading"
-                                    style="margin-left: 30%;  margin-bottom: 3%; text-align: center;">
-                                    <h4>Create<em> account</em></h4>
-                                </div>
-                                <div>
-                                    <form method="POST" id="signup-form" style="margin-left: 200px;" class="example-form" [formGroup]="registerform" >
-                                        <ul>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="outline">
-                                                    <input type="text" placeholder="Name"  id="name" matInput name="fullname" formControlName="fullname" />
-                                                    <br>
-                                                    <mat-error *ngIf="registerform.controls['fullname'].hasError('required')">Your Name is 
-                                                        <strong>required</strong>
-                                                    </mat-error>
-                                                 </mat-form-field>
-                                            </li>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="outline">
-                                                    <input type="text" id="name" placeholder="User Name" matInput name="username" formControlName="username" />
-                                                    <br>
-                                                    <mat-error *ngIf="registerform.controls['username'].hasError('required')">User Name is 
-                                                        <strong>required</strong>
-                                                    </mat-error>
-                                                </mat-form-field>
-                                            </li>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="outline">
-                                                    <input type="email" placeholder="Email" id="email" matInput name="email"  formControlName="email" (change)="check()" />
-                                                    <br>
-                                                    <mat-error *ngIf="registerform.controls['email'].hasError('required')">Email is <strong>required</strong></mat-error>
-                                                    <mat-error *ngIf="registerform.controls['email'].hasError('email')">Please enter a valid email</mat-error>
-                                                    <mat-error *ngIf="registerform.controls['email'].hasError('unvalid')">The Email Is Existing </mat-error>
-                                                </mat-form-field>
-                                            </li>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="outline">
-                                                    <input type="tel" id="name" placeholder="phone number" matInput name="phonenumber" formControlName="phonenumber" />
-                                                    <br>
-                                                    <mat-error *ngIf="registerform.controls['phonenumber'].hasError('required')">Your phone is <strong>required</strong></mat-error>
-                                                </mat-form-field>
-                                            </li>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="outline">
-                                                    <input type="password" id="password" placeholder="Password" matInput name="password" formControlName="password" />
-                                                    <br>
-                                                    <mat-error *ngIf="registerform.controls['password'].hasError('required')">Password is <strong>required</strong></mat-error>
-                                                    <mat-error *ngIf="registerform.controls['password'].errors?.['minlength']">min length for the password equal 6</mat-error>
-                                                </mat-form-field>
-                                                <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                                            </li>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="outline">
-                                                    <input type="password" id="re_password" placeholder="Confirm password" matInput name="confirmpassword" formControlName="confirmpassword" (change)="matchError()" />
-                                                    <br>
-                                                    <mat-error *ngIf="registerform.controls['confirmpassword'].hasError('required')">Password is <strong>required</strong></mat-error>
-                                                    <mat-error *ngIf="registerform.controls['confirmpassword'].hasError('mismatch')">must match the password</mat-error>
-                                                </mat-form-field>
-                                            </li>
-                                            <li>
-                                                <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
-                                                <button class="main-button-gradient" (click)="file.click()">Upload Image</button>
-                                        
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <button class="main-button-gradient" style="float: right; padding: 0; width: 100px;height: 40px;" mat-button [mat-dialog-close]="true" value="Sign up" (click)="submit()" cdkFocusInitial>Sign up</button>
-                                        </ul>
-                                    </form>
-                                    <p style="margin-left: 400px;margin-top: 100px;">
-                                        Have already an account ? <a href="auth/login"><em>Login here</em></a>
-                                    </p>
-                                </div>
-                            </div>
+<div class="main">
+    <section class="main_blog_area pb_100">
+        <div class="container-fluid h-custom ">
+            <div class="row blog_area_inner  d-flex h-100">
+                <div class="col-lg-4 col-lg-8 col-xl-4">
+                    <img style="margin-left:60%; margin-top:30%;border-radius:10%; height: 70%;" src="../../../assets/image/PharmaceLogin.jpg" class="img-fluid" alt="Sample image">
+                </div>
+                <div class="main_blog_inner single_blog_inner col-md-9 col-lg-2 col-xl-6 offset-xl-1 justify-content-center align-items-center">
+                    <div class="s_comment_area">
+                        <div class="section-heading" style="margin-left: 30%;  margin-bottom: 3%; text-align: center;">
+                            <h4>Create<em> account</em></h4>
+                        </div>
+                        <div>
+                            <form method="POST" id="signup-form" style="margin-left: 200px;" class="example-form"
+                                [formGroup]="registerform">
+                                <ul>
+                                    <li>
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <input type="text" placeholder="Name" id="name" matInput name="fullname"
+                                                formControlName="fullname" />
+                                            <br>
+                                            <mat-error *ngIf="registerform.controls['fullname'].hasError('required')">
+                                                Your Name is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <input type="text" id="name" placeholder="User Name" matInput
+                                                name="username" formControlName="username" />
+                                            <br>
+                                            <mat-error *ngIf="registerform.controls['username'].hasError('required')">
+                                                User Name is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <input type="email" placeholder="Email" id="email" matInput name="email"
+                                                formControlName="email" (change)="check()" />
+                                            <br>
+                                            <mat-error *ngIf="registerform.controls['email'].hasError('required')">
+                                                Email is <strong>required</strong></mat-error>
+                                            <mat-error *ngIf="registerform.controls['email'].hasError('email')">
+                                                Please enter a valid email</mat-error>
+                                            <mat-error *ngIf="registerform.controls['email'].hasError('unvalid')">The
+                                                Email Is Existing </mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <input type="tel" id="name" placeholder="phone number" matInput
+                                                name="phonenumber" formControlName="phonenumber" />
+                                            <br>
+                                            <mat-error
+                                                *ngIf="registerform.controls['phonenumber'].hasError('required')">
+                                                Your phone is <strong>required</strong></mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <input type="password" id="password" placeholder="Password" matInput
+                                                name="password" formControlName="password" />
+                                            <br>
+                                            <mat-error *ngIf="registerform.controls['password'].hasError('required')">
+                                                Password is <strong>required</strong></mat-error>
+                                            <mat-error *ngIf="registerform.controls['password'].errors?.['minlength']">
+                                                min length for the password equal 6</mat-error>
+                                        </mat-form-field>
+                                        <span toggle="#password"
+                                            class="zmdi zmdi-eye field-icon toggle-password"></span>
+                                    </li>
+                                    <li>
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <input type="password" id="re_password" placeholder="Confirm password"
+                                                matInput name="confirmpassword" formControlName="confirmpassword"
+                                                (change)="matchError()" />
+                                            <br>
+                                            <mat-error
+                                                *ngIf="registerform.controls['confirmpassword'].hasError('required')">
+                                                Password is <strong>required</strong></mat-error>
+                                            <mat-error
+                                                *ngIf="registerform.controls['confirmpassword'].hasError('mismatch')">
+                                                must match the password</mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <input type="file" #file placeholder="Choose Image" formControlName="imagepath"
+                                            (change)="uploadFile(file.files)" style="display:none;">
+                                        <button class="main-button-gradient" (click)="file.click()">Upload
+                                            Image</button>
+
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <button class="main-button-gradient"
+                                        style="float: right; padding: 0; width: 100px;height: 40px;" mat-button
+                                        [mat-dialog-close]="true" value="Sign up" (click)="submit()"
+                                        cdkFocusInitial>Sign up</button>
+                                </ul>
+                            </form>
+                            <p style="margin-left: 400px;margin-top: 100px;">
+                                Have already an account ? <a href="auth/login"><em>Login here</em></a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-                    
-                </div>
-           
+        </div>
+</section>
+</div>
 <app-footer></app-footer>

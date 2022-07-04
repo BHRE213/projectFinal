@@ -1,57 +1,58 @@
-
 <app-header></app-header>
-    <div class="main">
-      <section class="main_blog_area pb_100">
-        <div class="container">
-            <div class="row blog_area_inner">
-                <div class="col-lg-9">
-                    <div class="main_blog_inner single_blog_inner">
-                        <div class="s_comment_area">
-                            <div class="section-heading"
-                                style="margin-left: 30%;  margin-bottom: 3%; text-align: center;">
-                                <h4>Log<em>In</em></h4>
-                            </div>
-                            <div>
-                              <form method="POST" id="signup-form" style="margin-left: 200px;" class="example-form" >
-                                <ul>
-                                  <li>
-                                    <mat-form-field class="example-full-width" appearance="outline">
-                                      <input type="email" matInput
-                                        [formControl]="emailFormControl" placeholder="email" id="email">
-                                      <!-- <mat-error *ngIf="emailFormControl.hasError('email')">
+<div class="main" >
+  <section class="main_blog_area pb_100  vh-100">
+    <div class="container-fluid h-custom ">
+      <div class="row blog_area_inner  d-flex h-100">
+        <div class="col-lg-4 col-lg-8 col-xl-4" >
+          <img  style="margin-left:60%; margin-top: 15%;border-radius:10%;" src="../../../assets/image/PharmaceLogin.jpg" class="img-fluid"
+            alt="Sample image">
+        </div>
+        <div class="col-md-9 col-lg-2 col-xl-5 offset-xl-1 justify-content-center align-items-center">
+          <div class="s_comment_area">
+            <div class="section-heading" style="margin-left: 30%;  margin-bottom: 3%; text-align: center;">
+              <h4>Log<em>In</em></h4>
+            </div>
+            <div>
+              <form method="POST" id="signup-form" style="margin-left: 200px;" class="example-form">
+                <ul>
+                  <li>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <input type="email" matInput [formControl]="emailFormControl" placeholder="email" id="email">
+                      <!-- <mat-error *ngIf="emailFormControl.hasError('email')">
                                         not a valid email.
                                       </mat-error> -->
-                                      <mat-error *ngIf="emailFormControl.errors?.['required']">
-                                        email is required.
-                                      </mat-error>
-                                    </mat-form-field>
-                                  </li>
-                                  <li>
-                                    <mat-form-field  class="example-full-width" appearance="outline">
-                                      <input type="password" matInput [formControl]="passFormControl" placeholder="Password" id="password" >
-                                      <mat-error *ngIf="passFormControl.errors?.['minlength']">
-                                        min length for the password equal 6.
-                                      </mat-error>
-                                      <mat-error *ngIf="passFormControl.errors?.['required']">
-                                        Password is required.
-                                      </mat-error>
-                                    </mat-form-field>
-                                  </li>
-                                </ul>
-                                <ul>
-                                  <button  class="main-button-gradient" mat-button [mat-dialog-close]="true" value="Login" (click)="login()" cdkFocusInitial>Login</button>
-                                </ul>
-                              </form>
-                              <p style="margin-left: 400px;margin-top: 50px;" >
-                                Don't have an account> ? <a href="auth/register"   ><em>Register here</em></a>
-                            </p>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
+                      <mat-error *ngIf="emailFormControl.errors?.['required']">
+                        email is required.
+                      </mat-error>
+                    </mat-form-field>
+                  </li>
+                  <li>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <input type="password" matInput [formControl]="passFormControl" placeholder="Password"
+                        id="password">
+                      <mat-error *ngIf="passFormControl.errors?.['minlength']">
+                        min length for the password equal 6.
+                      </mat-error>
+                      <mat-error *ngIf="passFormControl.errors?.['required']">
+                        Password is required.
+                      </mat-error>
+                    </mat-form-field>
+                  </li>
+                </ul>
+                <ul >
+                  <button   style="justify-content: center; padding: 0; width: 100px;height: 40px;"
+                   class="main-button-gradient" mat-button [mat-dialog-close]="true" value="Login"
+                    (click)="login()" cdkFocusInitial style="align-items:center;justify-content: center;">Login</button>
+                </ul>
+              </form>
+              <p style="margin-left: 50%;margin-top:5%;">
+                Don't have an account> ? <a href="auth/register"><em>Register here</em></a>
+              </p>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+</div>
 <app-footer></app-footer>
-
