@@ -17,6 +17,7 @@ export class MedicineService {
   getAll() {
     this.http.get('https://localhost:44341/api/Medicine/GetMedicne/').subscribe((res) => {
       this.medicineData = res;
+      console.log(this.medicineData)
      
     }, err => {
 

@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div>
+
+    <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="input-group" style=" margin-left:15%;margin-bottom: 2%;">
+            <div class="form-outline">
+                <input (change)="enterName($event)" placeholder="search" class="form-control border-end-0 border rounded-pill" type="text" id="example-search-input" style="border-radius:50%" />
+            </div>
+            <button style="border-radius:50%;margin-top: 2%;" type="button" class="btn btn-primary">
+                <i (click)=" search()" mdbWavesEffect class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+    <div class="col-lg-8">
+        <div class="my-google-map">
+            <google-map id="map" height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options">
+                <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label" [title]="marker.title" [options]="marker.options">
+                </map-marker>
+            </google-map>
+        </div>
+    </div>
+
+    <div *ngIf="flag; then show "></div>
+    <ng-template #show>
+        <div class="site-section" style="margin-bottom: 5%; ;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <span class="icon-check_circle display-3 text-success"></span>
+                        <h2 class="display-3 text-black">Pharmacy :{{this.mapService.pharmacyData[0].name | titlecase}}
+                        </h2>
+                        <p class="lead mb-5">Phone Number :{{this.mapService.pharmacyData[0].phone }}</p>
+                        <p class="lead mb-5">Program :{{this.mapService.pharmacyData[0].open }}am {{this.mapService.pharmacyData[0].close}}pm
+                        </p>
+                        <p><a href="medicine" class="btn btn-md height-auto px-4 py-3 btn-primary">By Medicine</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+</div>
+<app-footer></app-footer>

@@ -15,6 +15,7 @@ import { InvoiceService } from './services/invoice.service';
 import { SingleMedicinePageComponent } from './single-medicine-page/single-medicine-page.component';
 import { SuccesComponent } from './succes/succes.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { UserMapComponent } from './user-map/user-map.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
@@ -79,7 +80,11 @@ const routes: Routes = [
   path:'userProfile',
   component:UserProfileComponent
 }
-
+,
+{
+  path:'map',
+  component:UserMapComponent
+}
 
 
 
