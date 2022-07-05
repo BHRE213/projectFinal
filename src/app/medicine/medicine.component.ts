@@ -62,8 +62,7 @@ for (var val of splitted) {
    
     var reader:FileReader = new FileReader();
     reader.readAsText(file);
-    var resultSet:any = [];
-    var columns :any
+  
    
     reader.onload = () => {
         console.log(reader.result)
@@ -82,7 +81,7 @@ for (var val of splitted) {
       console.log (m)
         if (m !=0 ){
           console.log("ii")
-          const l:any= this.medicineService.searchByName(searches)
+          this.medicineService.searchByName(searches)
                break;
         }
         
