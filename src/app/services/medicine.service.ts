@@ -13,16 +13,23 @@ export class MedicineService {
   display_Image: any;
   medicineId:any;
   singleMedicineData: any = [];
+  categoryId:number =0;
 
   getAll() {
     this.http.get('https://localhost:44341/api/Medicine/GetMedicne/').subscribe((res) => {
-      this.medicineData = res;
-      console.log(this.medicineData)
-     
-    }, err => {
+      this.medicineData = res;  
+      }, err => {
 
     })
   }
+  getAllCategoryMedicine(data:any) {
+    this.http.post('https://localhost:44341/api/Medicine/GetMedicineCategoryById/',data).subscribe((res) => {
+      this.medicineData = res; 
+    }, err => {
+    })
+  }
+  
+
   getMedicineCategoryData() {
     this.http.get('https://localhost:44341/api/MedicineCategory/').subscribe((res) => {
       this.medicineCategoryData = res;   
