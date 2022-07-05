@@ -1106,7 +1106,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(203, 250, 250, 0.9);
+    background: #ffffff;
     z-index: 1; }
   .bg-image > .container {
     position: relative;
