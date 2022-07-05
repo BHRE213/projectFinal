@@ -1,13 +1,9 @@
 <app-header></app-header>
 <ngx-spinner type="ball-clip-rotate-multiple"></ngx-spinner>
-
-
-
-
-<section class="" style=" margin-top: -70px; padding-top: 70px;">
-      <div>
-        <div class="site-blocks-cover inner-page" style="background: linear-gradient(to top,
-    rgba(64, 104, 142, 0.7)50%, rgba(122, 150, 175, 0.7)50%),url('../../../assets/image/{{sitedata.shared[0].image}}');  width: 100%;
+<section class="" style=" padding-top: 70px;">
+  <div>
+    <div class="site-blocks-cover inner-page" style="background: linear-gradient(to top,
+    rgba(189, 214, 236, 0.7)50%, rgba(189, 214, 236, 0.7)50%),url('../../../assets/image/{{sitedata.shared[0].image}}');  width: 100%;
 
 display:block;
 background-position: center;
@@ -18,19 +14,42 @@ display: block;
 
 height: 1000px;
 ">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-7 mx-auto align-self-center">
-                <div class=" text-center" style="padding-bottom: 5%;">
-                  <h1 style="color:#03ccfd;">Welcome</h1>
-                  <h2 style="font-size:50px;">To Our Pharmacy.</h2>
-                </div>
-              </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 mx-auto align-self-center">
+            <div class=" text-center" style="padding-bottom: 5%;">
+              <h1 style="color:#03ccfd;">Welcome</h1>
+              <h2 style="font-size:50px;">To Our Pharmacy.</h2>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 </section>
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="title-section text-center col-12">
+        <h2 class="text-uppercase">Popular Products</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-lg-4 text-center item mb-4"
+        *ngFor="let item of medicineCategoryService.medicineCategoryData">
+         <img (click)="getMedicineByCid(item.medicinecategoryid)" src="../../../assets/image/{{item.imagepath}}" alt="Image">
+        <h3 class="text-dark" (click)="getMedicineByCid(item.medicinecategoryid)">{{item.type |titlecase}}</h3>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <a href="medicine" class="btn btn-primary px-4 py-3">View All Medicines</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="site-section">
   <div class="" style="margin-left: 100px; padding: 50px;">
     <div class="row">
@@ -66,10 +85,10 @@ height: 1000px;
     <div class="row align-items-stretch">
       <div class="col-lg-6 mb-5 mb-lg-0">
         <div class="banner-1 h-100 d-flex"
-          style="background-image: url('../../../assets/image/{{shareddata.shared[2].image}}');">
+          style="background-image: url('../../../assets/image/{{shareddata.shared[0].image}}');">
           <div class="banner-1-inner align-self-center ml-auto">
-            <h2>{{shareddata.shared[1].title}}</h2>
-            <p style=" display: inline-block;">{{shareddata.shared[1].txt}}
+            <h2>{{shareddata.shared[0].title}}</h2>
+            <p style=" display: inline-block;">{{shareddata.shared[0].txt}}
             </p>
           </div>
         </div>
@@ -78,8 +97,8 @@ height: 1000px;
         <div href="#" class="banner-1 h-100 d-flex"
           style="background-image: url('../../../assets/image/{{shareddata.shared[1].image}}');">
           <div class="banner-1-inner align-self-center ml-auto ">
-            <h2>{{shareddata.shared[2].title}}</h2>
-            <p style=" display: inline-block;">{{shareddata.shared[2].txt}}
+            <h2>{{shareddata.shared[1].title}}</h2>
+            <p style=" display: inline-block;">{{shareddata.shared[1].txt}}
             </p>
           </div>
         </div>
@@ -87,23 +106,7 @@ height: 1000px;
     </div>
   </div>
 </div>
-<!--
-     <div class="row">
-      <div class="col-md-12 block-3 products-wrap" >
-        <div class="nonloop-block-3 no-direction owl-carousel" >
-          <div *ngFor="let item of testimonial.testimonialData" style=" display: inline-block;">
-            <div class="testimony" style=" display: inline-block;">
-              <blockquote>
-                <img src="../../../assets/image/{{item.image}}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
-                <p>{{item.txt}}</p>
-              </blockquote>
-              <p>{{item.name}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
--->
+
 <script src="../../assets/js/jquery-3.3.1.min.js"></script>
 <script src="../../assets/js/jquery-ui.js"></script>
 <script src="../../assets/js/popper.min.js"></script>
