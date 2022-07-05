@@ -9,6 +9,7 @@ export class MedicineService {
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
   medicineData: any = [];
+  medicinefile: any = [];
   medicineCategoryData: any = [];
   display_Image: any;
   medicineId:any;
@@ -94,6 +95,9 @@ export class MedicineService {
 
     this.http.post('https://localhost:44341/api/Medicine/searchProduct/', body).subscribe((res) => {
       this.medicineData = res;
+      this.medicinefile=res
+      console.log(res.toString)
+      
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr

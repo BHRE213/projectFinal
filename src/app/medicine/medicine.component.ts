@@ -76,10 +76,16 @@ for (var val of splitted) {
         const searches={
           name: val
         };
-        const l:any= this.medicineService.searchByName(searches)
-        if (l){
-
+        console.log(val)
+       this.medicineService.searchByName(searches)
+      const  m:number=this.medicineService.medicinefile
+      console.log (m)
+        if (m !=0 ){
+          console.log("ii")
+          const l:any= this.medicineService.searchByName(searches)
+               break;
         }
+        
       }
        
       };
