@@ -77,7 +77,7 @@ for (var val of splitted) {
         };
         console.log(val)
        this.medicineService.searchByName(searches)
-      const  m:number=this.medicineService.medicinefile
+      const  m:any=this.medicineService.medicinefile
       console.log (m)
         if (m !=0 &&m!=null ){
           console.log("ii")
