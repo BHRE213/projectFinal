@@ -17,7 +17,15 @@ export class MedicineComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.medicineService.getAll();
+    if(this.medicineService.categoryId==0)
+    {
+      this.medicineService.getAll();
+    }else{
+      this.medicineService.getAllCategoryMedicine({
+        medicineCategoryId:this.medicineService.categoryId
+      })
+    }
+    
     setTimeout(() => {      
       this.spinner.hide();
     }, 1300);

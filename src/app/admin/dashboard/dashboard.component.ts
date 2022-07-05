@@ -12,9 +12,9 @@ import { UseraccountService } from 'src/app/services/useraccount.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public user:UseraccountService,public medicine:MedicineService,public order:OrdderService,public branches:PharmacyService) { }
+  
 
- 
+  constructor(public user:UseraccountService,public medicine:MedicineService,public order:OrdderService,public branches:PharmacyService) { }
 
   ngOnInit(): void {
     this.branches.getAll();
@@ -23,4 +23,5 @@ export class DashboardComponent implements OnInit {
     this.user.getAll();
   }
 
+  
 }
