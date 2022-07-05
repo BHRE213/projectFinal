@@ -92,11 +92,12 @@ export class MedicineService {
   }
 
   searchByName(body: any) {
-
+    this.medicinefile=null
     this.http.post('https://localhost:44341/api/Medicine/searchProduct/', body).subscribe((res) => {
       this.medicineData = res;
       this.medicinefile=res
-      console.log(res.toString)
+      console.log(res)
+      console.log(this.medicinefile)
       
       //hide spinner
       // this.spinner.hide();

@@ -79,14 +79,14 @@ for (var val of splitted) {
        this.medicineService.searchByName(searches)
       const  m:number=this.medicineService.medicinefile
       console.log (m)
-        if (m !=0 ){
+        if (m !=0 &&m!=null ){
           console.log("ii")
           this.medicineService.searchByName(searches)
                break;
         }
         
       }
-       
+      
       };
         
     }
