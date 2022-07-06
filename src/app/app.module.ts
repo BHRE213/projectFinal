@@ -25,6 +25,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserMapComponent } from './user-map/user-map.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { UserMapComponent } from './user-map/user-map.component';
     HomeComponent,
     TestimonialComponent,   
     ReviewComponent, 
-    AboutUsComponent, MedicineComponent, SingleMedicinePageComponent, CartComponent, CheckoutComponent, SuccesComponent, InvoiceComponent, OrderHistoryComponent, UserProfileComponent, UserMapComponent 
+    AboutUsComponent, MedicineComponent, SingleMedicinePageComponent, CartComponent, CheckoutComponent, SuccesComponent, InvoiceComponent, OrderHistoryComponent, UserProfileComponent, UserMapComponent, TestComponent 
   ],
   imports: [
     BrowserModule,
