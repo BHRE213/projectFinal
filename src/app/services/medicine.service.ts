@@ -14,6 +14,7 @@ export class MedicineService {
   display_Image: any;
   medicineId:any;
   singleMedicineData: any = [];
+  medicinem: any = [];
 
   getAll() {
     this.http.get('https://localhost:44341/api/Medicine/GetMedicne/').subscribe((res) => {
@@ -92,12 +93,12 @@ export class MedicineService {
   }
 
   searchByName(body: any) {
-    this.medicinefile=null
+   //console.log(body) 
     this.http.post('https://localhost:44341/api/Medicine/searchProduct/', body).subscribe((res) => {
       this.medicineData = res;
-      this.medicinefile=res
+    
       console.log(res)
-      console.log(this.medicinefile)
+    
       
       //hide spinner
       // this.spinner.hide();
@@ -107,6 +108,29 @@ export class MedicineService {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)
     })
+  }
+  search(body: any) {
+  
+    this.http.post('https://localhost:44341/api/Medicine/searchProduct', body).subscribe((res) => {
+     
+     
+      this.medicinefile=res
+      
+      if (this.medicinefile.length>0){
+        this.medicineData=res
+        console.log(this.medicinefile)}
+      
+      //hide spinner
+      // this.spinner.hide();
+      // res --> show toastr
+    
+    }, err => {
+      // this.spinner.hide();
+      this.toastr.error(err.message, err.status)
+    })
+   
+    
+    
   }
 
   getMedicineById(data: any) {
@@ -122,4 +146,8 @@ export class MedicineService {
         this.toastr.error(err.message, err.status)
       })
   }
+  mm(){
+  // console.log(this.medicinem)
+    //this.searchByName(this.medicinem)
+    }
 }

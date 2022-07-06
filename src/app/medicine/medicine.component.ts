@@ -16,6 +16,7 @@ export class MedicineComponent implements OnInit {
   name:any='';
 file:any 
   ngOnInit(): void {
+    
    /* var str = "Apples are round, and apples are juicy."; 
 var splitted = str.split(" "); 
 console.log(splitted)
@@ -76,21 +77,16 @@ for (var val of splitted) {
           name: val
         };
         console.log(val)
-       this.medicineService.searchByName(searches)
-      const  m:any=this.medicineService.medicinefile
-      console.log (m)
-        if (m !=0 &&m!=null ){
-          console.log("ii")
-          this.medicineService.searchByName(searches)
-               break;
-        }
-        
-      }
+       this.medicineService.search(searches)
       
+     
+       
       };
-        
+      
+ 
+ 
     }
-   
+
   }
         
     
@@ -99,4 +95,7 @@ for (var val of splitted) {
        
       
       
-      }
+}
+
+
+}
