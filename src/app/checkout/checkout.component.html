@@ -1,4 +1,12 @@
 <app-header></app-header>
+<div class="py-3" style="margin-top: 3%; background-color: #3da8ff;">
+    <div class="container">
+        <div class="col-md-12 mb-0">
+            <a style="color: white" href="">Home </a> <span class="mx-2 mb-0" style="color: white">/</span>
+            <a style="color: white;font-size: 18px;" href="checkout">Checkout</a> <span class="mx-2 mb-0"></span>
+        </div>
+    </div>
+</div>
 <div *ngIf="checkoutService.checkoutOrders.length!=0; then show else hide"></div>
 <ng-template #hide>
     <div class="site-section" style="margin-bottom:5%">
@@ -8,7 +16,7 @@
                     <span class="icon-check_circle display-3 text-success"></span>
                     <h2 class="display-3 text-black">Sorry!</h2>
                     <p class="lead mb-5">You dont order anyThing</p>
-                    <p><a href="medicine" class="btn btn-md height-auto px-4 py-3 btn-primary">Back to store</a></p>
+                    <p><a  style="background-color: #3da8ff;color: white; "href="medicine" class="btn  height-auto px-4 py-3 ">Back to store</a></p>
                 </div>
             </div>
         </div>
@@ -38,7 +46,7 @@
                     </table>
 
                     <div class="form-group">
-                        <button class="btn btn-primary btn-lg btn-block" (click)=" placeOrder()"> Place Order  </button>
+                        <button style="background-color: #3da8ff; color:white" class="btn  btn-lg btn-block" (click)=" placeOrder()"> Place Order  </button>
                     </div>
                     <div class="row">
                         <div class="col-md-12">

@@ -1,4 +1,13 @@
 <app-header></app-header>
+<div class="py-3" style="margin-top: 3%; background-color: #3da8ff;">
+    <div class="container">
+        <div class="col-md-12 mb-0">
+            <a style="color: white" href="">Home </a> <span class="mx-2 mb-0" style="color: white">/</span>
+            <a style="color: white;font-size: 18px;" href="cart">Cart</a> <span class="mx-2 mb-0"></span>
+        </div>
+    </div>
+</div>
+
 <div *ngIf="order.ordersInCart.length!=0; then show else hide"></div>
 <ng-template #hide>
     <div class="site-section" style="margin-bottom: 5%; ;">
@@ -8,22 +17,14 @@
                     <span class="icon-check_circle display-3 text-success"></span>
                     <h2 class="display-3 text-black">Sorry!</h2>
                     <p class="lead mb-5">You dont order anyThing</p>
-                    <p><a style="color:white ;" href="medicine" class="btn btn-md height-auto px-4 py-3 btn-primary ">Back to store</a></p>
+                    <p><a style="color:white ; background-color: #3da8ff" href="medicine" class="btn btn-md height-auto px-4 py-3  ">Back to store</a></p>
                 </div>
             </div>
         </div>
     </div>
 </ng-template>
 <ng-template #show>
-    <div class="bg-light py-3">
-        <div class="container">
-            <div class="col-md-12 mb-0">
-                <a href="">Home</a> <span class="mx-2 mb-0">/</span>
-                <a href="cart">Cart</a> <span class="mx-2 mb-0">/</span>
-            </div>
-        </div>
-    </div>
-    <div class="site-section">
+     <div class="site-section">
         <div class="container">
             <div class="row mb-5">
                 <form class="col-md-12" method="post">
@@ -50,7 +51,7 @@
                                     <td>${{item.price}}</td>
                                     <td>{{item.quantity}}</td>
                                     <td>${{item.price * item.quantity}}</td>
-                                    <td><button style="color:white" type="button" class="btn btn-primary" (click)="removeFromCart(item.orderid)">Remove</button></td>
+                                    <td><button style="color:white; background-color: #3da8ff;" type="button" class="btn " (click)="removeFromCart(item.orderid)">Remove</button></td>
 
                                 </tr>
                             </tbody>
@@ -78,7 +79,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button style="color:white" type="button" class="btn btn-primary  px-5 py-3" (click)="openCheckoutPage()">Checkout</button>
+                                    <button style="color:white; background-color: #3da8ff;" type="button" class="btn  px-5 py-3" (click)="openCheckoutPage()">Checkout</button>
                                 </div>
                             </div>
                         </div>
