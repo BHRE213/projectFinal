@@ -22,6 +22,7 @@ export class CheckoutService {
     this.http.post('https://localhost:44341/api/Order/GetCardUserData/', data)
       .subscribe((res: any) => {
         this.cardData = res;
+        console.log('uyfghujk',this.cardData)
       }, err => {
       })
   }

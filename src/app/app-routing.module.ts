@@ -14,6 +14,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { InvoiceService } from './services/invoice.service';
 import { SingleMedicinePageComponent } from './single-medicine-page/single-medicine-page.component';
 import { SuccesComponent } from './succes/succes.component';
+import { TestComponent } from './test/test.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { UserMapComponent } from './user-map/user-map.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -85,7 +86,11 @@ const routes: Routes = [
   path:'map',
   component:UserMapComponent
 }
-
+,
+{
+  path:'test',
+  component:TestComponent
+}
 
 
 ];

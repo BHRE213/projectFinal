@@ -24,9 +24,7 @@ export class CheckoutComponent implements OnInit {
         orderstatesid: 2
       }
     )
-    this.checkoutService.getUserCardData({
-      useraccountid: Number(this.useraccountid)
-    })
+    
     setTimeout(() => {
       this.total();
       this.spinner.hide();
