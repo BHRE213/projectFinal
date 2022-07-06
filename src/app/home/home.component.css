@@ -133,7 +133,7 @@ h2::after {
 }
 blockquote p {
     padding: 10px;
-    background: azure ;
+    background: #c4e5ff ;
 	border-color: rgb(242, 252, 249);
 border-style: solid;
     border-radius: 1px;
