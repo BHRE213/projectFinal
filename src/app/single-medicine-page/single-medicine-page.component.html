@@ -4,7 +4,7 @@
         <div class="container">
             <div class="col-md-12 mb-0">
                 <a href="">Home</a> <span class="mx-2 mb-0">/</span>
-                <a href="medicine">Store</a> <span class="mx-2 mb-0">/</span>
+                <a href="medicine">Medicine</a> <span class="mx-2 mb-0">/</span>
                 <strong class="text-black">{{medicine.singleMedicineData.name}}</strong>
             </div>
         </div>
@@ -38,7 +38,7 @@
                             </div>
                             <input type="text" class="form-control text-center" [(ngModel)]="quantity" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-primary js-btn-plus" (click)="increase()" type="button">&plus;</button>
+                                <button  class="btn btn-outline-primary js-btn-plus" (click)="increase()" type="button">&plus;</button>
                             </div>
                         </div>
 
@@ -49,7 +49,7 @@
                         <p><a href="auth/login" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">login for adding to cart</a></p>
                     </ng-template>
                     <ng-template #showCart>
-                        <p><a (click)="addToCart(medicine.singleMedicineData.medicineid)" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+                        <p style="color:white"><a (click)="addToCart(medicine.singleMedicineData.medicineid)" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
 
                     </ng-template>
 

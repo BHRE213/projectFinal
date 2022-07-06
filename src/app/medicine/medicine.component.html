@@ -39,14 +39,14 @@
         <div class="row">
             <div class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
                 <img src="../../../assets/image/{{item.imagepath}}" style="height:200px; width:200px " alt="Image " />
-                <h3 style="font-size:25px ; color: #3d71ff ;padding-top:10%"> {{item.name}} </h3>
-                <strong style="color: #3d71ff ;font-size:25px ">price: ${{item.price}}</strong>
+                <h3 style="font-size:25px ; color: #3d71ff ;justify-content: center;margin-top: 5%"> {{item.name}} </h3>
+                <strong style="color: #3d71ff ;font-size:18px ;justify-content: center;">price: ${{item.price}}</strong>
                 <div *ngIf="item.medicinenumber>0; then show else hide"
                     style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;">
                 </div>
                 <ng-template #show>
                     <button
-                        style="margin-left:44% ;margin-top:2%;color:rgb(191, 193, 194);background-color:rgb(94, 117, 233)"
+                        style="justify-content: center ;margin-top:2%;color:rgb(255, 255, 255);background-color:rgb(94, 117, 233)"
                         class="btn btn-light row" type="button" (click)="openSingelPage(item.medicineid)"
                         mdbWavesEffect>View</button>
                 </ng-template>
