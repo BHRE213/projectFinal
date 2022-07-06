@@ -117,9 +117,17 @@ export class MedicineService {
       this.medicinefile=res
       
       if (this.medicinefile.length>0){
-        this.medicineData=res
-        console.log(this.medicinefile)}
+        if (this.medicinem.length>0){
+        var n:any[]=[...this.medicinem, ...this.medicinefile];
+        this.medicineData=n
+        this.medicinem=n
+      }
+        else {this.medicinem= this.medicinefile
+          this.medicineData= this.medicinefile}
+        console.log(this.medicineData)
       
+      }
+    
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
@@ -146,8 +154,5 @@ export class MedicineService {
         this.toastr.error(err.message, err.status)
       })
   }
-  mm(){
-  // console.log(this.medicinem)
-    //this.searchByName(this.medicinem)
-    }
+  
 }
