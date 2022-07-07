@@ -11,6 +11,8 @@ export class TestComponent implements OnInit {
 
   constructor(public testing:CheckoutService) { }
 
+  flag:boolean=false
+
   ngOnInit(): void {
     
   }
