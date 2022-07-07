@@ -17,38 +17,32 @@ outputt=document.getElementById('output')
 
   ngOnInit(): void {
   }
+
   changeListener($event:any) : void {
     this.readThis($event.target);
   }
+
   complete :any = new EventEmitter();
+  
   readThis(inputValue: any) : void {
-    var file:File = inputValue.files[0]; 
+    var file:File = inputValue.files[0];     
     var myReader:FileReader = new FileReader();
 
     myReader.onloadend = function(e){
       // you can perform an action with readed data here
       console.log(myReader.result);
-    
-     
-        
-  
-     
-    }
-    
-    console.log(myReader.readAsText(file));
-   
-
+    }    
+    console.log(myReader.readAsText(file)); 
   }
+
   resultSet:any; // dont need it 
 
  loadFileAsText($event:any){
-    var fileToLoad = $event.files[0];
-  
+    var fileToLoad = $event.files[0];  
     var fileReader = new FileReader();
     fileReader.onload = function(){
       fileReader.result
-    };
-  
-  
+    };  
   }
+
 }
