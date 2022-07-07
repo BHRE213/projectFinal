@@ -5,7 +5,7 @@
                 <div class="main_blog_inner single_blog_inner">
                     <div class="s_comment_area">
                         <div class="section-heading" style="margin-left: 30%;  margin-bottom: 3%; text-align: center;">
-                            <h4>Enter your  <em>card information</em></h4>
+                            <h4>Enter your <em>card information</em></h4>
                         </div>
                         <form [formGroup]="CreateForm" style="margin-left: 30%;" class="example-form">
                             <ul>
@@ -26,12 +26,16 @@
                                 <li>
                                     <mat-form-field class="example-full-width" appearance="outline">
                                         <mat-label>Enter Expire Date </mat-label>
-                                        <input type="date" matInput formControlName="expiredate"
-                                            placeholder="Enter Expire Date">
+                                        <input type="date" matInput formControlName="expiredate" placeholder="Enter Expire Date">
 
                                     </mat-form-field>
                                 </li>
-                                <button class="main-button-gradient"    style="float: right; padding: 0; width: 100px;height: 40px;" mat-button
-                                [mat-dialog-close]="true" (click)="send()"   cdkFocusInitial>send</button>
+                                <button class="main-button-gradient" style="float: right; padding: 0; width: 100px;height: 40px;" mat-button [mat-dialog-close]="true" (click)="send()" cdkFocusInitial>send</button>
                             </ul>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

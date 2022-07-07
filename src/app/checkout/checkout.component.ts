@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -73,5 +74,14 @@ export class CheckoutComponent implements OnInit {
       this.router.navigate(['cart'])
     },300)
     
+  }
+
+  CreateForm: FormGroup = new FormGroup({
+    cvb: new FormControl(),
+    iban: new FormControl(),
+    expiredate: new FormControl()
+  })
+  send(){
+    this.checkoutService.getUserCardData(this.CreateForm.value)
   }
 }

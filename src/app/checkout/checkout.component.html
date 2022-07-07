@@ -16,7 +16,7 @@
                     <span class="icon-check_circle display-3 text-success"></span>
                     <h2 class="display-3 text-black">Sorry!</h2>
                     <p class="lead mb-5">You dont order anyThing</p>
-                    <p><a  style="background-color: #3da8ff;color: white; "href="medicine" class="btn  height-auto px-4 py-3 ">Back to store</a></p>
+                    <p><a style="background-color: #3da8ff;color: white; " href="medicine" class="btn  height-auto px-4 py-3 ">Back to store</a></p>
                 </div>
             </div>
         </div>
@@ -44,7 +44,47 @@
                             </tr>
                         </tbody>
                     </table>
+                    <section class="main_blog_area pb_100">
+                        <div class="container">
+                            <div class="row blog_area_inner">
+                                <div class="col-lg-9">
+                                    <div class="main_blog_inner single_blog_inner">
+                                        <div class="s_comment_area">
+                                            <div class="section-heading" style="margin-left: 30%;  margin-bottom: 3%; text-align: center;">
+                                                <h4>Enter your <em>card information</em></h4>
+                                            </div>
+                                            <form [formGroup]="CreateForm" style="margin-left: 30%;" class="example-form">
+                                                <ul>
+                                                    <li>
+                                                        <mat-form-field class="example-full-width" appearance="outline">
+                                                            <mat-label>Enter CVC</mat-label>
+                                                            <input type="text" matInput formControlName="cvb" placeholder="Enter CVC">
 
+                                                        </mat-form-field>
+                                                    </li>
+                                                    <li>
+                                                        <mat-form-field class="example-full-width" appearance="outline">
+                                                            <mat-label>Enter IBAN </mat-label>
+                                                            <input type="text" matInput formControlName="iban" placeholder="Enter IBAN">
+
+                                                        </mat-form-field>
+                                                    </li>
+                                                    <li>
+                                                        <mat-form-field class="example-full-width" appearance="outline">
+                                                            <mat-label>Enter Expire Date </mat-label>
+                                                            <input type="date" matInput formControlName="expiredate" placeholder="Enter Expire Date">
+
+                                                        </mat-form-field>
+                                                    </li>
+                                                    <button class="main-button-gradient" style="float: right; padding: 0; width: 100px;height: 40px;" mat-button [mat-dialog-close]="true" (click)="send()" cdkFocusInitial>send</button>
+                                                </ul>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     <div class="form-group">
                         <button style="background-color: #3da8ff; color:white" class="btn  btn-lg btn-block" (click)=" placeOrder()"> Place Order  </button>
                     </div>
@@ -53,6 +93,7 @@
                             <button type="button" class="btn btn-danger  px-5 py-3" (click)="cancel()">Cancel Order</button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
