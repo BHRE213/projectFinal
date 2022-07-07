@@ -68,7 +68,8 @@ for (var val of splitted) {
     reader.onload = () => {
         console.log(reader.result)
         const m:string|any=reader.result;
-      const n:string|any=m.split(" "); 
+       const t:string|any =m.trim();
+      const n:string|any=t.split(/\W+/); 
       if(m.length == 0){
         window.location.reload();
       }else{
