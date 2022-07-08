@@ -15,6 +15,7 @@ outputt=document.getElementById('output')
 
   constructor(public elementRef: ElementRef) { }
 
+  
   ngOnInit(): void {
   }
   changeListener($event:any) : void {
