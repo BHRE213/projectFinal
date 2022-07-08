@@ -53,12 +53,13 @@ export class AuthService {
       let data: any = jwt_decode(responce.token); // decoded token
 
       localStorage.setItem('user', JSON.stringify({ ...data }));
-      localStorage.setItem('id', data.nameid)
+      localStorage.setItem('id', data.nameid);
+      localStorage.setItem('role',data.role);
 
       if (data.role == 'Admin') {
         this.router.navigate(['admin']);
-      } else if (data.role == 'customer') {
-        this.router.navigate(['course']);
+      } else if (data.role == 'User') {
+        this.router.navigate(['']);
       }
 
     }, err => (this.toastr.error(err.message, err.status)))

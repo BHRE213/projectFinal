@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ProfileService } from '../services/profile.service';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-user-profile',

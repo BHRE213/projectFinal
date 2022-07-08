@@ -4,8 +4,7 @@
         <div class="container">
             <div class="col-md-12 mb-0">
                 <a style="color: white" href="">Home </a> <span class="mx-2 mb-0" style="color: white">/</span>
-                <a style="color: white;font-size: 18px" href="singleMedicine"> Single Medicine</a> <span
-                    class="mx-2 mb-0"></span>
+                <a style="color: white;font-size: 18px" href="singleMedicine"> Single Medicine</a> <span class="mx-2 mb-0"></span>
             </div>
         </div>
     </div>
@@ -14,8 +13,7 @@
             <div class="row">
                 <div class="col-md-5 mr-auto">
                     <div class="border text-center">
-                        <img src="../../../assets/image/{{medicine.singleMedicineData.imagepath}}" alt="Image"
-                            class="img-fluid p-5">
+                        <img src="../../../assets/image/{{medicine.singleMedicineData.imagepath}}" alt="Image" class="img-fluid p-5">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -25,31 +23,26 @@
                     <p>
                         Price: <strong class="text-primary h4">{{medicine.singleMedicineData.price}}</strong>
                     </p>
-                    <div class="mb-5">
+                    <div *ngIf="flag==false" class="mb-5">
                         <div class="input-group mb-3" style="max-width: 220px;">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-primary js-btn-minus" (click)="decrease()"
-                                    type="button">&minus;</button>
+                                <button class="btn btn-outline-primary js-btn-minus" (click)="decrease()" type="button">&minus;</button>
                             </div>
-                            <input type="text" class="form-control text-center" [(ngModel)]="quantity" placeholder=""
-                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <input type="text" class="form-control text-center" [(ngModel)]="quantity" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-primary js-btn-plus" (click)="increase()"
-                                    type="button">&plus;</button>
+                                <button class="btn btn-outline-primary js-btn-plus" (click)="increase()" type="button">&plus;</button>
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="useraccountid!=null; then showCart else hideCart"
-                        style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;">
+                    <div *ngIf="useraccountid!=null; then showCart else hideCart" style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;">
                     </div>
                     <ng-template #hideCart>
-                        <p><a style="background-color: #3da8ff;" href="auth/login"
-                                class="buy-now btn btn-sm height-auto px-4 py-3 ">login for adding to cart</a></p>
+                        <p><a style="background-color: #3da8ff;color:white" href="auth/login" class="buy-now btn btn-sm height-auto px-4 py-3 ">login for adding to cart</a></p>
                     </ng-template>
                     <ng-template #showCart>
-                        <p style=" color:white"><a  style="background-color: #3da8ff;" (click)="addToCart(medicine.singleMedicineData.medicineid)"
-                                class="buy-now btn btn-sm height-auto px-4 py-3">Add To Cart</a></p>
+                        <p *ngIf="flag==false" style="color:white"><a style="background-color: #3da8ff;" (click)="addToCart(medicine.singleMedicineData.medicineid)" class="buy-now btn btn-sm height-auto px-4 py-3">Add To Cart</a></p>
                     </ng-template>
+                    <p *ngIf="flag" style="color:rgb(197, 23, 23)">Sold Out </p>
                 </div>
             </div>
         </div>

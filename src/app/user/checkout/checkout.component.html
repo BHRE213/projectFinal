@@ -44,7 +44,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <section class="main_blog_area pb_100">
+                    <section *ngIf="flag" class="main_blog_area pb_100">
                         <div class="container">
                             <div class="row blog_area_inner">
                                 <div class="col-lg-9">
@@ -76,7 +76,7 @@
 
                                                         </mat-form-field>
                                                     </li>
-                                                    <button class="main-button-gradient" style="float: right; padding: 0; width: 100px;height: 40px;" mat-button [mat-dialog-close]="true" (click)="send()" cdkFocusInitial>send</button>
+                                                    <button class="main-button-gradient" style="float: right; padding: 0; width: 100px;height: 40px;" mat-button [mat-dialog-close]="true" (click)="CheckCard()" cdkFocusInitial>send</button>
                                                 </ul>
                                             </form>
                                         </div>
@@ -85,12 +85,13 @@
                             </div>
                         </div>
                     </section>
-                    <div class="form-group">
-                        <button style="background-color: #3da8ff; color:white" class="btn  btn-lg btn-block" (click)=" placeOrder()"> Place Order  </button>
+                    <div *ngIf="flag==false" class="form-group">
+                        <button style="background-color: #3da8ff; color:white" class="btn  btn-lg btn-block" (click)=" placeOrder()"> Place Order </button>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-danger  px-5 py-3" (click)="cancel()">Cancel Order</button>
+                            <button type="button" class="btn btn-danger  px-5 py-3" (click)="cancel()">Cancel
+                                Order</button>
                         </div>
                     </div>
 

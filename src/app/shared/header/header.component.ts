@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   isLoggedIn: any;
   role: any;
-
+  
   ngOnInit(): void {
     this.isLoggedIn = localStorage.getItem('token');
     this.role = localStorage.getItem('role')
@@ -23,16 +23,16 @@ export class HeaderComponent implements OnInit {
   }
 
   toInvoice(){
-    this.router.navigate(['invoice'])
+    this.router.navigate(['user/invoice'])
   }
   toCheckout(){
-    this.router.navigate(['checkout'])
+    this.router.navigate(['user/checkout'])
   }
   toOrdersHistory(){
-    this.router.navigate(['orderHistory'])
+    this.router.navigate(['user/orderHistory'])
   }
   toProfile(){
-    this.router.navigate(['userProfile'])    
+    this.router.navigate(['user/Profile'])    
   }
 
 }

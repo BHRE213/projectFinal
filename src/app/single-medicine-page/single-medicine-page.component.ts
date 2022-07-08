@@ -11,19 +11,22 @@ import { OrdderService } from '../services/ordder.service';
   styleUrls: ['./single-medicine-page.component.css']
 })
 export class SingleMedicinePageComponent implements OnInit {
-
+  flag: boolean = false
   quantity: number = 1;
   constructor(public medicine: MedicineService, private order: OrdderService ,private router:Router,private toastr: ToastrService,private spinner : NgxSpinnerService) { }
   useraccountid: any = localStorage.getItem('id')
-
+  role:any;
   ngOnInit(): void {
     this.spinner.show();
+    this.role = localStorage.getItem('role');
+
     this.medicine.getMedicineById({ medicineid: this.medicine.medicineId })
     setTimeout(() => {
       this.order.checkMedicineInCart({
         useraccountid: Number(this.useraccountid),
         medicineid: this.medicine.medicineId
       })
+      this.checkItemDeposit();
       this.spinner.hide();
     }, 1000);
 
@@ -51,7 +54,7 @@ export class SingleMedicinePageComponent implements OnInit {
         quantity: this.quantity,
         orderdate: new Date(),
         orderstatesid: 1,
-        useraccountid: 1,
+        useraccountid:Number(this.useraccountid),
         medicineid: id
       })
     } else {
@@ -63,6 +66,12 @@ export class SingleMedicinePageComponent implements OnInit {
     }
     this.router.navigate(['medicine'])
 
+  }
+
+  checkItemDeposit(){
+    if(this.medicine.singleMedicineData.medicinenumber<=0){
+      this.flag = true;
+    }
   }
 
 }

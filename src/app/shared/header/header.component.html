@@ -34,28 +34,31 @@
                                 <li class="nav-item d_none">
                                     <a class="nav-link" href="testimonal">Testimonal</a>
                                 </li>
-                                <li *ngIf="isLoggedIn==null" class=" nav-item d_none ">
+                                <li *ngIf="isLoggedIn==null" class=" nav-item d_none">
                                     <a class="nav-link " href="auth/login ">Login</a>
                                 </li>
-                                <li *ngIf="isLoggedIn==null" class="nav-item d_none ">
+                                <li *ngIf="isLoggedIn==null" class="nav-item d_none">
                                     <a class="nav-link " href="auth/register ">Register</a>
                                 </li>
-                                <div *ngIf="isLoggedIn!=null" class="dropdown">
-                                    <button style="background-color:#3da8ff ;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <li *ngIf="isLoggedIn!=null  && role=='Admin'" class="nav-item d_none">
+                                    <a class="nav-link " href="admin ">DashBord</a>
+                                </li>
+                                <div *ngIf="isLoggedIn!=null && role=='User'" class=" dropdown">
+                                    <button style="background-color:#3da8ff ; " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       My Data
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <button class="dropdown-item" type="button" (click)="toInvoice()">Last Invoice</button>
-                                        <button class="dropdown-item" type="button" (click)="toCheckout()">My Checkouts</button>
-                                        <button class="dropdown-item" type="button" (click)="toOrdersHistory()">Orders History</button>
-                                        <button class="dropdown-item" type="button" (click)="toProfile()">Profile</button>
+                                        <button class="dropdown-item " type="button " (click)="toInvoice() ">Last Invoice</button>
+                                        <button class="dropdown-item " type="button " (click)="toCheckout() ">My Checkouts</button>
+                                        <button class="dropdown-item " type="button " (click)="toOrdersHistory() ">Orders History</button>
+                                        <button class="dropdown-item " type="button " (click)="toProfile() ">Profile</button>
 
-                                        <button class="dropdown-item" type="button" (click)="logout()">Logout</button>
+                                        <button class="dropdown-item " type="button " (click)="logout() ">Logout</button>
                                     </div>
                                 </div>
 
-                                <li class="nav-item d_none sea_icon ">
-                                    <a class="nav-link " href="cart "><i class="fa fa-shopping-bag " aria-hidden="true "></i>
+                                <li *ngIf="isLoggedIn!=null && role=='User' " class=" nav-item d_none sea_icon">
+                                    <a class="nav-link" href="user/cart "><i class="fa fa-shopping-bag " aria-hidden="true"></i>
                                        </a>
                                 </li>
                             </ul>
