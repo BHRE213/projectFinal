@@ -11,6 +11,7 @@ import { UseraccountService } from 'src/app/services/useraccount.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  today = new Date();
 
   constructor(public user:UseraccountService,public medicine:MedicineService,public order:OrdderService,public branches:PharmacyService) { }
 
@@ -21,6 +22,7 @@ export class DashboardComponent implements OnInit {
     this.medicine.getAll();
     this.order.getAll();
     this.user.getAll();
+
   }
 
 }

@@ -56,7 +56,7 @@ export class AuthService {
       localStorage.setItem('id', data.nameid)
 
       if (data.role == 'Admin') {
-        this.router.navigate(['admin/about']);
+        this.router.navigate(['admin']);
       } else if (data.role == 'customer') {
         this.router.navigate(['course']);
       }
