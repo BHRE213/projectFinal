@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -11,21 +10,14 @@ import { ReviewComponent } from './review/review.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Token } from '@angular/compiler';
 import { TokenInterceptor } from 'src/Interceptor/token.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MedicineComponent } from './medicine/medicine.component';
 import { SingleMedicinePageComponent } from './single-medicine-page/single-medicine-page.component';
-import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { SuccesComponent } from './succes/succes.component';
-import { InvoiceComponent } from './invoice/invoice.component';
-import { OrderHistoryComponent } from './order-history/order-history.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserMapComponent } from './user-map/user-map.component';
-import { TestComponent } from './test/test.component';
+
 
 
 @NgModule({
@@ -35,7 +27,10 @@ import { TestComponent } from './test/test.component';
     HomeComponent,
     TestimonialComponent,   
     ReviewComponent, 
-    AboutUsComponent, MedicineComponent, SingleMedicinePageComponent, CartComponent, CheckoutComponent, SuccesComponent, InvoiceComponent, OrderHistoryComponent, UserProfileComponent, UserMapComponent, TestComponent 
+    AboutUsComponent, 
+    MedicineComponent,
+    SingleMedicinePageComponent, 
+    UserMapComponent,
   ],
   imports: [
     BrowserModule,

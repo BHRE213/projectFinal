@@ -26,9 +26,7 @@
     <form class="form-inline waves-light" mdbWavesEffect>
         <div class="input-group" style=" margin-left:15%;margin-bottom: 2%;">
             <div class="form-outline">
-                <input (change)="enterName($event)" placeholder="search"
-                    class="form-control border-end-0 border rounded-pill" type="text" id="example-search-input"
-                    style="border-radius:50%" />
+                <input (change)="enterName($event)" placeholder="search" class="form-control border-end-0 border rounded-pill" type="text" id="example-search-input" style="border-radius:50%" />
             </div>
             <button style="border-radius:50%;margin-top: 2%;" type="button" class="btn btn-primary">
                 <i (click)=" search()" mdbWavesEffect class="fas fa-search"></i>
@@ -38,18 +36,12 @@
     <div style="border-width: 1%;">
         <div class="row">
             <div class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
-                <img src="../../../assets/image/{{item.imagepath}}" style="height:200px; width:200px " alt="Image " />
-                <h3 style="font-size:25px ; color: #3d71ff ;justify-content: center;margin-top: 5%"> {{item.name}} </h3>
+                <img (click)="openSingelPage(item.medicineid)" src="../../../assets/image/{{item.imagepath}}" style="height:200px; width:200px " alt="Image " />
+                <h3 (click)="openSingelPage(item.medicineid)" style="font-size:25px ; color: #3d71ff ;justify-content: center;margin-top: 5%"> {{item.name}} </h3>
                 <strong style="color: #3d71ff ;font-size:18px ;justify-content: center;">price: ${{item.price}}</strong>
-                <div *ngIf="item.medicinenumber>0; then show else hide"
-                    style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;">
+                <div *ngIf="item.medicinenumber<=0; then hide " style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center;">
                 </div>
-                <ng-template #show>
-                    <button
-                        style="justify-content: center ;margin-top:2%;color:rgb(255, 255, 255);background-color:rgb(94, 117, 233)"
-                        class="btn btn-light row" type="button" (click)="openSingelPage(item.medicineid)"
-                        mdbWavesEffect>View</button>
-                </ng-template>
+
                 <ng-template #hide>
                     <h4 style="color: red;">This IsSold Out
                     </h4>

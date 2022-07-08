@@ -9,12 +9,13 @@ export class CheckoutService {
   constructor(private http: HttpClient) { }
   checkoutOrders: any = [];
   cardData: any = [];
+  profileData: any = []
 
   userCheckoutOrders(data: any) {
     this.http.post('https://localhost:44341/api/Order/GetOrderById/', data)
       .subscribe((res: any) => {
         this.checkoutOrders = res;
-        console.log('sadddddddddd',this.checkoutOrders)
+        console.log('sadddddddddd', this.checkoutOrders)
       }, err => {
       })
   }
@@ -22,7 +23,9 @@ export class CheckoutService {
     this.http.post('https://localhost:44341/api/Order/GetCardUserData/', data)
       .subscribe((res: any) => {
         this.cardData = res;
-        console.log('uyfghujk',this.cardData)
+        console.log('uyfghujk', this.cardData)
+        console.log('asdddddddd', typeof (this.cardData))
+
       }, err => {
       })
   }
@@ -34,23 +37,36 @@ export class CheckoutService {
       })
   }
 
-  updateUserCartToPaid(body: any) {  
+  updateUserCartToPaid(body: any) {
     this.http.put('https://localhost:44341/api/Order/UpdateOrserStatusToPaid/', body).subscribe((res) => {
-      
-      }, err => {       
+
+    }, err => {
+    })
+  }
+
+  updateCardBalance(body: any) {
+    this.http.put('https://localhost:44341/api/Order/UpdateBalance/', body).subscribe((res) => {
+    }, err => {
+    })
+  }
+
+  returnStatusToIncard(body: any) {
+    this.http.put('https://localhost:44341/api/Order/ReturnStatusToIncart/', body).subscribe((res) => {
+
+    }, err => {
+    })
+  }
+  getUserById(data: any) {
+    this.http.post('https://localhost:44341/api/Login/GetUserById/', data).subscribe((res) => {
+      this.profileData = res;
+    }, err => {
+
+    })
+  }
+  email(data: any) {
+    this.http.post('https://localhost:44341/api/Order/SendEmail/', data)
+      .subscribe((res: any) => {
+      }, err => {
       })
-    }
-
-    updateCardBalance(body: any) {  
-      this.http.put('https://localhost:44341/api/Order/UpdateBalance/', body).subscribe((res) => {       
-        }, err => {       
-        })
-      }
-
-     returnStatusToIncard(body: any) {  
-        this.http.put('https://localhost:44341/api/Order/ReturnStatusToIncart/', body).subscribe((res) => {
-          
-          }, err => {       
-          })
-        }
+  }
 }

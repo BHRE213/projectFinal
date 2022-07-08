@@ -47,6 +47,7 @@ export class MedicineComponent implements OnInit {
   }
 
   openSingelPage(id:any){
+  
     this.medicineService.medicineId=id;
     console.log('id',id)
     this.router.navigate(['singleMedicine'])

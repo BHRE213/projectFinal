@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import html2canvas from 'html2canvas';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { InvoiceService } from '../services/invoice.service';
+import { InvoiceService } from '../../services/invoice.service';
 import jspdf from 'jspdf';
 
 @Component({
