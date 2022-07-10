@@ -52,4 +52,44 @@ export class MedicineComponent implements OnInit {
     console.log('id',id)
     this.router.navigate(['singleMedicine'])
   }
+  
+ changeListener1($event: any) {
+  var file:File = $event.target.files[0];
+ 
+  var reader:FileReader = new FileReader();
+  reader.readAsText(file);
+
+ 
+  reader.onload = () => {
+      console.log(reader.result)
+      const m:string|any=reader.result;
+     const t:string|any =m.trim();
+    const n:string|any=t.split(/\W+/); 
+    if(m.length == 0){
+      window.location.reload();
+    }else{
+      for (var val of n) {
+      const searches={
+        name: val
+      };
+      console.log(val)
+     this.medicineService.search(searches)
+    
+   
+     
+    };
+    
+
+
+  }
+
+}
+      
+  
+     
+    
+     
+    
+    
+}
 }

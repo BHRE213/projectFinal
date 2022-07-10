@@ -14,7 +14,8 @@ export class MedicineService {
   medicineId:any;
   singleMedicineData: any = [];
   categoryId:number =0;
-
+  medicinefile: any = [];
+  medicinem: any = [];
   getAll() {
     this.http.get('https://localhost:44341/api/Medicine/GetMedicne/').subscribe((res) => {
       this.medicineData = res;  
@@ -117,5 +118,36 @@ export class MedicineService {
         // this.spinner.hide();
         this.toastr.error(err.message, err.status)
       })
+  }
+  search(body: any) {
+  
+    this.http.post('https://localhost:44341/api/Medicine/searchProduct', body).subscribe((res) => {
+     
+     
+      this.medicinefile=res
+      
+      if (this.medicinefile.length>0){
+        if (this.medicinem.length>0){
+        var n:any[]=[...this.medicinem, ...this.medicinefile];
+        this.medicineData=n
+        this.medicinem=n
+      }
+        else {this.medicinem= this.medicinefile
+          this.medicineData= this.medicinefile}
+        console.log(this.medicineData)
+      
+      }
+    
+      //hide spinner
+      // this.spinner.hide();
+      // res --> show toastr
+    
+    }, err => {
+      // this.spinner.hide();
+      this.toastr.error(err.message, err.status)
+    })
+   
+    
+    
   }
 }
