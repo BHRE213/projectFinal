@@ -24,7 +24,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     MatFormFieldModule,
     MatInputModule,    
     HttpClientModule,
-    GoogleMapsModule,
+    GoogleMapsModule
    
   ],
   exports:[
