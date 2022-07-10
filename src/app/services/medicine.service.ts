@@ -11,32 +11,32 @@ export class MedicineService {
   medicineData: any = [];
   medicineCategoryData: any = [];
   display_Image: any;
-  medicineId:any;
+  medicineId: any;
   singleMedicineData: any = [];
-  categoryId:number =0;
+  categoryId: number = 0;
   medicinefile: any = [];
   medicinem: any = [];
   getAll() {
     this.http.get('https://localhost:44341/api/Medicine/GetMedicne/').subscribe((res) => {
-      this.medicineData = res;  
-      }, err => {
+      this.medicineData = res;
+    }, err => {
 
     })
   }
-  getAllCategoryMedicine(data:any) {
-    this.http.post('https://localhost:44341/api/Medicine/GetMedicineCategoryById/',data).subscribe((res) => {
-      this.medicineData = res; 
+  getAllCategoryMedicine(data: any) {
+    this.http.post('https://localhost:44341/api/Medicine/GetMedicineCategoryById/', data).subscribe((res) => {
+      this.medicineData = res;
     }, err => {
     })
   }
-  
+
 
   getMedicineCategoryData() {
     this.http.get('https://localhost:44341/api/MedicineCategory/').subscribe((res) => {
-      this.medicineCategoryData = res;   
-     
+      this.medicineCategoryData = res;
+
     }, err => {
-     
+
       this.toastr.error(err.message, err.status)
     })
   }
@@ -86,9 +86,9 @@ export class MedicineService {
     }
     this.http.put('https://localhost:44341/api/Medicine/UpdateMedicen/', body).subscribe((res) => {
       this.toastr.success('updated Successfully  ');
- }, err => {
-   this.toastr.error(err.status, err.message);
- })
+    }, err => {
+      this.toastr.error(err.status, err.message);
+    })
 
   }
 
@@ -108,46 +108,53 @@ export class MedicineService {
 
   getMedicineById(data: any) {
     // this.spinner.show();
-  
+
     this.http.post('https://localhost:44341/api/Medicine/GetMedicineBtId/', data)
       .subscribe((res: any) => {
         this.singleMedicineData = res;
         // this.spinner.hide();
-       
+
       }, err => {
         // this.spinner.hide();
         this.toastr.error(err.message, err.status)
       })
   }
   search(body: any) {
-  
+
     this.http.post('https://localhost:44341/api/Medicine/searchProduct', body).subscribe((res) => {
-     
-     
-      this.medicinefile=res
-      
-      if (this.medicinefile.length>0){
-        if (this.medicinem.length>0){
-        var n:any[]=[...this.medicinem, ...this.medicinefile];
-        this.medicineData=n
-        this.medicinem=n
-      }
-        else {this.medicinem= this.medicinefile
-          this.medicineData= this.medicinefile}
-        console.log(this.medicineData)
-      
-      }
-    
+
+      this.medicineData = res
+      // this.medicinefile=res
+
+      // if (this.medicinefile.length>0){
+      //   if (this.medicinem.length>0){
+      //   var n:any[]=[...this.medicinem, ...this.medicinefile];
+      //   this.medicineData=n
+      //   this.medicinem=n
+      // }
+      //   else {this.medicinem= this.medicinefile
+      //     this.medicineData= this.medicinefile}
+      //   console.log(this.medicineData)
+
+      // }
+
       //hide spinner
       // this.spinner.hide();
       // res --> show toastr
-    
+
     }, err => {
       // this.spinner.hide();
       this.toastr.error(err.message, err.status)
     })
-   
-    
-    
+
+  }
+
+  
+  createOrderFromPrescriptions(body: any) {
+
+    this.http.post('https://localhost:44341/api/Order/createOrderFromUserPrescriptions/', body).subscribe((res) => {         
+    }, err => {     
+      this.toastr.error(err.message, err.status)
+    })
   }
 }

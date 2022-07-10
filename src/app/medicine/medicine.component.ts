@@ -12,84 +12,74 @@ import { SitedataService } from '../services/sitedata.service';
 })
 export class MedicineComponent implements OnInit {
 
-  constructor(public medicineService: MedicineService,public sitedata:SitedataService  ,private router:Router,private spinner : NgxSpinnerService) { }
-  name:any='';
+  constructor(public medicineService: MedicineService, public sitedata: SitedataService, private router: Router, private spinner: NgxSpinnerService) { }
+  name: any = '';
+  useraccountid: any = localStorage.getItem('id')
 
   ngOnInit(): void {
     this.spinner.show();
-    if(this.medicineService.categoryId==0)
-    {
+    if (this.medicineService.categoryId == 0) {
       this.medicineService.getAll();
-    }else{
+    } else {
       this.medicineService.getAllCategoryMedicine({
-        medicineCategoryId:this.medicineService.categoryId
+        medicineCategoryId: this.medicineService.categoryId
       })
     }
-    
-    setTimeout(() => {      
+
+    setTimeout(() => {
       this.spinner.hide();
     }, 1300);
   }
 
-    
-  enterName(name:any){   
-    this.name=name.target.value;
+
+  enterName(name: any) {
+    this.name = name.target.value;
   }
 
-  search()
-  {
-    const searches={
+  search() {
+    const searches = {
       name: this.name.toString()
     };
-    if(searches.name.length == 0){
+    if (searches.name.length == 0) {
       window.location.reload();
-    }else {  this.medicineService.searchByName(searches)}   
+    } else { this.medicineService.searchByName(searches) }
   }
 
-  openSingelPage(id:any){
-  
-    this.medicineService.medicineId=id;
-    console.log('id',id)
+  openSingelPage(id: any) {
+
+    this.medicineService.medicineId = id;
+    console.log('id', id)
     this.router.navigate(['singleMedicine'])
   }
-  
- changeListener1($event: any) {
-  var file:File = $event.target.files[0];
- 
-  var reader:FileReader = new FileReader();
-  reader.readAsText(file);
 
- 
-  reader.onload = () => {
-      console.log(reader.result)
-      const m:string|any=reader.result;
-     const t:string|any =m.trim();
-    const n:string|any=t.split(/\W+/); 
-    if(m.length == 0){
-      window.location.reload();
-    }else{
-      for (var val of n) {
-      const searches={
-        name: val
-      };
-      console.log(val)
-     this.medicineService.search(searches)
-    
-   
-     
-    };
-    
+  changeListener1($event: any) {
+    this.spinner.show();
+    var file: File = $event.target.files[0];
 
+    var reader: FileReader = new FileReader();
+    reader.readAsText(file);  
 
+    reader.onload = () => {      
+      const m: string | any = reader.result;
+      const t: string | any = m.trim();
+      const n: string | any = t.split(/\W+/);
+      if (m.length == 0) {
+        window.location.reload();
+      } else {
+        for (var val of n) {
+          const searches = {
+            name: val,
+            useraccountid:Number(this.useraccountid)
+          }; 
+               
+         this.medicineService.createOrderFromPrescriptions(searches)
+        };
+        setTimeout(() => {              
+          this.spinner.hide();
+          this.router.navigate(['user/cart'])
+        }, 2000);
+      }
+
+    }
   }
-
-}
-      
-  
-     
-    
-     
-    
-    
-}
 }
