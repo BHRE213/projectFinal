@@ -32,10 +32,10 @@ export class CheckoutComponent implements OnInit {
     )
     
     setTimeout(() => {  
-      setTimeout(() => {     
-        this.total();
+      setTimeout(() => {          
+        this.spinner.hide();
       }, 1000);   
-      this.spinner.hide();
+      this.total();
     }, 1500);
   }
 

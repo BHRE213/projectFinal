@@ -21,10 +21,15 @@ export class CartComponent implements OnInit {
       useraccountid: Number( this.useraccountid),
       orderstatesid: 1
     })
-    setTimeout(() => {
-      this.total();
-      this.spinner.hide();
-    }, 500);
+ 
+
+    setTimeout(() => {  
+      setTimeout(() => {     
+        this.spinner.hide();
+      }, 900);  
+      this.total(); 
+      
+    }, 1200);
 
   }
 
