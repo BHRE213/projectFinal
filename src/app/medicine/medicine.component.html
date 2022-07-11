@@ -36,7 +36,7 @@
         <div *ngIf="isLoggedIn!=null" class="input-group" style="margin-left:15%;margin-bottom: 2%;">
 
             <label style="margin-right:1%" for="formFileDisabled" class="form-label">Prescriptions</label>
-            <input type="file" id="formFileDisabled" (change)="changeListener1($event)">
+            <input type="file" id="formFileDisabled" (change)="changeListener1($event)" accept=".txt">
         </div>
 
 
