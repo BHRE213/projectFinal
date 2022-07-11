@@ -19,9 +19,13 @@ export class OrderHistoryComponent implements OnInit {
     this.orderHistory.userOrderHistory({
       useraccountid: Number(this.useraccountid)
     })
-    setTimeout(() => {
+  
+
+    setTimeout(() => {  
+      setTimeout(() => {          
+        this.spinner.hide();
+      }, 1000);   
       this.total();
-      this.spinner.hide();
     }, 1500);
   }
 

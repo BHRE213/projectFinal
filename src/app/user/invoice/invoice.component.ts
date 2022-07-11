@@ -23,10 +23,13 @@ export class InvoiceComponent implements OnInit {
       useraccountid: Number(this.useraccountid),
       orderstatesid: 21
     })
-    setTimeout(() => {
+
+    setTimeout(() => {  
+      setTimeout(() => {          
+        this.spinner.hide();
+      }, 1000);   
       this.total();
-      this.spinner.hide();
-    }, 1000);
+    }, 1500);
   }
 
   total() {

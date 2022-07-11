@@ -15,9 +15,11 @@ export class MedicineComponent implements OnInit {
   constructor(public medicineService: MedicineService, public sitedata: SitedataService, private router: Router, private spinner: NgxSpinnerService) { }
   name: any = '';
   useraccountid: any = localStorage.getItem('id')
+  isLoggedIn: any;
 
   ngOnInit(): void {
     this.spinner.show();
+    this.isLoggedIn = localStorage.getItem('token');
     if (this.medicineService.categoryId == 0) {
       this.medicineService.getAll();
     } else {
