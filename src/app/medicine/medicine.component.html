@@ -28,7 +28,7 @@
             <div class="form-outline">
                 <input (change)="enterName($event)" placeholder="search" class="form-control border-end-0 border rounded-pill" type="text" id="example-search-input" style="border-radius:50%" />
             </div>
-            <button style="border-radius:50%;margin-top: 2%;" type="button" class="btn btn-primary">
+            <button type="button" class="button button5">
                 <i (click)=" search()" mdbWavesEffect class="fas fa-search"></i>
             </button>
         </div>
@@ -42,17 +42,18 @@
 
 
     </form>
-    <div style="border-width: 1%; ">
-        <div class="row ">
-            <div class="col-sm-6 col-lg-4 text-center item mb-4 " *ngFor="let item of medicineService.medicineData ">
-                <img (click)="openSingelPage(item.medicineid) " src="../../../assets/image/{{item.imagepath}} " style="height:200px; width:200px " alt="Image " />
-                <h3 (click)="openSingelPage(item.medicineid) " style="font-size:25px ; color: #3d71ff ;justify-content: center;margin-top: 5% "> {{item.name}} </h3>
+    <div style="border-width: 1%;">
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 text-center item mb-4" *ngFor="let item of medicineService.medicineData">
+                <img (click)="openSingelPage(item.medicineid)" src="../../../assets/image/{{item.imagepath}}" style="height:200px; width:200px" alt="Image" />
+                <h3 (click)="openSingelPage(item.medicineid)" style="font-size:25px ; color: #3d71ff ;justify-content: center;margin-top: 5%"> {{item.name}} </h3>
                 <strong style="color: #3d71ff ;font-size:18px ;justify-content: center; ">price: ${{item.price}}</strong>
                 <div *ngIf="item.medicinenumber<=0; then hide " style="size: 50%; margin-top: 5%;justify-content: center;align-items: center;text-align: center; ">
                 </div>
 
                 <ng-template #hide>
                     <h4 style="color: red; ">This IsSold Out
+
                     </h4>
                 </ng-template>
 
