@@ -61,8 +61,9 @@ export class AdminPharmaceBranchComponent implements OnInit {
   }
 
   save() {
-    console.log(this.CreateForm.value)
+  
     this.pharmacy.createPharmacy(this.CreateForm.value);
+    window.location.reload();
     
   }
 
@@ -105,6 +106,8 @@ export class AdminPharmaceBranchComponent implements OnInit {
     this.updatForm.controls['y'].setValue(yy);
     this.updatForm.controls['open'].setValue(o);
     this.updatForm.controls['close'].setValue(c);
+    this.updatForm.controls['image'].setValue(im);
+
     this.dialog.open(this.callUpdateDialog)
 
   }
