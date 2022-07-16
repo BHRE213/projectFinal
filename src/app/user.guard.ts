@@ -37,7 +37,7 @@ export class UserGuard implements CanActivate {
         return true;
       }
       else {
-        this.router.navigate(['']);
+        this.router.navigate(['auth/login']);
         this.toastr.warning('This Page For Logged-in User')
         return false;
       }

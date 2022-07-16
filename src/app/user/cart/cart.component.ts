@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { OrdderService } from '../../services/ordder.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { OrdderService } from '../../services/ordder.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(public order: OrdderService,private route:Router,private spinner: NgxSpinnerService) { }
+  constructor(public order: OrdderService,private route:Router,private spinner: NgxSpinnerService , private toastr: ToastrService) { }
   useraccountid: any = localStorage.getItem('id')
   totalPrice: any = 0;
   role:any;
@@ -57,4 +58,35 @@ export class CartComponent implements OnInit {
     }, 500);
   }
 
+
+
+  increase(medicinIdSelected:any,Quantity:any,numInStor:any) {
+   if(Quantity==numInStor){
+    this.toastr.warning('We Dont Have Enough Amount Of This Medicine')
+  }else{
+    this.order.incrementOrder({
+      useraccountid: Number( this.useraccountid),        
+        medicineid:medicinIdSelected
+    })
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  }
+
+  }
+  q :any =0;
+  decrease(medicinIdSelected:any,Quantity:any,ord:any) {
+    if(Quantity> 1){      
+      this.order.decrementOrder({
+        useraccountid: Number( this.useraccountid),        
+        medicineid:medicinIdSelected
+      })
+      setTimeout(() => {
+        window.location.reload();
+      }, 500); 
+    }else{
+      this.removeFromCart(ord)
+    }
+      
+  }
 }
