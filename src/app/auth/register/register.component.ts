@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
 
   submit(){
     this.auth.createUser(this.registerform.value);
-    this.router.navigate(['login']);
+    this.router.navigate(['auth/login']);
     }
    
     matchError()

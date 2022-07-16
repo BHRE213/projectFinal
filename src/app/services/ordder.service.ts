@@ -100,6 +100,20 @@ export class OrdderService {
          this.toastr.error(err.message, err.status)    
       })
     }
+    incrementOrder(body: any){
+      this.http.post('https://localhost:44341/api/Order/increaseCartItem', body).subscribe((res) => {
+
+      }, err => {   
+         this.toastr.error(err.message, err.status)    
+      })
+    }
+    decrementOrder(body: any){
+      this.http.post('https://localhost:44341/api/Order/decreaseCartItem', body).subscribe((res) => {
+     
+      }, err => {   
+         this.toastr.error(err.message, err.status)    
+      })
+    }
 
 
 }

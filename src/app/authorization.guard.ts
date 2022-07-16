@@ -38,7 +38,7 @@ export class AuthorizationGuard implements CanActivate {
       return true;
     }
     else {
-      this.router.navigate(['']);
+      this.router.navigate(['auth/login']);
       this.toastr.warning('you are not autherize to login!!')
       return false;
     }
