@@ -1,0 +1,51 @@
+
+<app-sidebar></app-sidebar>
+<div style="margin-left:100px ;">
+<div class="page-header" style="text-align: center;">
+    <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;text-align: center;margin-left: 15%;">
+        <span class="page-title-icon bg-gradient-primary text-white me-2">
+             <i class="mdi mdi-chart-pie"></i>
+        </span> Report
+    </h3>
+</div>
+<hr >
+<form class="form-inline waves-light page-header" mdbWavesEffect >
+    
+    <div class="form-outline">
+    Start Date
+       
+        <input  placeholder="search" [(ngModel)]="startdate" class="form-control mr-sm-2" type="date" id="startdate"  />
+        <br> <br>
+        End Date
+   
+        <input  placeholder="search"[(ngModel)]="enddate" class="form-control mr-sm-2" type="date" id="enddate"  />
+        <button  (click)="search()" type="button" class="btn btn-light" style="margin-left:70px ;">
+            Filter by
+        </button>
+    </div>
+    <input type="button" value="Downlode Report" (click)="convetToPDF()" class="btn btn-primary" style="float: right; margin-left: 45%;">
+
+</form>
+<hr >
+<div id="contentToConvert">
+    <div >
+        <div style="text-align: center;">
+            <h3  style="font-size: 1.25em; font-weight: 500; margin-left: 5px;">
+                General Report  
+            </h3>
+        </div>
+        <div class="date">          
+            <h3 class="page-title text-uppercase" style="font-size: 1.25em; font-weight: 500; margin-left: 5px;">
+                   Date: {{date| date}}
+            </h3>
+        </div>
+        <div class="barchart">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="piechart">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+</div>
+
+</div>

@@ -67,10 +67,8 @@ nul=null
 
  
   search()
-  {console.log(this.startdate)
-    console.log(this.enddate)
-    const searches={
-     
+  {
+    const searches={    
       
       start: this.startdate,
       end: this.enddate
