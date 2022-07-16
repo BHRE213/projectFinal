@@ -41,7 +41,7 @@ export class SingleMedicinePageComponent implements OnInit {
 
   }
   decrease() {
-    if (this.quantity != 0) {
+    if (this.quantity >1) {
       this.quantity = this.quantity - 1
     }
   }

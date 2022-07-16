@@ -87,7 +87,7 @@ export class CheckoutComponent implements OnInit {
       {  useraccountid: Number(this.useraccountid)}
     )
     setTimeout(()=>{
-      this.router.navigate(['cart'])
+      this.router.navigate(['user/cart'])
     },300)
     
   }
