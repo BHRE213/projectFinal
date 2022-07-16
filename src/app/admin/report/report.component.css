@@ -1,0 +1,34 @@
+.barchart {
+    width: 50%;
+    margin-bottom: 5%;
+    margin-left: 25%;
+    background-color: white;
+}
+
+.piechart {
+    margin-left: 25%;
+    width: 50%;
+    margin-bottom: 10%;
+    padding-bottom: 10%;
+    background-color: white;
+}
+.page-header {
+    margin-left: 25%;
+    margin-top: 2%;
+}
+
+.date {
+    margin-left: 15%;
+    margin-top: 2%;
+}
+
+.button {
+   
+    top:50%;
+    background-color:#0a0a23;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:30px; 
+    min-width: 120px;}

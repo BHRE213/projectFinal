@@ -41,6 +41,7 @@ import { AdminSitedatumComponent } from './admin-sitedatum/admin-sitedatum.compo
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ReportComponent } from './report/report.component';
 
 
 
@@ -61,7 +62,8 @@ declarations: [
   AdminUseraccountComponent,
   SidebarComponent,
   AdminProfileComponent,
-  DashboardComponent
+  DashboardComponent,
+  ReportComponent
 ],
 
 imports: [
