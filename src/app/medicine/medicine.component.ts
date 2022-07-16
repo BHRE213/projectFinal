@@ -39,8 +39,10 @@ export class MedicineComponent implements OnInit {
   }
 
   search() {
+    const t =this.name
+    const k: string | any = t.charAt(0).toUpperCase() + t.slice(1);
     const searches = {
-      name: this.name.toString()
+      name: k
     };
     if (searches.name.length == 0) {
       window.location.reload();
@@ -65,12 +67,14 @@ export class MedicineComponent implements OnInit {
       const m: string | any = reader.result;
       const t: string | any = m.trim();
       const n: string | any = t.split(/\W+/);
+  
       if (m.length == 0) {
         window.location.reload();
       } else {
         for (var val of n) {
+          const k: string | any = val.charAt(0).toUpperCase() + val.slice(1);
           const searches = {
-            name: val,
+            name: k,
             useraccountid:Number(this.useraccountid)
           }; 
                
