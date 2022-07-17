@@ -38,13 +38,13 @@
                                     <a class="nav-link" href="testimonal">Testimonal</a>
                                 </li>
                                 <li *ngIf="isLoggedIn==null" class=" nav-item d_none">
-                                    <a class="nav-link " href="auth/login ">Login</a>
+                                    <a class="nav-link " href="auth/login">Login</a>
                                 </li>
                                 <li *ngIf="isLoggedIn==null" class="nav-item d_none">
-                                    <a class="nav-link " href="auth/register ">Register</a>
+                                    <a class="nav-link " href="auth/register">Register</a>
                                 </li>
                                 <li *ngIf="isLoggedIn!=null  && role=='Admin'" class="nav-item d_none">
-                                    <a class="nav-link " href="admin ">DashBord</a>
+                                    <a class="nav-link " href="admin">DashBord</a>
                                 </li>
                                 <div *ngIf="isLoggedIn!=null && role=='User'" class=" dropdown">
                                     <button style="background-color:#3da8ff ; " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
