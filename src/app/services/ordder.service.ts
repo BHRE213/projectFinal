@@ -12,6 +12,7 @@ export class OrdderService {
   allorder: any = [];
   checkMedicine: any = [];
   ordersInCart:any = [];
+  flag:boolean = false;
 
   getAll() {
     this.http.get('https://localhost:44341/api/order/GetAllOrder').subscribe((res) => {
@@ -95,6 +96,7 @@ export class OrdderService {
     searchByaDate(body: any){
       this.http.post('https://localhost:44341/api/Order/GetOrderBettwenTwoDates', body).subscribe((res) => {
       this.allorder=res
+      this.flag=true;
       this.toastr.success('Data Retrieved !!');
       }, err => {   
          this.toastr.error(err.message, err.status)    
