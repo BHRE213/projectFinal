@@ -19,7 +19,7 @@ export class SingleMedicinePageComponent implements OnInit {
   ngOnInit(): void {
     this.spinner.show();
     this.role = localStorage.getItem('role');
-
+    
     this.medicine.getMedicineById({ medicineid: this.medicine.medicineId })
     setTimeout(() => {
       this.order.checkMedicineInCart({
@@ -60,7 +60,7 @@ export class SingleMedicinePageComponent implements OnInit {
     } else {
       this.order.updateMedicineInCart({
         quantity: this.quantity,
-        useraccountid: 1,
+        useraccountid:Number(this.useraccountid),
         medicineid: id
       })
     }

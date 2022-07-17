@@ -23,7 +23,7 @@
                     <p>
                         Price: <strong class="text-primary h4">${{medicine.singleMedicineData.price}}</strong>
                     </p>
-                    <div *ngIf="flag==false" class="mb-5">
+                    <div *ngIf="flag==false && role=='User'" class="mb-5">
                         <div class="input-group mb-3" style="max-width: 220px;">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-primary js-btn-minus" (click)="decrease()" type="button">&minus;</button>
@@ -40,7 +40,7 @@
                         <p><a style="background-color: #3da8ff;color:white" href="auth/login" class="buy-now btn btn-sm height-auto px-4 py-3 ">login for adding to cart</a></p>
                     </ng-template>
                     <ng-template #showCart>
-                        <p *ngIf="flag==false" style="color:white"><a style="background-color: #3da8ff;" (click)="addToCart(medicine.singleMedicineData.medicineid)" class="buy-now btn btn-sm height-auto px-4 py-3">Add To Cart</a></p>
+                        <p *ngIf="flag==false && role=='User' " style="color:white"><a style="background-color: #3da8ff;" (click)="addToCart(medicine.singleMedicineData.medicineid)" class="buy-now btn btn-sm height-auto px-4 py-3">Add To Cart</a></p>
                     </ng-template>
                     <p *ngIf="flag" style="color:rgb(197, 23, 23)">Sold Out </p>
                 </div>
