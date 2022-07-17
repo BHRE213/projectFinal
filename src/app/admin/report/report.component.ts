@@ -4,6 +4,8 @@ import jspdf from 'jspdf';
 import { OrdderService } from 'src/app/services/ordder.service';
 import Chart from 'chart.js/auto';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { UseraccountService } from 'src/app/services/useraccount.service';
+import { MedicineService } from 'src/app/services/medicine.service';
 
 @Component({
   selector: 'app-report',
@@ -13,14 +15,25 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 export class ReportComponent implements OnInit {
 
-  constructor(public orders:OrdderService,private spinner: NgxSpinnerService) { }
+  constructor(private medicin:MedicineService,public orders:OrdderService,private spinner: NgxSpinnerService,private user:UseraccountService) { }
   date: any = Date();
-  startdate="";
-  enddate="";
+  startdate:any;
+  enddate:any;
 
-  ngOnInit(): void {
+  inCartOrders =0;
+  inCheckOutOrders=0;
+  inPayedOrders=0;
+
+  ngOnInit(): void {   
     this.orders.getAll();
+    this.user.getAll();
+    this.medicin.getAll();
+   
     this.spinner.show();
+    setTimeout(() => {
+      this.chartdata();
+    }, 1500);
+
     setTimeout(() => {
 
 
@@ -31,20 +44,20 @@ export class ReportComponent implements OnInit {
 
           datasets: [{
             label: 'Number Of',
-            data: [this.orders.allorder.length,this.orders.allorder.length,this.orders.allorder.length],
+            data: [this.inPayedOrders,this.inCartOrders,this.inCheckOutOrders],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
+          
+             'rgba(73, 165, 250, 0.8)',
               'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-
+              'rgba(153, 102, 255, 0.2)'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-
+              
+              'rgba(5, 5, 5, 1)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)'
             ],
-            borderWidth: 1
+            borderWidth: 1.5
           }]
         },
         options: {
@@ -59,22 +72,23 @@ export class ReportComponent implements OnInit {
       const pieChart = new Chart("pieChart", {
         type: 'pie',
         data: {
-          labels: ['parent', 'children', 'buses',],
+          labels: ['Payed Orders', 'Users','All Mediciens'],
           datasets: [{
             label: '# of Votes',
-            data: [ this.orders.allorder.length],
+            data: [ this.inPayedOrders, this.user.allusers.length,this.medicin.medicineData.length],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-
+          
+              'rgba(73, 165, 250, 0.8)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
+              
+              'rgb(73, 165, 250)',
+              'rgb(75, 192, 192)',
+              'rgb(255, 159, 64)',
             ],
-            borderWidth: 1
+            borderWidth: 1.5
           }]
         },
         options: {
@@ -86,10 +100,10 @@ export class ReportComponent implements OnInit {
         }
       });
       this.spinner.hide()
-    }, 2500);
+    }, 3000);
   }
 
-  
+
   search()
   {
     const searches={    
@@ -97,22 +111,23 @@ export class ReportComponent implements OnInit {
       start: this.startdate,
       end: this.enddate
     };
-    if(searches.start.length == 0 && searches.end.length==0){
-      window.location.reload();
-    }
-    else if(searches.start.length == 0 && searches.end.length!=0)
+    console.log(this.startdate,this.enddate,'dsssssssssssssssssssssssssssssssss')
+    // if(searches.start.length == 0 && searches.end.length==0){
+    //   //window.location.reload();
+    // }
+    // else if(searches.start.length == 0 && searches.end.length!=0)
     
-    {  const m={ 
-      start: null,
-      end: this.enddate}
-    this.orders.searchByaDate(m)}
-    else if(searches.start.length != 0 && searches.end.length==0)
-    {  const n={
-      start: this.startdate}
-      this.orders.searchByaDate(n)}
-    else if(searches.start.length != 0 && searches.end.length!=0)
+    // {  const m={ 
+    //   start: null,
+    //   end: this.enddate}
+    // this.orders.searchByaDate(m)}
+    // else if(searches.start.length != 0 && searches.end.length==0)
+    // {  const n={
+    //   start: this.startdate}
+    //   this.orders.searchByaDate(n)}
+    // else if(searches.start.length != 0 && searches.end.length!=0)
     
-    {  this.orders.searchByaDate(searches)}
+    // {  this.orders.searchByaDate(searches)}
      
   }
 
@@ -134,4 +149,21 @@ export class ReportComponent implements OnInit {
       pdf.save('new-file.pdf'); // Generated PDF
     });
   }
+
+
+  chartdata(){
+    for (let i = 0; i < this.orders.allorder.length; i++) {
+      if(this.orders.allorder[i].states=='incart'){
+        this.inCartOrders++;
+      }else if (this.orders.allorder[i].states=='checkedout'){
+          this.inCheckOutOrders++;
+      
+    }else if (this.orders.allorder[i].states=='done'){
+      this.inPayedOrders++;
+  }
+      
+    }
+   
+  }
+
 }
