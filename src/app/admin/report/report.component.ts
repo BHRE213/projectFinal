@@ -17,15 +17,15 @@ export class ReportComponent implements OnInit {
 
   constructor(private medicin:MedicineService,public orders:OrdderService,private spinner: NgxSpinnerService,private user:UseraccountService) { }
   date: any = Date();
-  startdate:any;
-  enddate:any;
+  startdate=""
+  enddate=""
 
   inCartOrders =0;
   inCheckOutOrders=0;
   inPayedOrders=0;
 
-  ngOnInit(): void {   
-    this.orders.getAll();
+  ngOnInit(): void {
+    this.orders.getAll();   
     this.user.getAll();
     this.medicin.getAll();
    
@@ -112,22 +112,24 @@ export class ReportComponent implements OnInit {
       end: this.enddate
     };
     console.log(this.startdate,this.enddate,'dsssssssssssssssssssssssssssssssss')
-    // if(searches.start.length == 0 && searches.end.length==0){
-    //   //window.location.reload();
-    // }
-    // else if(searches.start.length == 0 && searches.end.length!=0)
+    if(searches.start.length == 0 && searches.end.length==0){
+      window.location.reload();
+    }
+    else if(searches.start.length == 0 && searches.end.length!=0)
     
-    // {  const m={ 
-    //   start: null,
-    //   end: this.enddate}
-    // this.orders.searchByaDate(m)}
-    // else if(searches.start.length != 0 && searches.end.length==0)
-    // {  const n={
-    //   start: this.startdate}
-    //   this.orders.searchByaDate(n)}
-    // else if(searches.start.length != 0 && searches.end.length!=0)
+    {  const m={ 
+      start: null,
+      end: this.enddate}
+    this.orders.searchByaDate(m)}
+    else if(searches.start.length != 0 && searches.end.length==0)
+    {  const n={
+      start: this.startdate}
+      this.orders.searchByaDate(n)}
+    else if(searches.start.length != 0 && searches.end.length!=0)
     
-    // {  this.orders.searchByaDate(searches)}
+    {  this.orders.searchByaDate(searches)
+      window.location.reload();
+    }
      
   }
 
