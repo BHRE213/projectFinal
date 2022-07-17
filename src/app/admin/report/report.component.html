@@ -11,19 +11,8 @@
 <hr >
 <form class="form-inline waves-light page-header" mdbWavesEffect >
     
-    <div class="form-outline">
-    Start Date
-       
-        <input  placeholder="search" [(ngModel)]="startdate" class="form-control mr-sm-2" type="date" id="startdate"  />
-        <br> <br>
-        End Date
-   
-        <input  placeholder="search"[(ngModel)]="enddate" class="form-control mr-sm-2" type="date" id="enddate"  />
-        <button  (click)="search()" type="button" class="btn btn-light" style="margin-left:70px ;">
-            Filter by
-        </button>
-    </div>
-    <input type="button" value="Downlode Report" (click)="convetToPDF()" class="btn btn-primary" style="float: right; margin-left: 45%;">
+    
+    <input type="button" value="Downlode Report" (click)="convetToPDF()" class="btn btn-primary" style="float: right; margin-left: 70%;">
 
 </form>
 <hr >
