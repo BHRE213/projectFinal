@@ -11,11 +11,11 @@
     <div class="form-outline">
     Start Date
        
-        <input  placeholder="search" [(ngModel)]="startdate" class="form-control mr-sm-2" type="date" id="startdate"  />
+        <input  placeholder="search" [(ngModel)]="startdate" class="form-control mr-sm-2" type="date" id="startdate" [ngModelOptions]="{standalone:true}" />
         <br> <br>
         End Date
    
-        <input  placeholder="search"[(ngModel)]="enddate" class="form-control mr-sm-2" type="date" id="enddate"  />
+        <input  placeholder="search"[(ngModel)]="enddate" class="form-control mr-sm-2" type="date" id="enddate" [ngModelOptions]="{standalone:true}"  />
         <button  (click)="search()" type="button" class="btn btn-light" style="margin-left:70px ;">
             Filter by
         </button>
