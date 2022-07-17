@@ -114,8 +114,10 @@ export class AdminMedicineComponent implements OnInit {
 
   search()
   {
-    const searches={
-      name: this.name.toString()
+    const t =this.name
+    const k: string | any = t.charAt(0).toUpperCase() + t.slice(1);
+    const searches = {
+      name: k
     };
 
     if(searches.name.length == 0){
