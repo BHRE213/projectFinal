@@ -10,12 +10,14 @@
 <form class="form-inline waves-light" mdbWavesEffect style="margin-top: 10px;margin-left:17px">
     <div class="form-outline">
     Start Date
+
     <input  placeholder="search" [(ngModel)]="startdate" class="form-control mr-sm-2" type="date" id="startdate" [ngModelOptions]="{standalone:true}" />
 
         <br> <br>
         End Date
    
         <input  placeholder="search"[(ngModel)]="enddate" class="form-control mr-sm-2" type="date" id="enddate" [ngModelOptions]="{standalone:true}" />
+
         <button  (click)="search()" type="button" class="btn btn-light" style="margin-left:70px ;">
             Filter by
         </button>
