@@ -63,9 +63,22 @@ export class DashboardComponent implements OnInit {
     this.order.getAll();
     this.user.getAll();
     setTimeout(() => {
+      this.payedData();
+    }, 1000);
+    setTimeout(() => {
       this.addMarkers();
       this.spinner.hide();
     }, 2000);
+  }
+
+  payed:number=0;
+  payedData(){
+    for (let i = 0; i < this.order.allorder.length; i++) {
+      if(this.order.allorder[i].states=='done'){
+        this.payed++;
+      }
+  }   
+     
   }
 
   addMarkers() {
